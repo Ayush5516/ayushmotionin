@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayush Edits | Professional Video Editor & Motion Designer</title>
+    <meta name="description" content="Ayush Edits — professional video editing and motion design for real estate, creators, UGC ads, and SaaS brands.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0a0a0a',
+                        cardBg: '#121212',
+                        cardBorder: '#222222',
+                        accentGold: '#d4af37',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { background-color: #0a0a0a; color: #f3f4f6; font-family: 'Inter', sans-serif; }
+        .glass-panel { background: rgba(18, 18, 18, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .gold-gradient-text { background: linear-gradient(135deg, #f3e7c4 0%, #d4af37 50%, #aa7c11 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .video-container-wrapper { position: relative; width: 100%; aspect-ratio: 16 / 9; background: #000; border-radius: 0.75rem; overflow: hidden; border: 1px solid rgba(212, 175, 55, 0.2); }
+        .video-container-wrapper iframe { width: 100%; height: 100%; object-fit: contain; border: none; }
+    </style>
+</head>
+<body class="bg-darkBg text-gray-100 antialiased selection:bg-accentGold selection:text-black">
+
+    <!-- Header / Navigation Bar -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-panel border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="text-2xl font-bold tracking-wider gold-gradient-text">Ayush Edits</a>
+            <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-gray-300">
+                <a href="#portfolio" class="hover:text-accentGold transition">Portfolio</a>
+                <a href="#pricing" class="hover:text-accentGold transition">Pricing</a>
+                <a href="#contact" class="hover:text-accentGold transition">Book Project</a>
+                <a href="https://wa.me/message/VVCNYHP3IFYKB1" target="_blank" rel="noopener" class="hover:text-accentGold transition flex items-center gap-1.5 text-accentGold"><i class="fa-brands fa-whatsapp"></i> Contact Us</a>
+            </nav>
+            <div class="flex items-center gap-4">
+                <a href="#contact" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-full text-sm font-semibold text-black bg-accentGold hover:bg-yellow-500 transition shadow-lg">Hire Me</a>
+                <button id="menu-btn" class="md:hidden text-gray-300 hover:text-accentGold focus:outline-none text-xl p-2" aria-label="Toggle menu"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden glass-panel border-b border-white/10 px-4 pt-2 pb-6 space-y-3">
+            <a href="#portfolio" class="block py-2 text-gray-300 hover:text-accentGold font-medium">Portfolio</a>
+            <a href="#pricing" class="block py-2 text-gray-300 hover:text-accentGold font-medium">Pricing</a>
+            <a href="#contact" class="block py-2 text-gray-300 hover:text-accentGold font-medium">Book Project</a>
+            <a href="https://wa.me/message/VVCNYHP3IFYKB1" target="_blank" rel="noopener" class="block py-2 text-accentGold font-medium flex items-center gap-2"><i class="fa-brands fa-whatsapp"></i> Contact Us (WhatsApp)</a>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <!-- Hero Section -->
+        <section class="relative min-h-[90vh] flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide uppercase bg-accentGold/10 text-accentGold border border-accentGold/20">
+                        <i class="fa-solid fa-star"></i> 5+ Years Industry Experience
+                    </div>
+                    <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight">
+                        Crafting Cinematic Stories & <span class="gold-gradient-text">High-Retention Edits</span>
+                    </h1>
+                    <p class="text-lg text-gray-400 max-w-2xl mx-auto lg:mx-0">
+                        Professional video editor and motion designer helping real estate brands, top creators, high-converting UGC campaigns, and SaaS enterprises scale through world-class visual storytelling.
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#portfolio" class="w-full sm:w-auto px-8 py-4 rounded-full text-sm font-semibold text-black bg-accentGold hover:bg-yellow-500 transition shadow-xl text-center"><i class="fa-solid fa-play mr-2"></i> View Showreel</a>
+                        <a href="#pricing" class="w-full sm:w-auto px-8 py-4 rounded-full text-sm font-semibold text-white bg-white/10 hover:bg-white/20 transition border border-white/10 text-center">Explore Packages</a>
+                    </div>
+                </div>
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-72 h-72 sm:w-96 sm:h-96 rounded-2xl overflow-hidden glass-panel p-2 shadow-2xl border border-accentGold/30">
+                        <!-- Direct Google Drive embed with fallback to the uc?export=view format -->
+                        <img src="https://lh3.googleusercontent.com/d/1_xa2rD-4J1_o_A6h3MuVKkOU0Tq6ZH1Q=w1000" alt="Ayush Kumar Deb" class="w-full h-full object-cover rounded-xl" onerror="this.onerror=null; this.src='https://drive.google.com/uc?export=view&id=1_xa2rD-4J1_o_A6h3MuVKkOU0Tq6ZH1Q';">
+                        <div class="absolute bottom-4 left-4 right-4 bg-black/70 backdrop-blur-md p-3 rounded-xl border border-white/10 flex items-center gap-3">
+                            <div class="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
+                            <div class="text-xs font-medium text-gray-200">Available for Freelance Projects</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Showcase Section -->
+        <section id="portfolio" class="py-20 bg-[#0e0e0e] border-y border-white/5">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
+                <div class="text-center max-w-3xl mx-auto space-y-4">
+                    <h2 class="text-xs font-semibold tracking-widest uppercase text-accentGold">Selected Works</h2>
+                    <h3 class="text-3xl sm:text-4xl font-bold tracking-tight">Cinematic Portfolio Categories</h3>
+                </div>
+
+                <!-- Real Estate Videos -->
+                <div class="space-y-8">
+                    <h4 class="text-2xl font-bold border-b border-white/10 pb-4">Real Estate Videos</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="glass-panel p-4 rounded-xl"><div class="video-container-wrapper"><iframe src="https://drive.google.com/file/d/1A5wnovQBCzzsF7mEi1KNR0cCfe-MuFWK/preview" allow="autoplay" loading="lazy"></iframe></div></div>
+                        <div class="glass-panel p-4 rounded-xl"><div class="video-container-wrapper"><iframe src="https://drive.google.com/file/d/1l_aXROfdTPF0Pk-mm5seQ5Ts1pwT6Hil/preview" allow="autoplay" loading="lazy"></iframe></div></div>
+                    </div>
+                </div>
+
+                <!-- Talking Head Videos -->
+                <div class="space-y-8">
+                    <h4 class="text-2xl font-bold border-b border-white/10 pb-4">Talking Head Videos</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="glass-panel p-4 rounded-xl"><div class="video-container-wrapper"><iframe src="https://drive.google.com/file/d/1gH5HC1K1rFCUpTBbU-t9cW5pAs95Aa1W/preview" allow="autoplay" loading="lazy"></iframe></div></div>
+                        <div class="glass-panel p-4 rounded-xl"><div class="video-container-wrapper"><iframe src="https://drive.google.com/file/d/1XV4KjVC9cDhAIjsCIw-Ec9Dzs1JORA2F/preview" allow="autoplay" loading="lazy"></iframe></div></div>
+                    </div>
+                </div>
+
+                <!-- UGC Ads -->
+                <div class="space-y-8">
+                    <h4 class="text-2xl font-bold border-b border-white/10 pb-4">UGC Ads</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="glass-panel p-4 rounded-xl"><div class="video-container-wrapper"><iframe src="https://drive.google.com/file/d/1N6Q4tHEHSdmG9_Vmk7_lB0tXNjqbIdLt/preview" allow="autoplay" loading="lazy"></iframe></div></div>
+                        <div class="glass-panel p-4 rounded-xl"><div class="video-container-wrapper"><iframe src="https://drive.google.com/file/d/1Zl4Tdav-06AxoyI_tnUDStrz9VmRPP_W/preview" allow="autoplay" loading="lazy"></iframe></div></div>
+                    </div>
+                </div>
+
+                <!-- SaaS & Fast Animation -->
+                <div class="space-y-8">
+                    <h4 class="text-2xl font-bold border-b border-white/10 pb-4">SaaS & Fast Animation</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="glass-panel p-4 rounded-xl"><div class="video-container-wrapper"><iframe src="https://drive.google.com/file/d/17fJj9RTwo-My4Or-38PbEk9J9NKsh9Hz/preview" allow="autoplay" loading="lazy"></iframe></div></div>
+                        <div class="glass-panel p-4 rounded-xl"><div class="video-container-wrapper"><iframe src="https://drive.google.com/file/d/1J07vCIPmsZ76cOCZgI2Y13htHRia7XHe/preview" allow="autoplay" loading="lazy"></iframe></div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24">
+
+            <!-- Part 1: Normal Video Editing Packages -->
+            <div class="space-y-12">
+                <div class="text-center max-w-3xl mx-auto space-y-4">
+                    <h2 class="text-xs font-semibold tracking-widest uppercase text-accentGold">Standard Editing</h2>
+                    <h3 class="text-3xl sm:text-4xl font-bold tracking-tight">Normal Video Editing Packages</h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div id="card-norm1" onclick="selectPackage('Basic Edit', 60, 'card-norm1')" class="pricing-card glass-panel p-8 rounded-3xl border border-white/10 hover:border-accentGold transition cursor-pointer flex flex-col justify-between">
+                        <div>
+                            <div class="text-xs uppercase font-bold text-accentGold mb-2">Starter</div>
+                            <h3 class="text-2xl font-bold mb-3">Basic</h3>
+                            <div class="text-3xl font-extrabold mb-4">$60 <span class="text-xs font-normal text-gray-400">/ video</span></div>
+                            <p class="text-xs text-gray-400 mb-6">Clean cuts, basic color grading, dynamic captions, and standard sound balancing.</p>
+                        </div>
+                        <button type="button" class="w-full py-3 rounded-xl bg-white/5 font-semibold text-center text-sm transition">Select</button>
+                    </div>
+
+                    <div id="card-norm2" onclick="selectPackage('Professional Growth', 75, 'card-norm2')" class="pricing-card glass-panel p-8 rounded-3xl border-2 border-accentGold bg-accentGold/5 transition cursor-pointer flex flex-col justify-between">
+                        <div>
+                            <div class="text-xs uppercase font-bold text-accentGold mb-2">Most Popular</div>
+                            <h3 class="text-2xl font-bold mb-3">Professional</h3>
+                            <div class="text-3xl font-extrabold mb-4">$75 <span class="text-xs font-normal text-gray-400">/ video</span></div>
+                            <p class="text-xs text-gray-400 mb-6">Advanced motion graphics, sound design, hooks, and seamless transitions for high retention.</p>
+                        </div>
+                        <button type="button" class="w-full py-3 rounded-xl bg-accentGold text-black font-bold text-center text-sm transition">Selected ✓</button>
+                    </div>
+
+                    <div id="card-norm3" onclick="selectPackage('Premium Cinematic', 85, 'card-norm3')" class="pricing-card glass-panel p-8 rounded-3xl border border-white/10 hover:border-accentGold transition cursor-pointer flex flex-col justify-between">
+                        <div>
+                            <div class="text-xs uppercase font-bold text-accentGold mb-2">Elite</div>
+                            <h3 class="text-2xl font-bold mb-3">Premium</h3>
+                            <div class="text-3xl font-extrabold mb-4">$85 <span class="text-xs font-normal text-gray-400">/ video</span></div>
+                            <p class="text-xs text-gray-400 mb-6">Full cinematic workflow, complex visual effects, bespoke sound design, and priority delivery.</p>
+                        </div>
+                        <button type="button" class="w-full py-3 rounded-xl bg-white/5 font-semibold text-center text-sm transition">Select</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Part 2: SaaS & Fast Animation Packages -->
+            <div class="space-y-12">
+                <div class="text-center max-w-3xl mx-auto space-y-4">
+                    <h2 class="text-xs font-semibold tracking-widest uppercase text-accentGold">Motion & Tech</h2>
+                    <h3 class="text-3xl sm:text-4xl font-bold tracking-tight">SaaS & Fast Animation Packages</h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div id="card-saas1" onclick="selectPackage('SaaS Quick Promo (30s)', 150, 'card-saas1')" class="pricing-card glass-panel p-8 rounded-3xl border border-white/10 hover:border-accentGold transition cursor-pointer flex flex-col justify-between">
+                        <div>
+                            <div class="text-xs uppercase font-bold text-accentGold mb-2">Fast Motion</div>
+                            <h3 class="text-2xl font-bold mb-3">30s Promo</h3>
+                            <div class="text-3xl font-extrabold mb-4">$150 <span class="text-xs font-normal text-gray-400">/ video</span></div>
+                            <p class="text-xs text-gray-400 mb-6">Fast-paced product UI animation, clean kinetic typography, and engaging background score.</p>
+                        </div>
+                        <button type="button" class="w-full py-3 rounded-xl bg-white/5 font-semibold text-center text-sm transition">Select</button>
+                    </div>
+
+                    <div id="card-saas2" onclick="selectPackage('SaaS Standard Explainer (60s)', 200, 'card-saas2')" class="pricing-card glass-panel p-8 rounded-3xl border border-white/10 hover:border-accentGold transition cursor-pointer flex flex-col justify-between">
+                        <div>
+                            <div class="text-xs uppercase font-bold text-accentGold mb-2">Detailed Explainer</div>
+                            <h3 class="text-2xl font-bold mb-3">60s Explainer</h3>
+                            <div class="text-3xl font-extrabold mb-4">$200 <span class="text-xs font-normal text-gray-400">/ video</span></div>
+                            <p class="text-xs text-gray-400 mb-6">Comprehensive feature walkthrough, device mockups, UI screen recordings, and professional sound design.</p>
+                        </div>
+                        <button type="button" class="w-full py-3 rounded-xl bg-white/5 font-semibold text-center text-sm transition">Select</button>
+                    </div>
+
+                    <div id="card-saas3" onclick="selectPackage('SaaS Premium Production (60s+)', 250, 'card-saas3')" class="pricing-card glass-panel p-8 rounded-3xl border border-white/10 hover:border-accentGold transition cursor-pointer flex flex-col justify-between">
+                        <div>
+                            <div class="text-xs uppercase font-bold text-accentGold mb-2">Enterprise</div>
+                            <h3 class="text-2xl font-bold mb-3">Premium SaaS</h3>
+                            <div class="text-3xl font-extrabold mb-4">$250 <span class="text-xs font-normal text-gray-400">/ video</span></div>
+                            <p class="text-xs text-gray-400 mb-6">Custom 3D UI mockups, high-end motion graphics, brand storytelling, and high-conversion ad optimization.</p>
+                        </div>
+                        <button type="button" class="w-full py-3 rounded-xl bg-white/5 font-semibold text-center text-sm transition">Select</button>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Booking & Contact Section -->
+        <section id="contact" class="py-20 bg-[#0e0e0e] border-t border-white/5">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+                <div class="text-center space-y-4">
+                    <h2 class="text-xs font-semibold tracking-widest uppercase text-accentGold">Get Started</h2>
+                    <h3 class="text-3xl sm:text-4xl font-bold tracking-tight">Book Your Project</h3>
+                    <p class="text-gray-400 text-sm">Fill out the details below to instantly connect via WhatsApp with your chosen package.</p>
+                </div>
+
+                <div class="glass-panel p-8 sm:p-10 rounded-3xl border border-white/10 shadow-2xl">
+                    <form id="booking-form" class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs font-medium text-gray-300 mb-2">Your Name</label>
+                                <input type="text" name="name" required placeholder="John Doe" class="w-full px-4 py-3.5 rounded-xl bg-black/50 border border-white/10 text-white focus:outline-none focus:border-accentGold text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-gray-300 mb-2">Email Address</label>
+                                <input type="email" name="email" required placeholder="john@example.com" class="w-full px-4 py-3.5 rounded-xl bg-black/50 border border-white/10 text-white focus:outline-none focus:border-accentGold text-sm">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-medium text-gray-300 mb-2">Selected Package Info</label>
+                            <input type="text" id="selected-package-display" readonly value="Professional Growth ($75)" class="w-full px-4 py-3.5 rounded-xl bg-white/5 border border-white/10 text-accentGold font-semibold text-sm">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-medium text-gray-300 mb-2">Project Details / Message</label>
+                            <textarea name="message" rows="4" placeholder="Tell me about your project, video length, and specific requirements..." class="w-full px-4 py-3.5 rounded-xl bg-black/50 border border-white/10 text-white focus:outline-none focus:border-accentGold text-sm resize-none"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 rounded-xl bg-accentGold text-black font-bold text-base hover:bg-yellow-500 transition flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp"></i> Send via WhatsApp
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="py-10 border-t border-white/5">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-500">
+                <div>&copy; <span id="year"></span> Ayush Edits. All rights reserved.</div>
+                <a href="https://wa.me/message/VVCNYHP3IFYKB1" target="_blank" rel="noopener" class="text-accentGold hover:text-yellow-400 transition flex items-center gap-2"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</a>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        mobileMenu.querySelectorAll('a').forEach((link) => {
+            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        });
+
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        let selectedPackageInfo = "Professional Growth ($75)";
+
+        function selectPackage(packageName, price, cardId) {
+            document.querySelectorAll('.pricing-card').forEach(card => {
+                card.classList.remove('border-2', 'border-accentGold', 'bg-accentGold/5');
+                card.classList.add('border', 'border-white/10');
+                const btn = card.querySelector('button');
+                btn.textContent = 'Select';
+                btn.classList.remove('bg-accentGold', 'text-black', 'font-bold');
+                btn.classList.add('bg-white/5');
+            });
+
+            const selectedCard = document.getElementById(cardId);
+            if (selectedCard) {
+                selectedCard.classList.remove('border-white/10');
+                selectedCard.classList.add('border-2', 'border-accentGold', 'bg-accentGold/5');
+                const selectedBtn = selectedCard.querySelector('button');
+                selectedBtn.textContent = 'Selected ✓';
+                selectedBtn.classList.remove('bg-white/5');
+                selectedBtn.classList.add('bg-accentGold', 'text-black', 'font-bold');
+            }
+
+            selectedPackageInfo = `${packageName} (${price > 0 ? '$' + price : 'Custom'})`;
+            const displayInput = document.getElementById('selected-package-display');
+            if (displayInput) {
+                displayInput.value = selectedPackageInfo;
+            }
+
+            const contactSection = document.getElementById('contact');
+            if (contactSection) {
+                contactSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        document.querySelectorAll('.pricing-card button').forEach(button => {
+            button.addEventListener('click', function (e) {
+                e.stopPropagation();
+                this.closest('.pricing-card').click();
+            });
+        });
+
+        const bookingForm = document.getElementById('booking-form');
+        bookingForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const formData = new FormData(bookingForm);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const message = formData.get('message') || '';
+
+            const fallbackWhatsAppNumber = "916001867854";
+            const messageText = `Hello Ayush,\n\nI want to book a service from your website.\n\n*Selected Package:* ${selectedPackageInfo}\n*Name:* ${name}\n*Email:* ${email}\n*Message:* ${message}`;
+
+            window.location.href = `https://wa.me/${fallbackWhatsAppNumber}?text=${encodeURIComponent(messageText)}`;
+        });
+    </script>
+</body>
+</html>
