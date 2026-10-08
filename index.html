@@ -980,40 +980,6 @@
     }
 
     const name = document.getElementById('clientName').value;
-    const email = document.getElementById('clientEmail').value;
-    const phone = document.getElementById('clientPhone').value;
-    const projectType = document.getElementById('projectType').value;
-    const reference = document.getElementById('clientReference').value || "None";
-    const details = document.getElementById('projectDetails').value || "None";
-    const selectedPkgEl = document.querySelector('input[name="selectedPackage"]:checked');
-    const selectedPkg = selectedPkgEl ? selectedPkgEl.value : "Basic ($45 / video)";
-
-    const subject = `New Project Inquiry – AYUSH MOTION`;
-    const body = `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nService Required: ${projectType} (${selectedPkg})\nProject Details: ${details}\nClient Reference: ${reference}\n\nI agree to the 50% advance payment and 24-hour turnaround terms.`;
-
-    window.location.href = `mailto:ayushkumardeb10@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  }
-</script>
-            
-
-    const name = document.getElementById('clientName').value;
-    const email = document.getElementById('clientEmail').value;
-    const phone = document.getElementById('clientPhone').value;
-    const projectType = document.getElementById('projectType').value;
-    const details = document.getElementById('projectDetails').value;
-    const selectedPkgEl = document.querySelector('input[name="selectedPackage"]:checked');
-    const selectedPkg = selectedPkgEl ? selectedPkgEl.value : "Basic ($45 / video)";
-
-    const subject = `New Project Booking: ${projectType} (${selectedPkg})`;
-    const body = `Hi Ayush,\n\nHere are my project details:\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nProject Type: ${projectType}\nPackage: ${selectedPkg}\nDetails: ${details}\n\nI agree to the 50% advance payment and 24-hour turnaround terms.`;
-
-    window.location.href = `mailto:ayushkumardeb10@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  }
-</script>
-    </form>
-  </div>
-</section>
-</script>
 
 <!-- Footer / Social Media Section -->
 <footer class="bg-[#0a0a0a] border-t border-white/10 py-12 px-4 sm:px-6 lg:px-8">
