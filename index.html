@@ -506,7 +506,6 @@
     document.getElementById('stepIndicator3').className = 'flex items-center space-x-2 text-accentGold font-bold text-sm';
     document.getElementById('stepIndicator3').children[0].className = 'w-7 h-7 rounded-full bg-accentGold text-black flex items-center justify-center text-xs';
   }
-
   function sendViaWhatsApp() {
     const name = document.getElementById('clientName').value;
     const email = document.getElementById('clientEmail').value;
@@ -518,9 +517,10 @@
     const message = `Hello Ayush,\n\nI want to book a project:\n- Name: ${name}\n- Email: ${email}\n- Phone: ${phone}\n- Project Type: ${projectType}\n- Package: ${selectedPkg}\n- Details: ${details}\n\nI agree to the 50% advance & 24hr turnaround terms.`;
     
     const encodedMessage = encodeURIComponent(message);
-    window.open(`https://wa.me/message/BSHW5BKXF5Q2M1?text=${encodedMessage}`, '_blank');
-  }
+    const whatsappNumber = "916001867854"; 
 
+    window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
+  }
   function sendViaEmail() {
     const name = document.getElementById('clientName').value;
     const email = document.getElementById('clientEmail').value;
@@ -535,74 +535,7 @@
     window.location.href = `mailto:ayushkumardeb10@gmail.com?subject=${subject}&body=${body}`;
   }
     </script>
-
-            
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-        mobileMenu.querySelectorAll('a').forEach((link) => {
-            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
-        });
-
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        let selectedPackageInfo = "Professional Growth ($75)";
-
-        function selectPackage(packageName, price, cardId) {
-            document.querySelectorAll('.pricing-card').forEach(card => {
-                card.classList.remove('border-2', 'border-accentGold', 'bg-accentGold/5');
-                card.classList.add('border', 'border-white/10');
-                const btn = card.querySelector('button');
-                btn.textContent = 'Select';
-                btn.classList.remove('bg-accentGold', 'text-black', 'font-bold');
-                btn.classList.add('bg-white/5');
-            });
-
-            const selectedCard = document.getElementById(cardId);
-            if (selectedCard) {
-                selectedCard.classList.remove('border-white/10');
-                selectedCard.classList.add('border-2', 'border-accentGold', 'bg-accentGold/5');
-                const selectedBtn = selectedCard.querySelector('button');
-                selectedBtn.textContent = 'Selected ✓';
-                selectedBtn.classList.remove('bg-white/5');
-                selectedBtn.classList.add('bg-accentGold', 'text-black', 'font-bold');
-            }
-
-            selectedPackageInfo = `${packageName} (${price > 0 ? '$' + price : 'Custom'})`;
-            const displayInput = document.getElementById('selected-package-display');
-            if (displayInput) {
-                displayInput.value = selectedPackageInfo;
-            }
-
-            const contactSection = document.getElementById('contact');
-            if (contactSection) {
-                contactSection.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-
-        document.querySelectorAll('.pricing-card button').forEach(button => {
-            button.addEventListener('click', function (e) {
-                e.stopPropagation();
-                this.closest('.pricing-card').click();
-            });
-        });
-
-        const bookingForm = document.getElementById('booking-form');
-        bookingForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const formData = new FormData(bookingForm);
-            const name = formData.get('name');
-            const email = formData.get('email');
-            const message = formData.get('message') || '';
-
-            const fallbackWhatsAppNumber = "916001867854";
-            const messageText = `Hello Ayush,\n\nI want to book a service from your website.\n\n*Selected Package:* ${selectedPackageInfo}\n*Name:* ${name}\n*Email:* ${email}\n*Message:* ${message}`;
-
-            window.location.href = `https://wa.me/${fallbackWhatsAppNumber}?text=${encodeURIComponent(messageText)}`;
-        });
-    </script>
+  </script>
 </body>
 </html>
 <!-- Footer / Social Media Section -->
