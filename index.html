@@ -649,59 +649,7 @@
               </div>
               <div class="font-bold text-accentGold">$250</div>
             </label>
-
           </div>
-        </div>
-
-        <div class="flex space-x-4">
-          <button type="button" onclick="goToStep1()" class="w-1/3 py-4 rounded-xl font-semibold text-white border border-white/20 hover:border-accentGold transition-all text-center">
-            ← Back
-          </button>
-          .bg-accentGold { background-color: #d4af37 !important; color: #000 !important; }
-            Next: Review & Connect →
-          </button>
-        </div>
-      </div>
-
-      <!-- STEP 3: Terms, Conditions & Instant Connect -->
-      <div id="formStep3" class="space-y-6 hidden">
-        <div class="p-4 rounded-xl bg-black border border-[#d4af37]/40 space-y-3 text-xs text-gray-200">
-          <div class="font-bold text-[#d4af37] uppercase">Terms & Conditions:</div>
-          <p>• 50% advance payment is mandatory before project work officially starts.</p>
-          <p>• Standard turnaround time is 24 hours per video delivery.</p>
-          
-          <!-- Interactive Checkbox for Terms -->
-          <div class="pt-2 border-t border-white/10 flex items-center space-x-3">
-            <input type="checkbox" id="termsCheck" class="w-4 h-4 accent-[#d4af37] cursor-pointer">
-            <label for="termsCheck" class="text-white text-xs font-semibold cursor-pointer">
-              I agree to the 50% advance payment & 24hr turnaround terms *
-            </label>
-          </div>
-        </div>
-
-        <div class="p-4 rounded-xl bg-black border border-white/30 space-y-2 text-sm text-white">
-          <div class="font-bold text-[#d4af37]">Summary Ready:</div>
-          <p id="summaryText" class="text-xs text-gray-200 leading-relaxed"></p>
-        </div>
-
-        <div class="flex space-x-4">
-          <button type="button" onclick="goToStep2()" class="w-1/3 py-4 rounded-xl font-semibold text-white border border-white/30 hover:border-[#d4af37] transition-all text-center">
-            ← Back
-          </button>
-          <div class="w-2/3 grid grid-cols-2 gap-2">
-            <button type="button" onclick="sendViaWhatsApp()" class="py-4 rounded-xl font-semibold text-black bg-[#d4af37] hover:bg-[#c49f27] transition-all text-center flex items-center justify-center gap-1 text-xs shadow-lg">
-              <i class="fa-brands fa-whatsapp text-base"></i> WhatsApp
-            </button>
-            <button type="button" onclick="sendViaEmail()" class="py-4 rounded-xl font-semibold text-white border border-white/30 hover:border-[#d4af37] transition-all text-center flex items-center justify-center gap-1 text-xs">
-              <i class="fa-solid fa-envelope text-base"></i> Email
-            </button>
-          </div>
-        </div>
-      </div>
-
-    </form>
-  </div>
-</section>
 
 <!-- JavaScript for 3-Step Flow & Pre-filled Messages -->
 <script>
