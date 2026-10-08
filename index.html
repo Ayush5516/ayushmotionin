@@ -268,55 +268,68 @@
         </section>
 
         <!-- Booking & Contact Section -->
-        <section id="contact" class="py-20 bg-[#0e0e0e] border-t border-white/5">
-            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-                <div class="text-center space-y-4">
-                    <h2 class="text-xs font-semibold tracking-widest uppercase text-accentGold">Get Started</h2>
-                    <h3 class="text-3xl sm:text-4xl font-bold tracking-tight">Book Your Project</h3>
-                    <p class="text-gray-400 text-sm">Fill out the details below to instantly connect via WhatsApp with your chosen package.</p>
-                </div>
+        <section id="contact" class="py-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="glass-panel p-8 sm:p-12 rounded-3xl border border-white/10 space-y-8">
+    <div class="text-center space-y-2">
+      <h3 class="text-2xl sm:text-3xl font-bold">Book Your Project</h3>
+      <p class="text-sm text-gray-400">Fill out your details and instantly connect via WhatsApp or Email.</p>
+    </div>
 
-                <div class="glass-panel p-8 sm:p-10 rounded-3xl border border-white/10 shadow-2xl">
-                    <form id="booking-form" class="space-y-6">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                            <div>
-                                <label class="block text-xs font-medium text-gray-300 mb-2">Your Name</label>
-                                <input type="text" name="name" required placeholder="John Doe" class="w-full px-4 py-3.5 rounded-xl bg-black/50 border border-white/10 text-white focus:outline-none focus:border-accentGold text-sm">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-medium text-gray-300 mb-2">Email Address</label>
-                                <input type="email" name="email" required placeholder="john@example.com" class="w-full px-4 py-3.5 rounded-xl bg-black/50 border border-white/10 text-white focus:outline-none focus:border-accentGold text-sm">
-                            </div>
-                        </div>
+    <!-- Form -->
+    <form class="space-y-6" onsubmit="event.preventDefault(); alert('Please select WhatsApp or Email option below to send your request.');">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div class="space-y-2">
+          <label class="text-xs font-semibold uppercase tracking-wider text-gray-300">Full Name *</label>
+          <input type="text" id="clientName" required placeholder="John Doe" class="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/10 text-white focus:border-accentGold outline-none">
+        </div>
+        <div class="space-y-2">
+          <label class="text-xs font-semibold uppercase tracking-wider text-gray-300">Email Address *</label>
+          <input type="email" id="clientEmail" required placeholder="you@company.com" class="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/10 text-white focus:border-accentGold outline-none">
+        </div>
+      </div>
 
-                        <div>
-                            <label class="block text-xs font-medium text-gray-300 mb-2">Selected Package Info</label>
-                            <input type="text" id="selected-package-display" readonly value="Professional Growth ($75)" class="w-full px-4 py-3.5 rounded-xl bg-white/5 border border-white/10 text-accentGold font-semibold text-sm">
-                        </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div class="space-y-2">
+          <label class="text-xs font-semibold uppercase tracking-wider text-gray-300">WhatsApp / Phone *</label>
+          <input type="text" id="clientPhone" required placeholder="+1 555 000 0000" class="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/10 text-white focus:border-accentGold outline-none">
+        </div>
+        <div class="space-y-2">
+          <label class="text-xs font-semibold uppercase tracking-wider text-gray-300">Project Type *</label>
+          <select id="projectType" class="w-full px-4 py-3 rounded-xl bg-[#121212] border border-white/10 text-white focus:border-accentGold outline-none">
+            <option value="Real Estate Editing">Real Estate Editing</option>
+            <option value="Talking Head / Creator Video">Talking Head / Creator Video</option>
+            <option value="UGC Ad">UGC Ad</option>
+            <option value="Finance">Finance</option>
+            <option value="Motion Graphics">Motion Graphics</option>
+          </select>
+        </div>
+      </div>
 
-                        <div>
-                            <label class="block text-xs font-medium text-gray-300 mb-2">Project Details / Message</label>
-                            <textarea name="message" rows="4" placeholder="Tell me about your project, video length, and specific requirements..." class="w-full px-4 py-3.5 rounded-xl bg-black/50 border border-white/10 text-white focus:outline-none focus:border-accentGold text-sm resize-none"></textarea>
-                        </div>
+      <div class="space-y-2">
+        <label class="text-xs font-semibold uppercase tracking-wider text-gray-300">Project Details / Message</label>
+        <textarea id="projectDetails" rows="4" placeholder="Tell me about your footage, timeline and goals..." class="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/10 text-white focus:border-accentGold outline-none"></textarea>
+      </div>
 
-                        <button type="submit" class="w-full py-4 rounded-xl bg-accentGold text-black font-bold text-base hover:bg-yellow-500 transition flex items-center justify-center gap-2">
-                            <i class="fa-brands fa-whatsapp"></i> Send via WhatsApp
-                        </button>
-                    </form>
-                </div>
-            </div>.
-        </section>
+      <!-- Terms & Conditions Box -->
+      <div class="p-4 rounded-xl bg-black/40 border border-accentGold/20 space-y-2 text-xs text-gray-400">
+        <div class="font-bold text-accentGold uppercase">Terms & Conditions:</div>
+        <p>• 50% advance payment is mandatory before the project work officially starts.</p>
+        <p>• Standard turnaround time is 24 hours per video delivery.</p>
+      </div>
 
-        <!-- Footer -->
-        <footer class="py-10 border-t border-white/5">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-500">
-                <div>&copy; <span id="year"></span> Ayush Edits. All rights reserved.</div>
-                <a href="https://wa.me/message/VVCNYHP3IFYKB1" target="_blank" rel="noopener" class="text-accentGold hover:text-yellow-400 transition flex items-center gap-2"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</a>
-            </div>
-        </footer>
-    </main>
-
-    <script>
+      <!-- Direct Action Buttons (WhatsApp or Email) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+        <a href="https://wa.me/message/BSHW5BKXF5Q2M1" target="_blank" class="w-full py-4 rounded-xl font-semibold text-black bg-accentGold hover:bg-accentGold/90 transition-all text-center flex items-center justify-center gap-2">
+          <i class="fa-brands fa-whatsapp text-lg"></i> Send via WhatsApp
+        </a>
+        <a href="mailto:ayushkumardeb10@gmail.com" class="w-full py-4 rounded-xl font-semibold text-white border border-white/20 hover:border-accentGold transition-all text-center flex items-center justify-center gap-2">
+          <i class="fa-solid fa-envelope text-lg"></i> Send via Email
+        </a>
+      </div>
+    </form>
+  </div>
+        </section> 
+                <script>
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         menuBtn.addEventListener('click', () => {
