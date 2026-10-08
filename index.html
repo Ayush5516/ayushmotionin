@@ -338,87 +338,7 @@
     </div>
   </div>
 </section>
-                <!-- Book Your Project Section (3-Step Interactive Flow) -->
-<section id="contact" class="py-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-  <div class="glass-panel p-8 sm:p-12 rounded-3xl border border-white/10 space-y-8">
-    
-    <div class="text-center space-y-2">
-      <h3 class="text-2xl sm:text-3xl font-bold">Book Your Project</h3>
-      <p class="text-sm text-gray-400">Complete the steps below to instantly connect via WhatsApp or Email.</p>
-    </div>
-
-     <!-- Step Progress Indicator -->
-    <div class="flex items-center justify-center space-x-4 pb-4 border-b border-white/10">
-      <div id="stepIndicator1" class="flex items-center space-x-2 text-accentGold font-bold text-sm">
-        <span class="w-7 h-7 rounded-full bg-accentGold text-black flex items-center justify-center text-xs">1</span>
-        <span>Details</span>
-      </div>
-      <div class="w-8 h-[1px] bg-white/20"></div>
-      <div id="stepIndicator2" class="flex items-center space-x-2 text-gray-500 font-bold text-sm">
-        <span class="w-7 h-7 rounded-full bg-white/10 text-gray-400 flex items-center justify-center text-xs">2</span>
-        <span>Package</span>
-      </div>
-      <div class="w-8 h-[1px] bg-white/20"></div>
-      <div id="stepIndicator3" class="flex items-center space-x-2 text-gray-500 font-bold text-sm">
-        <span class="w-7 h-7 rounded-full bg-white/10 text-gray-400 flex items-center justify-center text-xs">3</span>
-        <span>Connect</span>
-      </div>
-    </div>
-
-    <form id="bookingForm" class="space-y-6" onsubmit="return false;">
-      
-      <!-- STEP 1: Client Details -->
-      <div id="formStep1" class="space-y-6">
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          <div class="space-y-2">
-            <label class="text-xs font-semibold uppercase tracking-wider text-gray-300">Full Name *</label>
-            <input type="text" id="clientName" required placeholder="John Doe" class="w-full px-4 py-3 rounded-xl bg-black text-white border border-white/20">
-          </div>
-          <div class="space-y-2">
-            <label class="text-xs font-semibold uppercase tracking-wider text-gray-300">Email Address *</label>
-            <input type="email" id="clientEmail" required placeholder="you@company.com" class="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/10 text-white focus:border-accentGold outline-none">
-          </div>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          <div class="space-y-2">
-            <label class="text-xs font-semibold uppercase tracking-wider text-gray-300">WhatsApp / Phone *</label>
-            <input type="text" id="clientPhone" required placeholder="+1 555 000 0000" class="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/10 text-white focus:border-accentGold outline-none">
-          </div>
-          <div class="space-y-2">
-            <label class="text-xs font-semibold uppercase tracking-wider text-gray-300">Project Type *</label>
-            <select id="projectType" class="w-full px-4 py-3 rounded-xl bg-[#121212] border border-white/10 text-white focus:border-accentGold outline-none">
-              <option value="Real Estate Editing">Real Estate Editing</option>
-              <option value="Talking Head / Creator Video">Talking Head / Creator Video</option>
-              <option value="UGC Ad">UGC Ad</option>
-              <option value="Finance">Finance</option>
-              <option value="Motion Graphics">Motion Graphics</option>
-            </select>
-          </div>
-        </div>
-        <div class="space-y-2">
-          <textarea id="projectDetails" rows="3" placeholder="Tell me about your footage, timeline and goals..." class="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/10 text-white focus:border-accentGold outline-none"></textarea>
-        </div>
-        <button type="button" onclick="goToStep2()" class="w-full py-4 rounded-xl font-semibold text-black bg-[#d4af37] hover:bg-[#c49f27] transition-all text-center shadow-lg">
-        </button>
-      </div> <!-- STEP 2: Package & Price Selection -->
-      <div id="formStep2" class="space-y-6 hidden">
-        <div class="space-y-3">
-          <label class="text-xs font-semibold uppercase tracking-wider text-gray-300">Select Your Package & Price *</label>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            
-            <label class="glass-panel p-4 rounded-xl border border-white/10 flex items-center justify-between cursor-pointer hover:border-accentGold transition-all">
-              <div class="flex items-center space-x-3">
-                <input type="radio" name="selectedPackage" value="Basic ($45 / video)" checked class="accent-[#d4af37]">
-                <div>
-                  <div class="font-bold text-sm text-white">Basic</div>
-                  <div class="text-xs text-gray-400">Normal Video Editing</div>
-                </div>
-              </div>
-              <div class="font-bold text-accentGold">$45</div>
-            </label>
-
-            <label class="glass-panel p-4 rounded-xl border border-white/10 flex items-center justify-between cursor-pointer hover:border-accentGold transition-all">
+                
 <!-- Book Your Project Section (3-Step Interactive Flow) -->
 <section id="contact" class="py-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
   <div class="glass-panel p-8 sm:p-12 rounded-3xl border border-white/10 space-y-8">
@@ -460,7 +380,6 @@
             <input type="email" id="clientEmail" required placeholder="you@company.com" class="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/10 text-white focus:border-accentGold outline-none">
           </div>
         </div>
-
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <div class="space-y-2">
             <label class="text-xs font-semibold uppercase tracking-wider text-gray-300">WhatsApp / Phone *</label>
