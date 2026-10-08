@@ -823,7 +823,6 @@
 
     window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
   }
-
   function sendViaEmail() {
     const name = document.getElementById('clientName').value;
     const email = document.getElementById('clientEmail').value;
@@ -834,13 +833,8 @@
 
     const subject = encodeURIComponent(`New Project Booking: ${projectType} (${selectedPkg})`);
     const body = encodeURIComponent(`Hi Ayush,\n\nHere are my project details:\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nProject Type: ${projectType}\nPackage: ${selectedPkg}\nDetails: ${details}\n\nI agree to the 50% advance payment and 24-hour turnaround terms.`);
-
-    window.location.href = `mailto:ayushkumardeb10@gmail.com?subject=${subject}&body=${body}`;
-    }
-        
-    </script>
-  </script>
-</body>
+ window.location.href = `mailto:ayushkumardeb10@gmail.com?subject=${subject}&body=${body}`;
+    </body>
 </html>
 <!-- Footer / Social Media Section -->
 <footer class="bg-[#0a0a0a] border-t border-white/10 py-12 px-4 sm:px-6 lg:px-8">
