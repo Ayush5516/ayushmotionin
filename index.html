@@ -519,27 +519,6 @@
     </form>
   </div>
 </section>
-
-<!-- JavaScript for 3-Step Flow & Pre-filled Messages -->
-  function goToStep2() {
-    const name = document.getElementById('clientName').value;
-    const email = document.getElementById('clientEmail').value;
-    const phone = document.getElementById('clientPhone').value;
-
-    if(!name || !email || !phone) {
-      alert('Please fill out all required fields in Step 1.');
-      return;
-    }
-
-    document.getElementById('formStep1').classList.add('hidden');
-    document.getElementById('formStep2').classList.remove('hidden');
-    document.getElementById('formStep3').classList.add('hidden');
-
-    document.getElementById('stepIndicator1').className = 'flex items-center space-x-2 text-gray-400 font-bold text-sm';
-    document.getElementById('stepIndicator1').children[0].className = 'w-7 h-7 rounded-full bg-white/20 text-white flex items-center justify-center text-xs';
-    
-    document.getElementById('stepIndicator2').className = 'flex items-center space-x-2 text-accentGold font-bold text-sm';
-<!-- Book Your Project Section (3-Step Interactive Flow) -->
 <section id="contact" class="py-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
   <div class="glass-panel p-8 sm:p-12 rounded-3xl border border-white/10 space-y-8">
     
