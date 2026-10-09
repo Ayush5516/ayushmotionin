@@ -351,7 +351,7 @@
 </head>
 <body>
 
-<!-- ===================== NAVBAR ===================== -->
+     <!-- ===================== NAVBAR ===================== -->
 <header class="border-b border-white/10">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
     <div class="text-xl font-bold tracking-wider">Ayush <span class="text-accentGold">Edits</span></div>
@@ -359,7 +359,7 @@
   </div>
 </header>
 
-<!-- ===================== HERO ===================== -->
+     <!-- ===================== HERO ===================== -->
 <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-6 text-center space-y-5">
   <h1 class="text-3xl sm:text-5xl font-bold leading-tight">Cinematic Video Editing That <span class="text-accentGold">Gets Results</span></h1>
   <p class="text-sm sm:text-base text-gray-400">Real estate, creator videos, UGC ads, finance and motion graphics. 24-hour turnaround on every video.</p>
@@ -369,12 +369,6 @@
 <!-- ===================== BOOKING SECTION ===================== -->
 <section id="contact" class="py-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
   <div class="glass-panel p-8 sm:p-12 rounded-3xl border border-white/10 space-y-8">
-
-    <div class="text-center space-y-2">
-      <h3 class="text-2xl sm:text-3xl font-bold">Book Your Project</h3>
-      <p class="text-sm text-gray-400">Complete the steps below to instantly connect via WhatsApp or Email.</p>
-    </div>
-
     <!-- Step Progress Indicator -->
     <div class="flex items-center justify-center space-x-4 pb-4 border-b border-white/10">
       <div id="stepIndicator1" class="flex items-center space-x-2 text-accentGold font-bold text-sm">
@@ -503,7 +497,7 @@
   </div>
 </footer>
 
-<!-- ===================== JAVASCRIPT ===================== -->
+  <!-- ===================== JAVASCRIPT ===================== -->
 <script>
   // Packages (name, price, tagline)
   const PACKAGES = [
@@ -553,25 +547,25 @@
     return el ? el.value : "Basic ($45 / video)";
   }
 
-  function goToStep1() {
+    function goToStep1() {
     showStep(1);
     setIndicator(1, 'active'); setIndicator(2, 'off'); setIndicator(3, 'off');
-  }
+   }
 
-  function goToStep2() {
-    if (!$('clientName').value || !$('clientEmail').value || !$('clientPhone').value) {
+    function goToStep2() {
+     if (!$('clientName').value || !$('clientEmail').value || !$('clientPhone').value) {
       alert('Please fill out all required fields in Step 1.');
       return;
     }
     showStep(2);
     setIndicator(1, 'done'); setIndicator(2, 'active'); setIndicator(3, 'off');
-  }
+    }
 
-  function goToStep3() {
+   function goToStep3() {
     $('summaryText').innerText = `Client: ${$('clientName').value} | Service: ${$('projectType').value} | Package: ${getPackage()} | Terms Accepted: 50% Advance & 24hr delivery.`;
     showStep(3);
     setIndicator(1, 'done'); setIndicator(2, 'done'); setIndicator(3, 'active');
-  }
+    }
 
   function buildDetails() {
     return `Name: ${$('clientName').value}\nEmail: ${$('clientEmail').value}\nPhone: ${$('clientPhone').value}\nService Required: ${$('projectType').value} (${getPackage()})\nProject Details: ${$('projectDetails').value || "None"}\nClient Reference: ${$('clientReference').value || "None"}`;
@@ -598,7 +592,6 @@
     const body = `${buildDetails()}\n\nI agree to the 50% advance payment and 24-hour turnaround terms.`;
     window.location.href = `mailto:ayushkumardeb10@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   }
-</script>
-
-</body>
+  </script>
+   </body>
     </html>
