@@ -681,7 +681,8 @@
             { id: 'explainer', name: '60s Explainer', price: 200, type: 'Detailed Explainer', label: '60s Explainer ($200)' },
             { id: 'saas-premium', name: 'Premium SaaS', price: 250, type: 'Enterprise', label: 'Premium SaaS ($250)' },
             { id: 'custom', name: 'Custom Package', price: 'Custom / Discuss', type: 'Custom / Discuss', label: 'Custom Package' }
-        ];
+        ];  { id: 'bulk-15', name: 'Exclusive Bulk Deal (15 Videos)', price: 540, type: 'Bulk Retainer', label: 'Bulk Deal (15 Videos - $540)' }
+        
 
         document.getElementById('pkgGrid').innerHTML = PACKAGES.map(function (p) {
             var priceTag = p.price === 'Custom / Discuss' ? 'Custom / Discuss' : '$' + p.price;
