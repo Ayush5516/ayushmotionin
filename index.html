@@ -507,21 +507,153 @@
 
       </div>
     </section>
-
-    <!-- 3-Step Interactive Booking Form Section -->
+        <!-- 3-Step Interactive Booking Form Section -->
     <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-      <div class="glass-panel p-8 sm:p-12 rounded-3xl border border-accentGold/20 shadow-[0_20px_50px_rgba(0,0,0,0.8)] backdrop-blur-xl">
-        <div class="text-center mb-10">
+      <div class="glass-panel p-6 sm:p-10 md:p-12 rounded-3xl border border-accentGold/20 shadow-[0_20px_50px_rgba(0,0,0,0.8)] backdrop-blur-xl">
+        <div class="text-center mb-8">
           <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Book Your Project</h2>
-          <p class="text-gray-400 text-sm mt-2">Complete the steps below to instantly connect via WhatsApp or Email.</p>
+          <p class="text-gray-400 text-xs sm:text-sm mt-2">Complete the steps below to instantly connect via WhatsApp or Email.</p>
           
-          <!-- Step Indicator Circles -->
-          <div class="flex justify-center items-center gap-4 sm:gap-8 mt-8">
+          <!-- Step Indicators: 1 Details — 2 Package — 3 Connect -->
+          <div class="flex justify-center items-center gap-3 sm:gap-6 mt-6">
             <div id="stepDot1" class="flex items-center gap-2 text-xs font-bold text-accentGold">
-              <span class="w-7 h-7 rounded-full bg-accentGold text-black flex items-center justify-center font-bold">1</span> Details
+              <span class="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-accentGold text-black flex items-center justify-center font-bold">1</span> Details
             </div>
-            <div class="w-8 sm:w-16 h-0.5 bg-white/10"></div>
+            <div class="w-6 sm:w-12 h-0.5 bg-white/10"></div>
             <div id="stepDot2" class="flex items-center gap-2 text-xs font-bold text-gray-500">
-              <span class="w-7 h-7 rounded-full bg-white/10 text-gray-400 flex items-center justify-center font-bold">2</span> Package
+              <span class="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-white/10 text-gray-400 flex items-center justify-center font-bold">2</span> Package
             </div>
-            <div class="w-8 sm:w-16 h-0.5 bg-w 
+            <div class="w-6 sm:w-12 h-0.5 bg-white/10"></div>
+            <div id="stepDot3" class="flex items-center gap-2 text-xs font-bold text-gray-500">
+              <span class="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-white/10 text-gray-400 flex items-center justify-center font-bold">3</span> Connect
+            </div>
+          </div>
+        </div>
+
+        <form id="bookingForm" onsubmit="event.preventDefault();">
+          
+          <!-- Step 1: Details -->
+          <div id="formStep1" class="space-y-5">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div>
+                <label class="block text-xs uppercase font-bold tracking-wider text-gray-300 mb-2">FULL NAME *</label>
+                <input type="text" id="clientName" placeholder="John Doe" class="w-full bg-[#121212] border border-white/15 focus:border-accentGold rounded-xl px-4 py-3 text-white placeholder-gray-500 outline-none transition" required>
+              </div>
+              <div>
+                <label class="block text-xs uppercase font-bold tracking-wider text-gray-300 mb-2">EMAIL ADDRESS *</label>
+                <input type="email" id="clientEmail" placeholder="you@company.com" class="w-full bg-[#121212] border border-white/15 focus:border-accentGold rounded-xl px-4 py-3 text-white placeholder-gray-500 outline-none transition" required>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div>
+                <label class="block text-xs uppercase font-bold tracking-wider text-gray-300 mb-2">WHATSAPP / PHONE *</label>
+                <input type="tel" id="clientPhone" placeholder="+91 60018 67854" class="w-full bg-[#121212] border border-white/15 focus:border-accentGold rounded-xl px-4 py-3 text-white placeholder-gray-500 outline-none transition" required>
+              </div>
+              <div>
+                <label class="block text-xs uppercase font-bold tracking-wider text-gray-300 mb-2">PROJECT TYPE *</label>
+                <select id="serviceRequired" class="w-full bg-[#121212] border border-white/15 focus:border-accentGold rounded-xl px-4 py-3 text-white outline-none transition">
+                  <option value="Real Estate Editing">Real Estate Editing</option>
+                  <option value="Talking Head / Reels">Talking Head / Reels</option>
+                  <option value="UGC Video Ads">UGC Video Ads</option>
+                  <option value="SaaS UI & 3D Motion">SaaS UI & 3D Motion</option>
+                  <option value="Creator Bulk Editing (15 Videos)">Creator Bulk Editing (15 Videos)</option>
+                  <option value="Custom Long-Term Retainer">Custom Long-Term Retainer</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs uppercase font-bold tracking-wider text-gray-300 mb-2">PROJECT DETAILS / MESSAGE</label>
+              <textarea id="shortProjectDetails" rows="3" placeholder="Tell me about your footage, timeline and goals..." class="w-full bg-[#121212] border border-white/15 focus:border-accentGold rounded-xl px-4 py-3 text-white placeholder-gray-500 outline-none transition"></textarea>
+            </div>
+
+            <div class="bg-black/40 border border-white/10 rounded-xl px-4 py-3 flex justify-between items-center text-xs">
+              <span class="text-gray-400">Selected package:</span>
+              <span id="selectedPkgPreview" class="text-accentGold font-bold">Professional ($65 / video)</span>
+            </div>
+
+            <button type="button" onclick="goToStep2()" class="w-full py-4 rounded-xl bg-accentGold text-black font-extrabold text-sm sm:text-base hover:bg-yellow-400 shadow-lg transition duration-300 flex justify-center items-center gap-2">
+              Next: Choose Package & Price →
+            </button>
+          </div>
+
+          <!-- Step 2: Package Radio Selection Grid (Exact 2-Column Baseline) -->
+          <div id="formStep2" class="space-y-6 hidden">
+            <h3 class="text-xs font-bold uppercase tracking-wider text-gray-300 mb-2">SELECT YOUR PACKAGE & PRICE *</h3>
+            <div id="pkgGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+              <!-- Dynamically populated from PACKAGES array -->
+            </div>
+
+            <div class="flex gap-4 pt-4">
+              <button type="button" onclick="goToStep1()" class="w-1/3 py-3.5 rounded-xl border border-white/20 text-white font-bold hover:bg-white/10 transition">
+                ← Back
+              </button>
+              <button type="button" onclick="goToStep3()" class="w-2/3 py-3.5 rounded-xl bg-accentGold text-black font-extrabold hover:bg-yellow-400 shadow-lg transition">
+                Next: Review & Connect →
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 3: Terms & Submission -->
+          <div id="formStep3" class="space-y-6 hidden">
+            <!-- Terms Box -->
+            <div class="bg-black/60 border border-white/10 rounded-2xl p-5 sm:p-6 text-left">
+              <h4 class="text-xs uppercase font-bold tracking-wider text-accentGold mb-3">TERMS & CONDITIONS:</h4>
+              <ul class="text-xs text-gray-300 space-y-2 list-disc list-inside">
+                <li>50% advance payment is mandatory before project work officially starts.</li>
+                <li>Standard turnaround time is 24 hours per video delivery.</li>
+              </ul>
+              <label class="flex items-center gap-3 mt-4 pt-4 border-t border-white/10 cursor-pointer">
+                <input type="checkbox" id="termsCheckbox" class="w-4 h-4 accent-accentGold rounded cursor-pointer" required>
+                <span class="text-xs font-semibold text-white">I agree to the 50% advance payment & 24hr turnaround terms *</span>
+              </label>
+            </div>
+
+            <!-- Summary Box -->
+            <div class="bg-black/40 border border-white/10 rounded-2xl p-5 text-xs text-gray-300 text-left">
+              <p class="font-bold text-accentGold mb-2">Summary Ready:</p>
+              <div id="summaryReviewText" class="space-y-1">
+                <!-- Dynamically populated -->
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 pt-2">
+              <button type="button" onclick="goToStep2()" class="w-full sm:w-1/4 py-3.5 rounded-xl border border-white/20 text-white font-bold hover:bg-white/10 transition">
+                ← Back
+              </button>
+              <button type="button" onclick="submitToWhatsApp()" class="w-full sm:w-1/2 py-3.5 rounded-xl bg-accentGold text-black font-extrabold flex items-center justify-center gap-2 hover:bg-yellow-400 shadow-lg transition">
+                <i class="fa-brands fa-whatsapp text-lg"></i> WhatsApp
+              </button>
+              <button type="button" onclick="submitToEmail()" class="w-full sm:w-1/4 py-3.5 rounded-xl border border-white/20 text-white font-bold flex items-center justify-center gap-2 hover:bg-white/10 transition">
+                <i class="fa-solid fa-envelope"></i> Email
+              </button>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Complete Branded Footer With Provided Handles & 2026 Copyright -->
+  <footer class="border-t border-white/10 bg-black/90 py-12 px-4 sm:px-6">
+    <div class="max-w-6xl mx-auto flex flex-col items-center justify-center gap-6">
+      <div class="text-center">
+        <span class="text-2xl font-black tracking-wider text-white">Ayush <span class="text-accentGold">Edits</span></span>
+        <p class="text-xs text-gray-400 mt-1">Professional Video Editing & Motion Design</p>
+      </div>
+
+      <!-- Social Media Icons Row -->
+      <div class="flex items-center gap-4 sm:gap-5 text-lg text-gray-300">
+        <a href="https://www.instagram.com/ayush_motion_edits?xtok=a2NoczF1bjRnb2Ft" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:text-accentGold hover:border-accentGold/50 hover:scale-110 transition duration-300" title="Instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://www.facebook.com/share/1CR8G39bTL/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:text-accentGold hover:border-accentGold/50 hover:scale-110 transition duration-300" title="Facebook">
+          <i class="fa-brands fa-facebook-f"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/ayush-kumar-deb-33b923304?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:text-accentGold hover:border-accentGold/50 hover:scale-110 transition duration-300" title="LinkedIn">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+        <a
