@@ -801,10 +801,9 @@
         if (contact) contact.scrollIntoView({ behavior: 'smooth' });
       });
     });
-
     function submitToWhatsApp() {
       const terms = document.getElementById('termsCheckbox');
-      if (!terms.checked) {
+      if (!terms || !terms.checked) {
         alert('Please agree to the 50% advance payment & 24hr turnaround terms to proceed.');
         return;
       }
@@ -814,20 +813,23 @@
       const phone = document.getElementById('clientPhone').value.trim();
       const service = document.getElementById('serviceRequired').value;
       const details = document.getElementById('shortProjectDetails').value.trim();
-      const pkg = PACKAGES.find(p => p.id === selectedPackageId);
+      const pkg = PACKAGES.find(p => p.id === selectedPackageId) || { name: 'Custom', label: 'Discuss' };
 
-      const text = `*New Project Inquiry - Ayush Motion Edits*%0A%0A` +
-        `*Name:* ${encodeURIComponent(name)}%0A` +
-        `*Email:* ${encodeURIComponent(email)}%0A` +
-        `*Phone:* ${encodeURIComponent(phone)}%0A` +
-        `*Project Type:* ${encodeURIComponent(service)}%0A` +
-        `*Selected Package:* ${encodeURIComponent(pkg.name)} (${encodeURIComponent(pkg.label)})%0A` +
-        `*Details / Message:* ${encodeURIComponent(details || 'Discussing directly')}%0A` +
+      const message = 
+        `*New Project Inquiry - Ayush Motion Edits*\n\n` +
+        `*Name:* ${name}\n` +
+        `*Email:* ${email}\n` +
+        `*Phone:* ${phone}\n` +
+        `*Project Type:* ${service}\n` +
+        `*Selected Package:* ${pkg.name} (${pkg.label})\n` +
+        `*Project Details:* ${details ? details : 'Discussing directly'}\n` +
         `*Terms Accepted:* Yes (50% advance & 24hr turnaround)`;
 
-      window.open(`https://wa.me/message/LMYNQZT3SX3JH1?text=${text}`, '_blank');
-    }
+      const whatsappUrl = `https://api.whatsapp.com/send?phone=916001867854&text=${encodeURIComponent(message)}`;
 
+      window.open(whatsappUrl, '_blank');
+    }
+      
     function submitToEmail() {
       const terms = document.getElementById('termsCheckbox');
       if (!terms.checked) {
