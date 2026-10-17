@@ -63,6 +63,10 @@
         .mobile-menu-link { transition: all 0.18s ease-in-out; }
         .mobile-menu-link:hover { background: rgba(212,175,55,0.08); color: #d4af37; }
         .mobile-menu-link.active { background: rgba(212,175,55,0.12); color: #d4af37; }
+
+        /* Footer hover accent */
+        .social-link { transition: color 0.18s ease, transform 0.18s ease; }
+        .social-link:hover { color: #d4af37; transform: translateY(-2px); }
     </style>
 </head>
 <body class="bg-darkBg text-gray-100 antialiased selection:bg-accentGold selection:text-black">
@@ -240,31 +244,52 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+                    <!-- Premiere Pro Card -->
                     <div class="glass-panel rounded-3xl p-6 border border-accentGold/20 hover:border-accentGold/60 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_25px_rgba(212,175,55,0.08)]">
                         <div class="flex items-center justify-between gap-3 mb-4">
                             <span class="inline-flex items-center px-3 py-1 rounded-full bg-[#d4af37]/15 text-accentGold text-xs font-semibold uppercase tracking-[0.1em] border border-accentGold/20">Premiere</span>
                         </div>
-                        <img src="premium%20Pro.png" alt="Adobe Premiere Pro" class="w-full h-52 object-cover rounded-2xl border border-white/10 mb-5">
+                        <img src="premium%20Pro.png" alt="Adobe Premiere Pro" class="w-full h-44 object-contain rounded-2xl border border-white/10 mb-5 bg-black/60 p-4">
                         <h3 class="text-2xl font-bold text-accentGold mb-2">Adobe Premiere Pro</h3>
-                        <p class="text-base font-semibold text-yellow-300 mb-2">High-Retention Long-Form & Fast Short-Form Pacing</p>
+                        <p class="text-base font-semibold text-yellow-300 mb-3">High-Retention Long-Form & Fast Short-Form Pacing</p>
+                        <ul class="space-y-3 text-sm text-gray-200 mt-2">
+                            <li class="flex items-start gap-3"><span class="text-[#d4af37] mt-1">✓</span><span>Seamless jump cuts & intelligent pacing</span></li>
+                            <li class="flex items-start gap-3"><span class="text-[#d4af37] mt-1">✓</span><span>Multi-cam timeline coordination</span></li>
+                            <li class="flex items-start gap-3"><span class="text-[#d4af37] mt-1">✓</span><span>Adaptive audio ducking & clean sync</span></li>
+                            <li class="flex items-start gap-3"><span class="text-[#d4af37] mt-1">✓</span><span>Retention-first storytelling flow</span></li>
+                        </ul>
                     </div>
 
+                    <!-- After Effects Card -->
                     <div class="glass-panel rounded-3xl p-6 border border-accentGold/20 hover:border-accentGold/60 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_25px_rgba(212,175,55,0.08)]">
-                        <img src="after%20effect.png" alt="Adobe After Effects" class="w-full h-52 object-cover rounded-2xl border border-white/10 mb-5">
+                        <img src="after%20effect.png" alt="Adobe After Effects" class="w-full h-44 object-contain rounded-2xl border border-white/10 mb-5 bg-black/60 p-4">
                         <h3 class="text-2xl font-bold text-accentGold mb-2">Adobe After Effects</h3>
-                        <p class="text-base font-semibold text-yellow-300 mb-2">High-End Motion Graphics, VFX & Kinetic Typography</p>
+                        <p class="text-base font-semibold text-yellow-300 mb-3">High-End Motion Graphics, VFX & Kinetic Typography</p>
+                        <ul class="space-y-3 text-sm text-gray-200 mt-2">
+                            <li class="flex items-start gap-3"><span class="text-[#d4af37] mt-1">✓</span><span>Custom 2D & 3D mockup animation</span></li>
+                            <li class="flex items-start gap-3"><span class="text-[#d4af37] mt-1">✓</span><span>SaaS UI and product reveal visuals</span></li>
+                            <li class="flex items-start gap-3"><span class="text-[#d4af37] mt-1">✓</span><span>Track matte motion + realism layers</span></li>
+                            <li class="flex items-start gap-3"><span class="text-[#d4af37] mt-1">✓</span><span>Sound design & polish integration</span></li>
+                        </ul>
                     </div>
 
+                    <!-- DaVinci Resolve Card -->
                     <div class="glass-panel rounded-3xl p-6 border border-accentGold/20 hover:border-accentGold/60 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_25px_rgba(212,175,55,0.08)]">
-                        <img src="Davinci%20resolve.png" alt="DaVinci Resolve" class="w-full h-52 object-cover rounded-2xl border border-white/10 mb-5">
+                        <img src="Davinci%20resolve.png" alt="DaVinci Resolve" class="w-full h-44 object-contain rounded-2xl border border-white/10 mb-5 bg-black/60 p-4">
                         <h3 class="text-2xl font-bold text-accentGold mb-2">DaVinci Resolve</h3>
-                        <p class="text-base font-semibold text-yellow-300 mb-2">Broadcast-Grade Color Science & Finishing</p>
+                        <p class="text-base font-semibold text-yellow-300 mb-3">Broadcast-Grade Color Science & Finishing</p>
+                        <ul class="space-y-3 text-sm text-gray-200 mt-2">
+                            <li class="flex items-start gap-3"><span class="text-[#d4af37] mt-1">✓</span><span>Accurate LUT development & test grading</span></li>
+                            <li class="flex items-start gap-3"><span class="text-[#d4af37] mt-1">✓</span><span>Skin-tone matching & cinematic balance</span></li>
+                            <li class="flex items-start gap-3"><span class="text-[#d4af37] mt-1">✓</span><span>Noise reduction & detail control</span></li>
+                            <li class="flex items-start gap-3"><span class="text-[#d4af37] mt-1">✓</span><span>Final mastering for premium delivery</span></li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Pricing Section (with Exclusive Bulk Package restored) -->
+        <!-- Pricing Section (with Exclusive Bulk Package restored and expanded) -->
         <section id="pricing" class="py-20 bg-[#0a0a0a]">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
                 <div class="text-center space-y-4">
@@ -279,8 +304,8 @@
                         <div class="mb-8">
                             <div class="bg-gradient-to-br from-yellow-400/10 via-white/5 to-yellow-400/5 rounded-3xl p-1">
                                 <div class="bg-black/60 rounded-3xl backdrop-blur-md p-6 sm:p-8 border border-white/10">
-                                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                                        <div>
+                                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 items-start">
+                                        <div class="sm:col-span-2">
                                             <h3 class="text-2xl font-semibold text-accentGold">Creator Bulk Editing Tier (15 Videos)</h3>
                                             <p class="mt-2 text-sm text-white/80 inline-flex items-center gap-2">
                                                 <span class="inline-block bg-accentGold/10 text-accentGold px-3 py-1 rounded-full font-medium">⚡ LIMITED TIME BULK DEAL • SAVE 20%</span>
@@ -290,15 +315,32 @@
                                                 <span class="text-lg font-bold">$540</span>
                                                 <span class="ml-2 text-sm text-white/60">($36/video) • Save $135 OFF + Enhanced Motion Graphics &amp; Polish</span>
                                             </p>
+
+                                            <div class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-gray-200">
+                                                <div class="space-y-2">
+                                                    <div class="flex items-start gap-3"><span class="text-[#d4af37] mt-1">✓</span><span>15 Professionally Edited Short-Form Videos (Reels, TikToks, Shorts)</span></div>
+                                                    <div class="flex items-start gap-3"><span class="text-[#d4af37] mt-1">✓</span><span>Precision pacing, jump cuts & dead-air removal</span></div>
+                                                    <div class="flex items-start gap-3"><span class="text-[#d4af37] mt-1">✓</span><span>Custom dynamic motion titles & styled lower-thirds</span></div>
+                                                    <div class="flex items-start gap-3"><span class="text-[#d4af37] mt-1">✓</span><span>Cinematic color correction & skin-tone pop</span></div>
+                                                </div>
+                                                <div class="space-y-2">
+                                                    <div class="flex items-start gap-3"><span class="text-[#d4af37] mt-1">✓</span><span>Dedicated sound design & crisp studio audio polish</span></div>
+                                                    <div class="flex items-start gap-3"><span class="text-[#d4af37] mt-1">✓</span><span>Brand-styled auto-captions & multi-platform master export</span></div>
+                                                    <div class="flex items-start gap-3"><span class="text-[#d4af37] mt-1">✓</span><span>Fast batch turnaround with structured delivery milestones</span></div>
+                                                    <div class="flex items-start gap-3"><span class="text-[#d4af37] mt-1">✓</span><span>Dedicated revision rounds & direct priority support</span></div>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="flex items-center">
+
+                                        <div class="flex flex-col items-center sm:items-end sm:justify-center">
                                             <a
                                                 href="#contact"
-                                                class="select-package inline-block bg-accentGold text-black font-semibold px-5 py-3 rounded-full shadow hover:shadow-lg transition"
+                                                class="select-package inline-block bg-accentGold text-black font-semibold px-5 py-3 rounded-full shadow hover:shadow-lg transition mb-3"
                                                 data-pkg="bulk-15"
                                             >
                                                 Claim Bulk Offer ($36/video) →
                                             </a>
+                                            <div class="text-xs text-white/60 text-center">Save $135 off standard pricing • Enhanced Motion Graphics</div>
                                         </div>
                                     </div>
                                 </div>
@@ -319,6 +361,12 @@
                                     <span class="text-4xl font-extrabold text-[#d4af37]">$35</span>
                                     <span class="text-xs text-gray-300">per video</span>
                                 </div>
+                                <ul class="space-y-2 text-sm text-gray-200 mt-2">
+                                    <li class="flex items-start gap-2"><span class="text-[#d4af37]">✓</span><span>Up to 5 min raw footage edited</span></li>
+                                    <li class="flex items-start gap-2"><span class="text-[#d4af37]">✓</span><span>Clean jump cuts &amp; standard pacing</span></li>
+                                    <li class="flex items-start gap-2"><span class="text-[#d4af37]">✓</span><span>Basic auto captions</span></li>
+                                    <li class="flex items-start gap-2"><span class="text-[#d4af37]">✓</span><span>1 revision round</span></li>
+                                </ul>
                             </div>
                             <a href="#contact" class="select-package w-full py-4 rounded-xl font-semibold text-center border border-[#d4af37] text-[#d4af37] hover:bg-[#d4af37] hover:text-black transition" data-pkg="starter">Select Starter — $35</a>
                         </div>
@@ -334,6 +382,12 @@
                                     <span class="text-4xl font-extrabold text-[#d4af37]">$45</span>
                                     <span class="text-xs text-gray-300">per video (60s)</span>
                                 </div>
+                                <ul class="space-y-2 text-sm text-gray-200 mt-2">
+                                    <li class="flex items-start gap-2"><span class="text-[#d4af37]">✓</span><span>Up to 10 min raw footage edited</span></li>
+                                    <li class="flex items-start gap-2"><span class="text-[#d4af37]">✓</span><span>Jump cuts, pacing &amp; basic color correction</span></li>
+                                    <li class="flex items-start gap-2"><span class="text-[#d4af37]">✓</span><span>Auto captions styled to brand</span></li>
+                                    <li class="flex items-start gap-2"><span class="text-[#d4af37]">✓</span><span>1 round of revisions</span></li>
+                                </ul>
                             </div>
                             <a href="#contact" class="select-package w-full py-4 rounded-xl font-semibold text-center border border-[#d4af37] text-[#d4af37] hover:bg-[#d4af37] hover:text-black transition" data-pkg="standard">Select Standard — $45</a>
                         </div>
@@ -350,6 +404,12 @@
                                     <span class="text-4xl font-extrabold text-[#d4af37]">$65</span>
                                     <span class="text-xs text-gray-300">per video (60s)</span>
                                 </div>
+                                <ul class="space-y-2 text-sm text-gray-200 mt-2">
+                                    <li class="flex items-start gap-2"><span class="text-[#d4af37]">✓</span><span>Up to 30 min raw footage / multi-clip UGC batch</span></li>
+                                    <li class="flex items-start gap-2"><span class="text-[#d4af37]">✓</span><span>Cinematic color grade + sound design</span></li>
+                                    <li class="flex items-start gap-2"><span class="text-[#d4af37]">✓</span><span>Custom lower-thirds &amp; motion titles</span></li>
+                                    <li class="flex items-start gap-2"><span class="text-[#d4af37]">✓</span><span>3 rounds of revisions</span></li>
+                                </ul>
                             </div>
                             <a href="#contact" class="select-package w-full py-4 rounded-xl font-semibold text-center bg-[#d4af37] text-black hover:bg-[#c49f27] transition-all shadow-lg" data-pkg="professional">Select Professional — $65</a>
                         </div>
@@ -365,6 +425,12 @@
                                     <span class="text-4xl font-extrabold text-[#d4af37]">$85</span>
                                     <span class="text-xs text-gray-300">per video (60s)</span>
                                 </div>
+                                <ul class="space-y-2 text-sm text-gray-200 mt-2">
+                                    <li class="flex items-start gap-2"><span class="text-[#d4af37]">✓</span><span>Full cinematic workflow &amp; custom VFX</span></li>
+                                    <li class="flex items-start gap-2"><span class="text-[#d4af37]">✓</span><span>Broadcast-grade color science &amp; audio mix</span></li>
+                                    <li class="flex items-start gap-2"><span class="text-[#d4af37]">✓</span><span>Unlimited platform exports &amp; aspect ratios</span></li>
+                                    <li class="flex items-start gap-2"><span class="text-[#d4af37]">✓</span><span>Dedicated project manager support</span></li>
+                                </ul>
                             </div>
                             <a href="#contact" class="select-package w-full py-4 rounded-xl font-semibold text-center border border-[#d4af37] text-[#d4af37] hover:bg-[#d4af37] hover:text-black transition" data-pkg="premium">Select Premium — $85</a>
                         </div>
@@ -521,17 +587,25 @@
             </div>
         </section>
 
-        <!-- Footer (RESTORED) -->
-        <footer id="site-footer" class="mt-16 py-8 bg-black/70 border-t border-white/5">
-            <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row sm:justify-between items-center gap-4">
-                <div class="flex items-center gap-4">
-                    <a href="https://instagram.com/ayushedits" target="_blank" aria-label="Instagram" class="text-white/80 hover:text-white"><i class="fa-brands fa-instagram"></i> Instagram</a>
-                    <a href="https://facebook.com/ayushedits" target="_blank" aria-label="Facebook" class="text-white/80 hover:text-white"><i class="fa-brands fa-facebook"></i> Facebook</a>
-                    <a href="https://www.linkedin.com/in/ayushkumardeb" target="_blank" aria-label="LinkedIn" class="text-white/80 hover:text-white"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-                    <a href="https://wa.me/message/BSHW5BKXF5Q2M1" target="_blank" aria-label="WhatsApp" class="text-white/80 hover:text-white"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
-                    <a href="mailto:hello@ayushedits.com" aria-label="Email" class="text-white/80 hover:text-white"><i class="fa-solid fa-envelope"></i> Email</a>
+        <!-- Footer (RESTORED & STYLED) -->
+        <footer id="site-footer" class="mt-16 py-10 bg-black/60 border-t border-white/5">
+            <div class="max-w-6xl mx-auto px-4">
+                <div class="glass-panel rounded-3xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div class="text-center sm:text-left">
+                        <a href="#" class="text-2xl font-bold gold-gradient-text">Ayush Motion Edits</a>
+                        <div class="text-sm text-white/70 mt-1">Professional Video Editing & Motion Design</div>
+                    </div>
+
+                    <div class="flex items-center gap-5">
+                        <a href="https://instagram.com/ayushedits" target="_blank" class="social-link text-white/80 hover:text-accentGold"><i class="fa-brands fa-instagram fa-lg"></i></a>
+                        <a href="https://facebook.com/ayushedits" target="_blank" class="social-link text-white/80 hover:text-accentGold"><i class="fa-brands fa-facebook fa-lg"></i></a>
+                        <a href="https://www.linkedin.com/in/ayushkumardeb" target="_blank" class="social-link text-white/80 hover:text-accentGold"><i class="fa-brands fa-linkedin fa-lg"></i></a>
+                        <a href="https://wa.me/message/BSHW5BKXF5Q2M1" target="_blank" class="social-link text-white/80 hover:text-accentGold"><i class="fa-brands fa-whatsapp fa-lg"></i></a>
+                        <a href="mailto:ayushkumardeb10@gmail.com" class="social-link text-white/80 hover:text-accentGold"><i class="fa-solid fa-envelope fa-lg"></i></a>
+                    </div>
+
+                    <div class="text-sm text-white/60 text-center sm:text-right">© 2026 Ayush Edits. All rights reserved.</div>
                 </div>
-                <div class="text-sm text-white/60">© 2026 Ayush Edits. All rights reserved.</div>
             </div>
         </footer>
 
@@ -675,9 +749,9 @@
             const pkg = getPackageById(pkgId);
             const pkgLabel = pkg ? `${pkg.title} (${pkg.label})` : 'No package selected';
 
-            const message = `New booking request%0AName: ${encodeURIComponent(name)}%0AEmail: ${encodeURIComponent(email)}%0APhone: ${encodeURIComponent(phone)}%0APackage: ${encodeURIComponent(pkgLabel)}%0ANotes: ${encodeURIComponent(notes)}`;
-            const waUrl = `https://wa.me/message/BSHW5BKXF5Q2M1?text=${message}`;
-            const mailto = `mailto:hello@ayushedits.com?subject=${encodeURIComponent('New booking: ' + pkgLabel)}&body=${encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\nPhone: ' + phone + '\nPackage: ' + pkgLabel + '\nNotes: ' + notes)}`;
+            const message = `New booking request\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nPackage: ${pkgLabel}\nNotes: ${notes}`;
+            const waUrl = `https://wa.me/message/BSHW5BKXF5Q2M1?text=${encodeURIComponent(message)}`;
+            const mailto = `mailto:ayushkumardeb10@gmail.com?subject=${encodeURIComponent('New booking: ' + pkgLabel)}&body=${encodeURIComponent(message)}`;
 
             window.open(waUrl, '_blank');
             setTimeout(() => { window.location.href = mailto; }, 600);
