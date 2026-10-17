@@ -507,7 +507,7 @@
 
       </div>
     </section>
-        <!-- 3-Step Interactive Booking Form Section -->
+              <!-- 3-Step Interactive Booking Form Section -->
     <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
       <div class="glass-panel p-6 sm:p-10 md:p-12 rounded-3xl border border-accentGold/20 shadow-[0_20px_50px_rgba(0,0,0,0.8)] backdrop-blur-xl">
         <div class="text-center mb-8">
@@ -656,4 +656,197 @@
         <a href="https://www.linkedin.com/in/ayush-kumar-deb-33b923304?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:text-accentGold hover:border-accentGold/50 hover:scale-110 transition duration-300" title="LinkedIn">
           <i class="fa-brands fa-linkedin-in"></i>
         </a>
-        <a
+        <a href="https://wa.me/message/LMYNQZT3SX3JH1" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:text-accentGold hover:border-accentGold/50 hover:scale-110 transition duration-300" title="WhatsApp">
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <a href="mailto:ayushkumardeb10@gmail.com" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:text-accentGold hover:border-accentGold/50 hover:scale-110 transition duration-300" title="Email">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+      </div>
+
+      <p class="text-xs text-gray-500 mt-2">© 2026 Ayush Edits. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Complete Booking JavaScript Logic -->
+  <script>
+    // Full registered packages list matching your exact pricing options
+    const PACKAGES = [
+      { id: 'budget', name: 'Starter', price: 35, category: 'Normal Video Editing', label: '$35' },
+      { id: 'basic', name: 'Standard', price: 45, category: 'Normal Video Editing', label: '$45' },
+      { id: 'professional', name: 'Professional', price: 65, category: 'Most Popular', label: '$65' },
+      { id: 'premium', name: 'Premium', price: 85, category: 'Elite Editing', label: '$85' },
+      { id: 'promo', name: '30s Promo', price: 150, category: 'SaaS Animation', label: '$150' },
+      { id: 'explainer', name: '60s Explainer', price: 200, category: 'Detailed Explainer', label: '$200' },
+      { id: 'saas-premium', name: 'Premium SaaS', price: 250, category: 'Enterprise', label: '$250' },
+      { id: 'bulk-15', name: 'Creator Bulk Tier (15 vids)', price: 540, category: 'Bulk Retainer', label: '$540' },
+      { id: 'custom', name: 'Custom Package', price: 0, category: 'Custom / Discuss', label: 'Custom / Discuss' }
+    ];
+
+    let selectedPackageId = 'professional';
+
+    // Renders the 2-Column Step 2 Package Selector
+    function renderPackageGrid() {
+      const grid = document.getElementById('pkgGrid');
+      if (!grid) return;
+      grid.innerHTML = PACKAGES.map(pkg => `
+        <label class="glass-panel p-4 rounded-2xl border ${selectedPackageId === pkg.id ? 'border-accentGold bg-accentGold/10' : 'border-white/10 bg-white/5'} hover:border-accentGold/50 transition flex items-center justify-between cursor-pointer">
+          <div class="flex items-center gap-3">
+            <input type="radio" name="packageSelect" value="${pkg.id}" ${selectedPackageId === pkg.id ? 'checked' : ''} onchange="setChosenPackage('${pkg.id}')" class="w-4 h-4 accent-accentGold cursor-pointer">
+            <div>
+              <span class="block text-sm font-bold text-white">${pkg.name}</span>
+              <span class="block text-xs text-gray-400">${pkg.category}</span>
+            </div>
+          </div>
+          <span class="text-sm font-extrabold ${selectedPackageId === pkg.id ? 'text-accentGold' : 'text-gray-300'}">${pkg.label}</span>
+        </label>
+      `).join('');
+    }
+
+    function setChosenPackage(id) {
+      selectedPackageId = id;
+      const found = PACKAGES.find(p => p.id === id);
+      if (found) {
+        const preview = document.getElementById('selectedPkgPreview');
+        if (preview) preview.textContent = `${found.name} (${found.label})`;
+      }
+      renderPackageGrid();
+    }
+
+    function goToStep1() {
+      document.getElementById('formStep1').classList.remove('hidden');
+      document.getElementById('formStep2').classList.add('hidden');
+      document.getElementById('formStep3').classList.add('hidden');
+      updateDots(1);
+    }
+
+    function goToStep2() {
+      const name = document.getElementById('clientName').value.trim();
+      const email = document.getElementById('clientEmail').value.trim();
+      const phone = document.getElementById('clientPhone').value.trim();
+
+      if (!name || !email || !phone) {
+        alert('Please fill in your Name, Email, and WhatsApp/Phone number.');
+        return;
+      }
+
+      renderPackageGrid();
+      document.getElementById('formStep1').classList.add('hidden');
+      document.getElementById('formStep2').classList.remove('hidden');
+      document.getElementById('formStep3').classList.add('hidden');
+      updateDots(2);
+    }
+
+    function goToStep3() {
+      const pkg = PACKAGES.find(p => p.id === selectedPackageId);
+      const name = document.getElementById('clientName').value.trim();
+      const service = document.getElementById('serviceRequired').value;
+
+      const summaryBox = document.getElementById('summaryReviewText');
+      if (summaryBox) {
+        summaryBox.innerHTML = `
+          <div><strong class="text-white">Client:</strong> ${name}</div>
+          <div><strong class="text-white">Project:</strong> ${service}</div>
+          <div><strong class="text-white">Package:</strong> ${pkg.name} (${pkg.label})</div>
+          <div><strong class="text-white">Terms Accepted:</strong> 50% Advance & 24hr delivery</div>
+        `;
+      }
+
+      document.getElementById('formStep1').classList.add('hidden');
+      document.getElementById('formStep2').classList.add('hidden');
+      document.getElementById('formStep3').classList.remove('hidden');
+      updateDots(3);
+    }
+
+    function updateDots(step) {
+      for (let i = 1; i <= 3; i++) {
+        const dot = document.getElementById(`stepDot${i}`);
+        if (!dot) continue;
+        if (i === step) {
+          dot.className = 'flex items-center gap-2 text-xs font-bold text-accentGold';
+          dot.querySelector('span').className = 'w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-accentGold text-black flex items-center justify-center font-bold';
+        } else if (i < step) {
+          dot.className = 'flex items-center gap-2 text-xs font-bold text-gray-300';
+          dot.querySelector('span').className = 'w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-white/20 text-white flex items-center justify-center font-bold';
+        } else {
+          dot.className = 'flex items-center gap-2 text-xs font-bold text-gray-500';
+          dot.querySelector('span').className = 'w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-white/10 text-gray-400 flex items-center justify-center font-bold';
+        }
+      }
+    }
+
+    // Connect top pricing card buttons to booking flow
+    document.querySelectorAll('.select-package-btn, a[href="#contact"]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const pkgId = btn.getAttribute('data-pkg');
+        if (pkgId) {
+          setChosenPackage(pkgId);
+        }
+        const contact = document.getElementById('contact');
+        if (contact) contact.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    function submitToWhatsApp() {
+      const terms = document.getElementById('termsCheckbox');
+      if (!terms.checked) {
+        alert('Please agree to the 50% advance payment & 24hr turnaround terms to proceed.');
+        return;
+      }
+
+      const name = document.getElementById('clientName').value.trim();
+      const email = document.getElementById('clientEmail').value.trim();
+      const phone = document.getElementById('clientPhone').value.trim();
+      const service = document.getElementById('serviceRequired').value;
+      const details = document.getElementById('shortProjectDetails').value.trim();
+      const pkg = PACKAGES.find(p => p.id === selectedPackageId);
+
+      const text = `*New Project Inquiry - Ayush Motion Edits*%0A%0A` +
+        `*Name:* ${encodeURIComponent(name)}%0A` +
+        `*Email:* ${encodeURIComponent(email)}%0A` +
+        `*Phone:* ${encodeURIComponent(phone)}%0A` +
+        `*Project Type:* ${encodeURIComponent(service)}%0A` +
+        `*Selected Package:* ${encodeURIComponent(pkg.name)} (${encodeURIComponent(pkg.label)})%0A` +
+        `*Details / Message:* ${encodeURIComponent(details || 'Discussing directly')}%0A` +
+        `*Terms Accepted:* Yes (50% advance & 24hr turnaround)`;
+
+      window.open(`https://wa.me/message/LMYNQZT3SX3JH1?text=${text}`, '_blank');
+    }
+
+    function submitToEmail() {
+      const terms = document.getElementById('termsCheckbox');
+      if (!terms.checked) {
+        alert('Please agree to the 50% advance payment & 24hr turnaround terms to proceed.');
+        return;
+      }
+
+      const name = document.getElementById('clientName').value.trim();
+      const email = document.getElementById('clientEmail').value.trim();
+      const phone = document.getElementById('clientPhone').value.trim();
+      const service = document.getElementById('serviceRequired').value;
+      const details = document.getElementById('shortProjectDetails').value.trim();
+      const pkg = PACKAGES.find(p => p.id === selectedPackageId);
+
+      const subject = encodeURIComponent(`Project Booking - ${name} (${pkg.name})`);
+      const body = encodeURIComponent(
+        `Hi Ayush,\n\nI want to book an editing project with you.\n\n` +
+        `Client Name: ${name}\n` +
+        `Email: ${email}\n` +
+        `Phone: ${phone}\n` +
+        `Project Type: ${service}\n` +
+        `Package: ${pkg.name} (${pkg.label})\n` +
+        `Details: ${details}\n\n` +
+        `I agree to the 50% advance payment and 24hr turnaround terms.`
+      );
+
+      window.location.href = `mailto:ayushkumardeb10@gmail.com?subject=${subject}&body=${body}`;
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderPackageGrid();
+    });
+  </script>
+</body>
+    </html>
+                        
+        
