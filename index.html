@@ -67,6 +67,15 @@
         /* Footer hover accent */
         .social-link { transition: color 0.18s ease, transform 0.18s ease; }
         .social-link:hover { color: #d4af37; transform: translateY(-2px); }
+
+        /* Package card full-height behavior */
+        .pricing-card { display: flex; flex-direction: column; justify-content: space-between; height: 100%; }
+        .pkg-checklist li { display: flex; gap: 0.75rem; align-items: flex-start; }
+        .pkg-checklist li span:first-child { color: #d4af37; }
+
+        /* Radio-style package tile inside form step 2 */
+        .pkg-tile { cursor: pointer; border-radius: 0.75rem; padding: 1rem; border: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.01); }
+        .pkg-tile.selected { border-color: rgba(212,175,55,1); background: rgba(212,175,55,0.06); color: #000; }
     </style>
 </head>
 <body class="bg-darkBg text-gray-100 antialiased selection:bg-accentGold selection:text-black">
@@ -80,7 +89,7 @@
                 <a href="#portfolio" class="hover:text-accentGold transition">Portfolio</a>
                 <a href="#pricing" class="hover:text-accentGold transition">Pricing</a>
                 <a href="#contact" class="hover:text-accentGold transition">Book Project</a>
-                <a href="https://wa.me/message/BSHW5BKXF5Q2M1" target="_blank" rel="noopener" class="hover:text-accentGold transition flex items-center gap-1.5 text-accentGold"><i class="fa-brands fa-whatsapp"></i> Chat</a>
+                <a href="https://wa.me/message/BSHW5BKXF5Q2M1" target="_blank" rel="noopener" class="hover:text-accentGold transition flex items-center gap-1.5 text-accentGold"><i class="fa-brands fa-whatsapp"></i> Contact</a>
             </nav>
             <div class="flex items-center gap-4">
                 <a href="#contact" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-full text-sm font-semibold text-black bg-accentGold hover:bg-yellow-500 transition">Book Project</a>
@@ -104,7 +113,7 @@
                     <span class="inline-flex items-center gap-3"><i class="fa-solid fa-calendar w-5"></i><span>Book Project</span></span>
                 </a>
 
-                <a href="https://wa.me/message/BSHW5BKXF5Q2M1" target="_blank" rel="noopener noreferrer" class="mobile-menu-link block mt-3 py-3 px-3 text-black font-semibold text-center rounded-full bg-accentGold"> <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</a>
+                <a href="https://wa.me/message/BSHW5BKXF5Q2M1" target="_blank" rel="noopener noreferrer" class="mobile-menu-link block mt-3 py-3 px-3 text-black font-semibold text-center rounded-full bg-accentGold">Message on WhatsApp</a>
             </nav>
         </div>
     </header>
@@ -124,8 +133,8 @@
                         Professional video editor and motion designer helping real estate brands, top creators, high-converting UGC campaigns, and SaaS enterprises scale through world-class visual storytelling.
                     </p>
                     <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
-                        <a href="#portfolio" class="w-full sm:w-auto px-8 py-4 rounded-full text-sm font-semibold tracking-wide uppercase bg-accentGold text-black hover:bg-yellow-500 transition">View Portfolio</a>
-                        <a href="#pricing" class="w-full sm:w-auto px-8 py-4 rounded-full text-sm font-semibold tracking-wide uppercase bg-white/5 hover:bg-white/10 text-white border border-white/10">See Pricing</a>
+                        <a href="#portfolio" class="w-full sm:w-auto px-8 py-4 rounded-full text-sm font-semibold tracking-wide uppercase bg-accentGold text-black hover:bg-yellow-500 transition">View Work</a>
+                        <a href="#pricing" class="w-full sm:w-auto px-8 py-4 rounded-full text-sm font-semibold tracking-wide uppercase bg-white/5 hover:bg-white/10 text-white border border-white/10">Packages & Pricing</a>
                     </div>
                 </div>
 
@@ -165,14 +174,14 @@
                         <h4 class="text-2xl font-bold border-b border-white/10 pb-4">Real Estate Video Tours</h4>
                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                             <div class="glass-panel p-4 rounded-xl flex justify-center">
-                                <div class="aspect-[9/16] w-full max-w-[280px] sm:max-w-[310px] mx-auto rounded-2xl overflow-hidden relative shadow-2xl border border-white/10 hover:border-accentGold/60 transition duration-300">
-                                    <iframe class="w-full h-full object-cover border-0" src="https://www.youtube.com/embed/5tz0WpfLnOg?rel=0&modestbranding=1" title="Real Estate Video 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                                <div class="aspect-[9/16] w-full max-w-[280px] sm:max-w-[310px] mx-auto rounded-2xl overflow-hidden relative shadow-2xl border border-white/10 hover:border-accentGold transition">
+                                    <iframe class="w-full h-full object-cover border-0" src="https://www.youtube.com/embed/5tz0WpfLnOg?rel=0&modestbranding=1" title="Real Estate Video 1" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
                                 </div>
                             </div>
 
                             <div class="glass-panel p-4 rounded-xl flex justify-center">
-                                <div class="aspect-[9/16] w-full max-w-[280px] sm:max-w-[310px] mx-auto rounded-2xl overflow-hidden relative shadow-2xl border border-white/10 hover:border-accentGold/60 transition duration-300">
-                                    <iframe class="w-full h-full object-cover border-0" src="https://www.youtube.com/embed/sBLw5wgkCqk?rel=0&modestbranding=1" title="Real Estate Video 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                                <div class="aspect-[9/16] w-full max-w-[280px] sm:max-w-[310px] mx-auto rounded-2xl overflow-hidden relative shadow-2xl border border-white/10 hover:border-accentGold transition">
+                                    <iframe class="w-full h-full object-cover border-0" src="https://www.youtube.com/embed/sBLw5wgkCqk?rel=0&modestbranding=1" title="Real Estate Video 2" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
                                 </div>
                             </div>
                         </div>
@@ -182,14 +191,14 @@
                         <h4 class="text-2xl font-bold border-b border-white/10 pb-4">Talking Head / Creator Videos</h4>
                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                             <div class="glass-panel p-4 rounded-xl flex justify-center">
-                                <div class="aspect-[9/16] w-full max-w-[280px] sm:max-w-[310px] mx-auto rounded-2xl overflow-hidden relative shadow-2xl border border-white/10 hover:border-accentGold/60 transition duration-300">
-                                    <iframe class="w-full h-full object-cover border-0" src="https://www.youtube.com/embed/nxnu7-EUYiQ?rel=0&modestbranding=1" title="Talking Head Video 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                                <div class="aspect-[9/16] w-full max-w-[280px] sm:max-w-[310px] mx-auto rounded-2xl overflow-hidden relative shadow-2xl border border-white/10 hover:border-accentGold transition">
+                                    <iframe class="w-full h-full object-cover border-0" src="https://www.youtube.com/embed/nxnu7-EUYiQ?rel=0&modestbranding=1" title="Talking Head Video 1" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
                                 </div>
                             </div>
 
                             <div class="glass-panel p-4 rounded-xl flex justify-center">
-                                <div class="aspect-[9/16] w-full max-w-[280px] sm:max-w-[310px] mx-auto rounded-2xl overflow-hidden relative shadow-2xl border border-white/10 hover:border-accentGold/60 transition duration-300">
-                                    <iframe class="w-full h-full object-cover border-0" src="https://www.youtube.com/embed/D5WrfVnBA30?rel=0&modestbranding=1" title="Talking Head Video 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                                <div class="aspect-[9/16] w-full max-w-[280px] sm:max-w-[310px] mx-auto rounded-2xl overflow-hidden relative shadow-2xl border border-white/10 hover:border-accentGold transition">
+                                    <iframe class="w-full h-full object-cover border-0" src="https://www.youtube.com/embed/D5WrfVnBA30?rel=0&modestbranding=1" title="Talking Head Video 2" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
                                 </div>
                             </div>
                         </div>
@@ -199,14 +208,14 @@
                         <h4 class="text-2xl font-bold border-b border-white/10 pb-4">UGC Ad Campaigns</h4>
                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                             <div class="glass-panel p-4 rounded-xl flex justify-center">
-                                <div class="aspect-[9/16] w-full max-w-[280px] sm:max-w-[310px] mx-auto rounded-2xl overflow-hidden relative shadow-2xl border border-white/10 hover:border-accentGold/60 transition duration-300">
-                                    <iframe class="w-full h-full object-cover border-0" src="https://www.youtube.com/embed/oKePZu9Op7M?rel=0&modestbranding=1" title="UGC Video 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                                <div class="aspect-[9/16] w-full max-w-[280px] sm:max-w-[310px] mx-auto rounded-2xl overflow-hidden relative shadow-2xl border border-white/10 hover:border-accentGold transition">
+                                    <iframe class="w-full h-full object-cover border-0" src="https://www.youtube.com/embed/oKePZu9Op7M?rel=0&modestbranding=1" title="UGC Video 1" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
                                 </div>
                             </div>
 
                             <div class="glass-panel p-4 rounded-xl flex justify-center">
-                                <div class="aspect-[9/16] w-full max-w-[280px] sm:max-w-[310px] mx-auto rounded-2xl overflow-hidden relative shadow-2xl border border-white/10 hover:border-accentGold/60 transition duration-300">
-                                    <iframe class="w-full h-full object-cover border-0" src="https://www.youtube.com/embed/a1PTzhdiM8o?rel=0&modestbranding=1" title="UGC Video 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                                <div class="aspect-[9/16] w-full max-w-[280px] sm:max-w-[310px] mx-auto rounded-2xl overflow-hidden relative shadow-2xl border border-white/10 hover:border-accentGold transition">
+                                    <iframe class="w-full h-full object-cover border-0" src="https://www.youtube.com/embed/a1PTzhdiM8o?rel=0&modestbranding=1" title="UGC Video 2" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
                                 </div>
                             </div>
                         </div>
@@ -216,14 +225,14 @@
                         <h4 class="text-2xl font-bold border-b border-white/10 pb-4">SaaS / Product Animation Videos</h4>
                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                             <div class="glass-panel p-4 rounded-xl flex justify-center">
-                                <div class="aspect-[9/16] w-full max-w-[280px] sm:max-w-[310px] mx-auto rounded-2xl overflow-hidden relative shadow-2xl border border-white/10 hover:border-accentGold/60 transition duration-300">
-                                    <iframe class="w-full h-full object-cover border-0" src="https://www.youtube.com/embed/G-4HGah3NJk?rel=0&modestbranding=1" title="SaaS Animation Video 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                                <div class="aspect-[9/16] w-full max-w-[280px] sm:max-w-[310px] mx-auto rounded-2xl overflow-hidden relative shadow-2xl border border-white/10 hover:border-accentGold transition">
+                                    <iframe class="w-full h-full object-cover border-0" src="https://www.youtube.com/embed/G-4HGah3NJk?rel=0&modestbranding=1" title="SaaS Animation Video 1" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
                                 </div>
                             </div>
 
                             <div class="glass-panel p-4 rounded-xl flex justify-center">
-                                <div class="aspect-[9/16] w-full max-w-[280px] sm:max-w-[310px] mx-auto rounded-2xl overflow-hidden relative shadow-2xl border border-white/10 hover:border-accentGold/60 transition duration-300">
-                                    <iframe class="w-full h-full object-cover border-0" src="https://www.youtube.com/embed/PLMh16yhotU?rel=0&modestbranding=1" title="SaaS Animation Video 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                                <div class="aspect-[9/16] w-full max-w-[280px] sm:max-w-[310px] mx-auto rounded-2xl overflow-hidden relative shadow-2xl border border-white/10 hover:border-accentGold transition">
+                                    <iframe class="w-full h-full object-cover border-0" src="https://www.youtube.com/embed/PLMh16yhotU?rel=0&modestbranding=1" title="SaaS Animation Video 2" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
                                 </div>
                             </div>
                         </div>
@@ -240,14 +249,14 @@
                         <i class="fa-solid fa-crown"></i> Mastery
                     </div>
                     <h2 class="text-3xl sm:text-5xl font-bold tracking-tight text-white">Industry-Standard Tools & Workflow</h2>
-                    <p class="mt-4 text-lg text-gray-400">5+ Years of Mastery delivering high-retention, broadcast-quality edits with storytelling precision, robust post-production systems, and polished motion design.</p>
+                    <p class="mt-4 text-lg text-gray-400">5+ Years of Mastery delivering high-retention, broadcast-quality edits with storytelling precision, robust post-production systems, and proven delivery workflows.</p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
                     <!-- Premiere Pro Card -->
-                    <div class="glass-panel rounded-3xl p-6 border border-accentGold/20 hover:border-accentGold/60 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_25px_rgba(212,175,55,0.08)]">
+                    <div class="glass-panel rounded-3xl p-6 border border-accentGold/20 hover:border-accentGold/60 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_25px_rgba(212,175,55,0.12)]">
                         <div class="flex items-center justify-between gap-3 mb-4">
-                            <span class="inline-flex items-center px-3 py-1 rounded-full bg-[#d4af37]/15 text-accentGold text-xs font-semibold uppercase tracking-[0.1em] border border-accentGold/20">Premiere</span>
+                            <span class="inline-flex items-center px-3 py-1 rounded-full bg-[#d4af37]/15 text-accentGold text-xs font-semibold uppercase tracking-[0.1em] border border-accentGold/10">Adobe Suite</span>
                         </div>
                         <img src="premium%20Pro.png" alt="Adobe Premiere Pro" class="w-full h-44 object-contain rounded-2xl border border-white/10 mb-5 bg-black/60 p-4">
                         <h3 class="text-2xl font-bold text-accentGold mb-2">Adobe Premiere Pro</h3>
@@ -261,7 +270,7 @@
                     </div>
 
                     <!-- After Effects Card -->
-                    <div class="glass-panel rounded-3xl p-6 border border-accentGold/20 hover:border-accentGold/60 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_25px_rgba(212,175,55,0.08)]">
+                    <div class="glass-panel rounded-3xl p-6 border border-accentGold/20 hover:border-accentGold/60 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_25px_rgba(212,175,55,0.12)]">
                         <img src="after%20effect.png" alt="Adobe After Effects" class="w-full h-44 object-contain rounded-2xl border border-white/10 mb-5 bg-black/60 p-4">
                         <h3 class="text-2xl font-bold text-accentGold mb-2">Adobe After Effects</h3>
                         <p class="text-base font-semibold text-yellow-300 mb-3">High-End Motion Graphics, VFX & Kinetic Typography</p>
@@ -274,7 +283,7 @@
                     </div>
 
                     <!-- DaVinci Resolve Card -->
-                    <div class="glass-panel rounded-3xl p-6 border border-accentGold/20 hover:border-accentGold/60 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_25px_rgba(212,175,55,0.08)]">
+                    <div class="glass-panel rounded-3xl p-6 border border-accentGold/20 hover:border-accentGold/60 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_25px_rgba(212,175,55,0.12)]">
                         <img src="Davinci%20resolve.png" alt="DaVinci Resolve" class="w-full h-44 object-contain rounded-2xl border border-white/10 mb-5 bg-black/60 p-4">
                         <h3 class="text-2xl font-bold text-accentGold mb-2">DaVinci Resolve</h3>
                         <p class="text-base font-semibold text-yellow-300 mb-3">Broadcast-Grade Color Science & Finishing</p>
@@ -318,14 +327,14 @@
 
                                             <div class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-gray-200">
                                                 <div class="space-y-2">
-                                                    <div class="flex items-start gap-3"><span class="text-[#d4af37] mt-1">✓</span><span>15 Professionally Edited Short-Form Videos (Reels, TikToks, Shorts)</span></div>
+                                                    <div class="flex items-start gap-3"><span class="text-[#d4af37] mt-1">✓</span><span>15 Professionally Edited Short-Form Videos (Reels, TikTok)</span></div>
                                                     <div class="flex items-start gap-3"><span class="text-[#d4af37] mt-1">✓</span><span>Precision pacing, jump cuts & dead-air removal</span></div>
                                                     <div class="flex items-start gap-3"><span class="text-[#d4af37] mt-1">✓</span><span>Custom dynamic motion titles & styled lower-thirds</span></div>
                                                     <div class="flex items-start gap-3"><span class="text-[#d4af37] mt-1">✓</span><span>Cinematic color correction & skin-tone pop</span></div>
                                                 </div>
                                                 <div class="space-y-2">
                                                     <div class="flex items-start gap-3"><span class="text-[#d4af37] mt-1">✓</span><span>Dedicated sound design & crisp studio audio polish</span></div>
-                                                    <div class="flex items-start gap-3"><span class="text-[#d4af37] mt-1">✓</span><span>Brand-styled auto-captions & multi-platform master export</span></div>
+                                                    <div class="flex items-start gap-3"><span class="text-[#d4af37] mt-1">✓</span><span>Brand-styled auto-captions & multi-platform master exports</span></div>
                                                     <div class="flex items-start gap-3"><span class="text-[#d4af37] mt-1">✓</span><span>Fast batch turnaround with structured delivery milestones</span></div>
                                                     <div class="flex items-start gap-3"><span class="text-[#d4af37] mt-1">✓</span><span>Dedicated revision rounds & direct priority support</span></div>
                                                 </div>
@@ -440,7 +449,7 @@
                 <div class="space-y-8 pt-8">
                     <h4 class="text-xl font-bold text-center text-[#d4af37]">SaaS &amp; Fast Animation Packages</h4>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <div class="p-8 rounded-3xl bg-[#121212] border border-white/10 flex flex-col justify-between space-y-8 shadow-xl transition duration-300 hover:-translate-y-1">
+                        <div class="p-8 rounded-3xl bg-[#121212] border border-white/10 pricing-card shadow-xl transition duration-300 hover:-translate-y-1">
                             <div class="space-y-6">
                                 <div>
                                     <h4 class="text-2xl font-bold text-white">30s Promo</h4>
@@ -450,11 +459,21 @@
                                     <span class="text-4xl font-extrabold text-[#d4af37]">$150</span>
                                     <span class="text-xs text-gray-300">per video</span>
                                 </div>
+
+                                <div class="mt-3 text-sm text-gray-200">
+                                    <div class="font-semibold">Turnaround: <span class="text-white">2-3 BUSINESS DAYS</span></div>
+                                    <ul class="mt-3 space-y-2 pkg-checklist">
+                                        <li><span>✓</span><span>Product UI animation & clean typography</span></li>
+                                        <li><span>✓</span><span>Engaging background score & sound effects</span></li>
+                                        <li><span>✓</span><span>1 platform export (9:16 / 16:9)</span></li>
+                                        <li><span>✓</span><span>2 rounds of revisions</span></li>
+                                    </ul>
+                                </div>
                             </div>
-                            <a href="#contact" class="select-package w-full py-4 rounded-xl font-semibold text-center border border-[#d4af37] text-[#d4af37] hover:bg-[#d4af37] hover:text-black transition" data-pkg="promo-30s">Select 30s Promo — $150</a>
+                            <a href="#contact" class="select-package w-full py-4 rounded-xl font-semibold text-center bg-accentGold text-black hover:bg-yellow-500 transition mt-6" data-pkg="promo">Select 30s Promo — $150</a>
                         </div>
 
-                        <div class="p-8 rounded-3xl bg-[#121212] border border-white/10 flex flex-col justify-between space-y-8 shadow-xl transition duration-300 hover:-translate-y-1">
+                        <div class="p-8 rounded-3xl bg-[#121212] border border-white/10 pricing-card shadow-xl transition duration-300 hover:-translate-y-1">
                             <div class="space-y-6">
                                 <div>
                                     <h4 class="text-2xl font-bold text-white">60s Explainer</h4>
@@ -464,11 +483,21 @@
                                     <span class="text-4xl font-extrabold text-[#d4af37]">$200</span>
                                     <span class="text-xs text-gray-300">per video</span>
                                 </div>
+
+                                <div class="mt-3 text-sm text-gray-200">
+                                    <div class="font-semibold">Turnaround: <span class="text-white">3-4 BUSINESS DAYS</span></div>
+                                    <ul class="mt-3 space-y-2 pkg-checklist">
+                                        <li><span>✓</span><span>Comprehensive feature walkthrough & 3D mockups</span></li>
+                                        <li><span>✓</span><span>UI screen recordings & kinetic titles</span></li>
+                                        <li><span>✓</span><span>Up to 2 platform exports</span></li>
+                                        <li><span>✓</span><span>3 rounds of revisions</span></li>
+                                    </ul>
+                                </div>
                             </div>
-                            <a href="#contact" class="select-package w-full py-4 rounded-xl font-semibold text-center border border-[#d4af37] text-[#d4af37] hover:bg-[#d4af37] hover:text-black transition" data-pkg="explainer-60s">Select 60s Explainer — $200</a>
+                            <a href="#contact" class="select-package w-full py-4 rounded-xl font-semibold text-center bg-accentGold text-black hover:bg-yellow-500 transition mt-6" data-pkg="explainer">Select 60s Explainer — $200</a>
                         </div>
 
-                        <div class="p-8 rounded-3xl bg-[#121212] border border-white/10 flex flex-col justify-between space-y-8 shadow-xl transition duration-300 hover:-translate-y-1">
+                        <div class="p-8 rounded-3xl bg-[#121212] border border-white/10 pricing-card shadow-xl transition duration-300 hover:-translate-y-1">
                             <div class="space-y-6">
                                 <div>
                                     <h4 class="text-2xl font-bold text-white">Premium SaaS</h4>
@@ -478,8 +507,18 @@
                                     <span class="text-4xl font-extrabold text-[#d4af37]">$250</span>
                                     <span class="text-xs text-gray-300">per video</span>
                                 </div>
+
+                                <div class="mt-3 text-sm text-gray-200">
+                                    <div class="font-semibold">Turnaround: <span class="text-white">4-5 BUSINESS DAYS</span></div>
+                                    <ul class="mt-3 space-y-2 pkg-checklist">
+                                        <li><span>✓</span><span>Custom 3D UI mockups & high-end motion graphics</span></li>
+                                        <li><span>✓</span><span>High-conversion ad visual optimization</span></li>
+                                        <li><span>✓</span><span>Complex product flow breakdowns & custom VFX</span></li>
+                                        <li><span>✓</span><span>Unlimited platform exports & aspect ratios</span></li>
+                                    </ul>
+                                </div>
                             </div>
-                            <a href="#contact" class="select-package w-full py-4 rounded-xl font-semibold text-center border border-[#d4af37] text-[#d4af37] hover:bg-[#d4af37] hover:text-black transition" data-pkg="premium-saas">Select Premium SaaS — $250</a>
+                            <a href="#contact" class="select-package w-full py-4 rounded-xl font-semibold text-center bg-accentGold text-black hover:bg-yellow-500 transition mt-6" data-pkg="saas-premium">Select Premium SaaS — $250</a>
                         </div>
                     </div>
                 </div>
@@ -532,14 +571,29 @@
                                     <input type="text" id="clientPhone" required placeholder="+91 60018 67854" class="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/10 text-white" />
                                 </div>
                                 <div class="space-y-2">
-                                    <label class="text-xs font-semibold uppercase tracking-wider text-gray-300">Selected Package</label>
-                                    <input type="hidden" id="bookingPackageInput" name="package" />
-                                    <div id="bookingSelectedLabel" class="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/10 text-white">No package selected</div>
+                                    <label class="text-xs font-semibold uppercase tracking-wider text-gray-300">Service Required</label>
+                                    <select id="serviceRequired" class="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/10 text-white">
+                                        <option value="Video Editing">Video Editing</option>
+                                        <option value="Motion Design / 3D">Motion Design / 3D</option>
+                                        <option value="Bulk / Creator Tier">Bulk / Creator Tier</option>
+                                        <option value="Consultation">Consultation</option>
+                                    </select>
                                 </div>
                             </div>
 
-                            <div class="flex items-center justify-between">
-                                <button id="nextToPackage" type="button" class="px-6 py-3 rounded-xl bg-accentGold text-black font-bold">Next</button>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
+                                <div class="space-y-2">
+                                    <label class="text-xs font-semibold uppercase tracking-wider text-gray-300">Client Reference</label>
+                                    <input type="text" id="clientRef" placeholder="Campaign name or ref #123" class="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/10 text-white" />
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="text-xs font-semibold uppercase tracking-wider text-gray-300">Project Details</label>
+                                    <input type="text" id="shortProjectDetails" placeholder="A one-line summary (will be expanded later)" class="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/10 text-white" />
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-between mt-4">
+                                <button id="nextToPackage" type="button" class="px-6 py-3 rounded-xl bg-accentGold text-black font-bold">Next: Choose Package & Price →</button>
                                 <a href="https://wa.me/message/BSHW5BKXF5Q2M1" target="_blank" class="text-sm text-gray-400">Prefer to chat on WhatsApp?</a>
                             </div>
                         </div>
@@ -547,39 +601,39 @@
                         <!-- Step 2: Package selection -->
                         <div id="formStep2" data-booking-step="2" style="display:none">
                             <h4 class="text-lg font-semibold">Choose or confirm a package</h4>
-                            <div id="packageGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
-                                <!-- Buttons rendered via DOM or fallback below -->
-                                <button type="button" class="select-package btn-outline w-full px-4 py-3 rounded-xl border border-white/10 text-white text-left" data-pkg="starter">Starter — $35</button>
-                                <button type="button" class="select-package btn-outline w-full px-4 py-3 rounded-xl border border-white/10 text-white text-left" data-pkg="standard">Standard — $45</button>
-                                <button type="button" class="select-package btn-outline w-full px-4 py-3 rounded-xl border border-white/10 text-white text-left" data-pkg="professional">Professional — $65</button>
-                                <button type="button" class="select-package btn-outline w-full px-4 py-3 rounded-xl border border-white/10 text-white text-left" data-pkg="premium">Premium — $85</button>
-                                <button type="button" class="select-package btn-outline w-full px-4 py-3 rounded-xl border border-white/10 text-white text-left" data-pkg="promo-30s">30s Promo — $150</button>
-                                <button type="button" class="select-package btn-outline w-full px-4 py-3 rounded-xl border border-white/10 text-white text-left" data-pkg="explainer-60s">60s Explainer — $200</button>
-                                <button type="button" class="select-package btn-outline w-full px-4 py-3 rounded-xl border border-white/10 text-white text-left" data-pkg="premium-saas">Premium SaaS — $250</button>
-                                <button type="button" class="select-package btn-outline w-full px-4 py-3 rounded-xl border border-white/10 text-white text-left" data-pkg="bulk-15">Creator Bulk Tier (15 vids) — $540</button>
+
+                            <div id="pkgGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+                                <!-- Will be populated by JS from PACKAGES -->
                             </div>
 
+                            <div class="mt-3 text-sm text-gray-200">Selected: <span id="selectedNote">No package selected</span></div>
+
                             <div class="flex justify-between mt-4">
-                                <button type="button" class="px-6 py-3 rounded-xl border border-white/10 text-white" id="backToDetails">Back</button>
-                                <button type="button" class="px-6 py-3 rounded-xl bg-accentGold text-black font-bold" id="toConnect">Next — Connect</button>
+                                <button type="button" class="px-6 py-3 rounded-xl border border-white/10 text-white" id="backToDetails">← Back</button>
+                                <button type="button" class="px-6 py-3 rounded-xl bg-accentGold text-black font-bold" id="toConnect">Next: Review & Connect →</button>
                             </div>
                         </div>
 
                         <!-- Step 3: Connect (submit) -->
                         <div id="formStep3" data-booking-step="3" style="display:none">
-                            <h4 class="text-lg font-semibold">Almost done — share project notes</h4>
-                            <label class="block mt-3">
-                                <span class="text-sm text-white/80">Project Notes</span>
-                                <textarea id="clientNotes" rows="4" class="mt-1 w-full rounded-md bg-black/50 border border-white/10 p-3 text-white"></textarea>
-                            </label>
+                            <h4 class="text-lg font-semibold">Almost done — review & connect</h4>
+
+                            <div class="mt-3 p-4 rounded-xl bg-black/50 border border-white/10">
+                                <div class="text-sm text-gray-300">Name: <span id="summaryName" class="text-white font-semibold">-</span></div>
+                                <div class="text-sm text-gray-300">Service: <span id="summaryService" class="text-white font-semibold">-</span></div>
+                                <div class="text-sm text-gray-300">Package: <span id="summaryPackage" class="text-white font-semibold">-</span></div>
+                                <div class="text-sm text-gray-300 mt-2">Details: <span id="summaryDetails" class="text-white">-</span></div>
+                            </div>
+
+                            <label class="flex items-start gap-3 mt-4"><input type="checkbox" id="termsCheckbox" class="mt-1" /> <span class="text-sm">50% advance payment & 24hr standard turnaround delivery</span></label>
 
                             <div class="mt-4 space-x-3">
-                                <button type="submit" class="px-6 py-3 rounded-xl bg-accentGold text-black font-bold">Send Booking (WhatsApp & Email)</button>
-                                <a href="https://wa.me/message/BSHW5BKXF5Q2M1" target="_blank" class="px-6 py-3 rounded-xl border border-white/10 text-white">Open WhatsApp</a>
+                                <button type="button" id="sendWhatsAppBtn" class="px-6 py-3 rounded-xl bg-accentGold text-black font-bold">Send via WhatsApp</button>
+                                <a href="#" id="sendEmailLink" class="px-6 py-3 rounded-xl border border-white/10 text-white">Send via Email</a>
                             </div>
 
                             <div class="mt-6">
-                                <button type="button" class="px-6 py-3 rounded-xl border border-white/10 text-white" id="backToPackage">Back</button>
+                                <button type="button" class="px-6 py-3 rounded-xl border border-white/10 text-white" id="backToPackage">← Back</button>
                             </div>
                         </div>
                     </form>
@@ -663,16 +717,16 @@
             filterCategories('all');
         });
 
-        /* PACKAGES array (restored full set) */
+        /* PACKAGES array (restored full set with ids matching select buttons) */
         const PACKAGES = [
-            { id: 'starter', title: 'Starter', price: 35, label: '$35' },
-            { id: 'standard', title: 'Standard', price: 45, label: '$45' },
-            { id: 'professional', title: 'Professional', price: 65, label: '$65' },
-            { id: 'premium', title: 'Premium', price: 85, label: '$85' },
-            { id: 'promo-30s', title: '30s Promo', price: 150, label: '$150' },
-            { id: 'explainer-60s', title: '60s Explainer', price: 200, label: '$200' },
-            { id: 'premium-saas', title: 'Premium SaaS', price: 250, label: '$250' },
-            { id: 'bulk-15', title: 'Creator Bulk Editing Tier (15 Videos)', price: 540, label: '$540' }
+            { id: 'starter', title: 'Starter', price: 35, label: '$35', desc: 'Quick, clean edits for simple content' },
+            { id: 'standard', title: 'Standard', price: 45, label: '$45', desc: 'Short-form & talking head videos' },
+            { id: 'professional', title: 'Professional', price: 65, label: '$65', desc: 'Real estate tours, UGC packages & advanced edits' },
+            { id: 'premium', title: 'Premium', price: 85, label: '$85', desc: 'Elite cinematic workflow & top-tier effects' },
+            { id: 'promo', title: '30s Promo', price: 150, label: '$150', desc: 'Fast-paced product UI animation' },
+            { id: 'explainer', title: '60s Explainer', price: 200, label: '$200', desc: 'Detailed software feature walkthrough' },
+            { id: 'saas-premium', title: 'Premium SaaS', price: 250, label: '$250', desc: 'Enterprise scale animation production' },
+            { id: 'bulk-15', title: 'Creator Bulk Editing Tier (15 Videos)', price: 540, label: '$540', desc: '15 videos bulk tier' }
         ];
 
         function getPackageById(id) { return PACKAGES.find(p => p.id === id) || null; }
@@ -687,6 +741,10 @@
             document.getElementById('stepIndicator2').classList.toggle('text-[#d4af37]', step === 2);
             document.getElementById('stepIndicator3').classList.toggle('text-[#d4af37]', step === 3);
         }
+
+        // compatibility wrappers requested in spec
+        function goToStep2() { goToBookingStep(2); }
+        function goToStep3() { goToBookingStep(3); }
 
         function selectPackageAndGo(id) {
             const pkg = getPackageById(id);
@@ -705,6 +763,43 @@
             if (contactEl) contactEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
 
+        function renderPackageGrid() {
+            const grid = document.getElementById('pkgGrid');
+            if (!grid) return;
+            grid.innerHTML = '';
+            PACKAGES.forEach(pkg => {
+                const tile = document.createElement('button');
+                tile.type = 'button';
+                tile.className = 'pkg-tile select-package';
+                tile.dataset.pkg = pkg.id;
+                tile.innerHTML = `
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <div class="text-sm text-white font-semibold">${pkg.title}</div>
+                            <div class="text-xs text-gray-300">${pkg.desc}</div>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-sm text-[#d4af37] font-bold">${pkg.label}</div>
+                        </div>
+                    </div>
+                `;
+                tile.addEventListener('click', () => {
+                    // mark selected visually
+                    document.querySelectorAll('.pkg-tile').forEach(t => t.classList.remove('selected'));
+                    tile.classList.add('selected');
+
+                    // update inputs and note
+                    const input = document.getElementById('bookingPackageInput');
+                    const label = document.getElementById('bookingSelectedLabel');
+                    const selectedNote = document.getElementById('selectedNote');
+                    if (input) input.value = pkg.id;
+                    if (label) label.textContent = `${pkg.title} — ${pkg.label}`;
+                    if (selectedNote) selectedNote.textContent = `${pkg.title} — ${pkg.label}`;
+                });
+                grid.appendChild(tile);
+            });
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             // Attach select handlers to package buttons site-wide
             document.querySelectorAll('.select-package[data-pkg]').forEach(btn => {
@@ -715,49 +810,116 @@
                 });
             });
 
+            // Render dynamic package grid inside form step 2
+            renderPackageGrid();
+
             // Step navigation buttons
-            document.getElementById('nextToPackage')?.addEventListener('click', () => goToBookingStep(2));
+            document.getElementById('nextToPackage')?.addEventListener('click', () => goToStep2());
             document.getElementById('backToDetails')?.addEventListener('click', () => goToBookingStep(1));
-            document.getElementById('toConnect')?.addEventListener('click', () => goToBookingStep(3));
+            document.getElementById('toConnect')?.addEventListener('click', () => {
+                // populate summary before moving
+                populateSummary();
+                goToStep3();
+            });
             document.getElementById('backToPackage')?.addEventListener('click', () => goToBookingStep(2));
 
-            // Attach select-package buttons inside form step 2 (they also use same class)
-            document.querySelectorAll('#formStep2 .select-package').forEach(btn => {
+            // Attach select-package buttons inside form step 2 (also have class select-package)
+            document.querySelectorAll('#pkgGrid .select-package').forEach(btn => {
                 btn.addEventListener('click', () => {
                     const id = btn.dataset.pkg;
                     const input = document.getElementById('bookingPackageInput');
                     const label = document.getElementById('bookingSelectedLabel');
+                    const selectedNote = document.getElementById('selectedNote');
                     if (input) input.value = id;
                     const pkg = getPackageById(id);
                     if (label && pkg) label.textContent = `${pkg.title} — ${pkg.label}`;
+                    if (selectedNote && pkg) selectedNote.textContent = `${pkg.title} — ${pkg.label}`;
                 });
             });
 
             // Initialize form at step 1
             goToBookingStep(1);
+
+            // Send buttons on step 3
+            document.getElementById('sendWhatsAppBtn')?.addEventListener('click', () => sendViaWhatsApp());
+            document.getElementById('sendEmailLink')?.addEventListener('click', (e) => {
+                e.preventDefault();
+                sendViaEmail();
+            });
         });
 
-        /* Booking submission — WhatsApp + mailto handoff */
+        function populateSummary() {
+            const name = document.getElementById('clientName')?.value || '-';
+            const service = document.getElementById('serviceRequired')?.value || '-';
+            const pkgId = document.getElementById('bookingPackageInput')?.value || '';
+            const shortDetails = document.getElementById('shortProjectDetails')?.value || '';
+            const pkg = getPackageById(pkgId);
+
+            document.getElementById('summaryName').textContent = name;
+            document.getElementById('summaryService').textContent = service;
+            document.getElementById('summaryPackage').textContent = pkg ? `${pkg.title} — ${pkg.label}` : 'No package selected';
+            document.getElementById('summaryDetails').textContent = shortDetails || '-';
+
+            // prepare mailto link for email button
+            const message = `New booking request\nName: ${name}\nService: ${service}\nPackage: ${pkg ? pkg.title + ' (' + pkg.label + ')' : 'None'}\nRef: ${document.getElementById('clientRef')?.value || ''}\nDetails: ${shortDetails}`;
+            const mailto = `mailto:ayushkumardeb10@gmail.com?subject=${encodeURIComponent('New booking: ' + (pkg ? pkg.title : 'No package'))}&body=${encodeURIComponent(message)}`;
+            const sendEmailLink = document.getElementById('sendEmailLink');
+            if (sendEmailLink) sendEmailLink.href = mailto;
+        }
+
+        /* Booking submission — WhatsApp + mailto handoff (legacy fallback when using form submit) */
         function submitBookingForm(e) {
             e.preventDefault();
+            // use the same flow as sendViaWhatsApp then mailto fallback
+            sendViaWhatsApp(true);
+        }
+
+        function sendViaWhatsApp(openEmailAfter = false) {
             const name = document.getElementById('clientName')?.value || '';
             const email = document.getElementById('clientEmail')?.value || '';
             const phone = document.getElementById('clientPhone')?.value || '';
             const pkgId = document.getElementById('bookingPackageInput')?.value || '';
-            const notes = document.getElementById('clientNotes')?.value || '';
+            const notes = document.getElementById('shortProjectDetails')?.value || '';
+            const service = document.getElementById('serviceRequired')?.value || '';
+            const termsOk = document.getElementById('termsCheckbox')?.checked || false;
+
+            if (!termsOk) {
+                alert('Please accept the terms: 50% advance payment & 24hr standard turnaround delivery');
+                return;
+            }
 
             const pkg = getPackageById(pkgId);
             const pkgLabel = pkg ? `${pkg.title} (${pkg.label})` : 'No package selected';
 
-            const message = `New booking request\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nPackage: ${pkgLabel}\nNotes: ${notes}`;
+            const message = `New booking request\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nService: ${service}\nPackage: ${pkgLabel}\nRef: ${document.getElementById('clientRef')?.value || ''}\nNotes: ${notes}`;
             const waUrl = `https://wa.me/message/BSHW5BKXF5Q2M1?text=${encodeURIComponent(message)}`;
-            const mailto = `mailto:ayushkumardeb10@gmail.com?subject=${encodeURIComponent('New booking: ' + pkgLabel)}&body=${encodeURIComponent(message)}`;
+            const mailto = `mailto:ayushkumardeb10@gmail.com?subject=${encodeURIComponent('New booking: ' + (pkg ? pkg.title : 'No package'))}&body=${encodeURIComponent(message)}`;
 
             window.open(waUrl, '_blank');
-            setTimeout(() => { window.location.href = mailto; }, 600);
+            if (openEmailAfter) {
+                setTimeout(() => { window.location.href = mailto; }, 600);
+            }
+        }
 
-            // Optionally show a success state
-            alert('Booking sent — opening WhatsApp and email to complete handoff.');
+        function sendViaEmail() {
+            // ensure terms accepted
+            const termsOk = document.getElementById('termsCheckbox')?.checked || false;
+            if (!termsOk) {
+                alert('Please accept the terms before sending.');
+                return;
+            }
+            const name = document.getElementById('clientName')?.value || '';
+            const email = document.getElementById('clientEmail')?.value || '';
+            const phone = document.getElementById('clientPhone')?.value || '';
+            const pkgId = document.getElementById('bookingPackageInput')?.value || '';
+            const notes = document.getElementById('shortProjectDetails')?.value || '';
+            const service = document.getElementById('serviceRequired')?.value || '';
+            const pkg = getPackageById(pkgId);
+            const pkgLabel = pkg ? `${pkg.title} (${pkg.label})` : 'No package selected';
+
+            const message = `New booking request\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nService: ${service}\nPackage: ${pkgLabel}\nRef: ${document.getElementById('clientRef')?.value || ''}\nNotes: ${notes}`;
+            const mailto = `mailto:ayushkumardeb10@gmail.com?subject=${encodeURIComponent('New booking: ' + (pkg ? pkg.title : 'No package'))}&body=${encodeURIComponent(message)}`;
+            window.location.href = mailto;
         }
     </script>
 </body>
