@@ -30,9 +30,9 @@
         .glass-panel { background: rgba(18, 18, 18, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); }
         .gold-gradient-text { background: linear-gradient(135deg, #f3e7c4 0%, #d4af37 50%, #aa7c11 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-        /* Updated: video wrapper defaults (iframes will cover the container) */
-        .video-container-wrapper { position: relative; width: 100%; background: #000; border-radius: 0.75rem; overflow: hidden; }
-        .video-container-wrapper iframe { width: 100%; height: 100%; object-fit: cover; border: none; display: block; }
+        /* Video wrapper defaults: vertical cards will use aspect-[9/16] + iframe fills container */
+        .video-vertical-wrapper { position: relative; width: 100%; background: #000; border-radius: 0.75rem; overflow: hidden; }
+        .video-vertical-wrapper iframe { width: 100%; height: 100%; object-fit: cover; border: 0; display: block; }
 
         /* Mobile Menu Smooth Transitions (upgraded glass/drawer) */
         #mobile-menu {
@@ -52,13 +52,8 @@
         }
 
         /* Hamburger Menu Icon Animation */
-        #menu-btn i {
-            transition: transform 0.3s ease-in-out;
-        }
-
-        #menu-btn.active i {
-            transform: rotate(90deg);
-        }
+        #menu-btn i { transition: transform 0.3s ease-in-out; }
+        #menu-btn.active i { transform: rotate(90deg); }
 
         /* Portfolio filter tab styles */
         .filter-tab { cursor: pointer; }
@@ -84,7 +79,7 @@
                 <a href="https://wa.me/message/BSHW5BKXF5Q2M1" target="_blank" rel="noopener" class="hover:text-accentGold transition flex items-center gap-1.5 text-accentGold"><i class="fa-brands fa-whatsapp"></i> Chat</a>
             </nav>
             <div class="flex items-center gap-4">
-                <a href="#contact" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-full text-sm font-semibold text-black bg-accentGold hover:bg-yellow-500 transition shadow">Book Project</a>
+                <a href="#contact" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-full text-sm font-semibold text-black bg-accentGold hover:bg-yellow-500 transition">Book Project</a>
                 <button id="menu-btn" class="md:hidden text-gray-300 hover:text-accentGold focus:outline-none text-xl p-2 transition" aria-label="Toggle menu"><i class="fa-solid fa-bars"></i></button>
             </div>
         </div>
@@ -92,7 +87,7 @@
         <!-- Mobile Menu Drawer (ultra-premium glassmorphism) -->
         <div id="mobile-menu" class="md:hidden bg-black/95 backdrop-blur-2xl border-b border-[#d4af37]/20 shadow-[0_20px_40px_rgba(0,0,0,0.8)] px-6 pt-4 pb-6 space-y-3">
             <nav class="flex flex-col">
-                <a href="#tools" class="mobile-menu-link block py-3 px-3 text-gray-200 rounded-lg text-base font-medium" aria-current="false">
+                <a href="#tools" class="mobile-menu-link block py-3 px-3 text-gray-200 rounded-lg text-base font-medium">
                     <span class="inline-flex items-center gap-3"><i class="fa-solid fa-screwdriver-wrench w-5"></i><span>Tools & Workflow</span></span>
                 </a>
                 <a href="#portfolio" class="mobile-menu-link block py-3 px-3 text-gray-200 rounded-lg text-base font-medium">
@@ -105,9 +100,7 @@
                     <span class="inline-flex items-center gap-3"><i class="fa-solid fa-calendar w-5"></i><span>Book Project</span></span>
                 </a>
 
-                <a href="https://wa.me/message/BSHW5BKXF5Q2M1" target="_blank" rel="noopener noreferrer" class="mobile-menu-link block mt-3 py-3 px-3 text-black font-semibold text-center rounded-full bg-gradient-to-r from-[#d4af37] via-[#f6e7a0] to-[#d4af37] shadow-[0_8px_30px_rgba(212,175,55,0.28)]">
-                    <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
-                </a>
+                <a href="https://wa.me/message/BSHW5BKXF5Q2M1" target="_blank" rel="noopener noreferrer" class="mobile-menu-link block mt-3 py-3 px-3 text-black font-semibold text-center rounded-full bg-accentGold"> <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</a>
             </nav>
         </div>
     </header>
@@ -117,7 +110,7 @@
         <section class="relative min-h-[90vh] flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16">
             <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
                 <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide uppercase bg-white/5 border border-white/10 text-accentGold backdrop-blur-sm">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide uppercase bg-white/5 border border-white/10 text-accentGold">
                         <i class="fa-solid fa-star"></i> 5+ Years Industry Experience
                     </div>
                     <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight">
@@ -127,7 +120,7 @@
                         Professional video editor and motion designer helping real estate brands, top creators, high-converting UGC campaigns, and SaaS enterprises scale through world-class visual storytelling.
                     </p>
                     <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
-                        <a href="#portfolio" class="w-full sm:w-auto px-8 py-4 rounded-full text-sm font-semibold tracking-wide uppercase bg-accentGold text-black hover:bg-yellow-500 transition shadow">Explore Work</a>
+                        <a href="#portfolio" class="w-full sm:w-auto px-8 py-4 rounded-full text-sm font-semibold tracking-wide uppercase bg-accentGold text-black hover:bg-yellow-500 transition">View Portfolio</a>
                         <a href="#pricing" class="w-full sm:w-auto px-8 py-4 rounded-full text-sm font-semibold tracking-wide uppercase bg-white/5 hover:bg-white/10 text-white border border-white/10">See Pricing</a>
                     </div>
                 </div>
@@ -168,13 +161,14 @@
                         <h4 class="text-2xl font-bold border-b border-white/10 pb-4">Real Estate Video Tours</h4>
                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                             <div class="glass-panel p-4 rounded-xl flex justify-center">
-                                <div class="aspect-[9/16] max-w-[280px] sm:max-w-[320px] mx-auto rounded-2xl overflow-hidden shadow-2xl border border-white/10 hover:border-accentGold/60 transition duration-300 relative group">
-                                    <iframe src="https://www.youtube.com/embed/5tz0WpfLnOg" title="Real Estate Video 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <div class="aspect-[9/16] w-full max-w-[280px] sm:max-w-[310px] mx-auto rounded-2xl overflow-hidden relative shadow-2xl border border-white/10 hover:border-accentGold/60 transition duration-300">
+                                    <iframe class="w-full h-full object-cover border-0" src="https://www.youtube.com/embed/5tz0WpfLnOg?rel=0&modestbranding=1" title="Real Estate Video 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
                                 </div>
                             </div>
+
                             <div class="glass-panel p-4 rounded-xl flex justify-center">
-                                <div class="aspect-[9/16] max-w-[280px] sm:max-w-[320px] mx-auto rounded-2xl overflow-hidden shadow-2xl border border-white/10 hover:border-accentGold/60 transition duration-300 relative group">
-                                    <iframe src="https://www.youtube.com/embed/sBLw5wgkCqk" title="Real Estate Video 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <div class="aspect-[9/16] w-full max-w-[280px] sm:max-w-[310px] mx-auto rounded-2xl overflow-hidden relative shadow-2xl border border-white/10 hover:border-accentGold/60 transition duration-300">
+                                    <iframe class="w-full h-full object-cover border-0" src="https://www.youtube.com/embed/sBLw5wgkCqk?rel=0&modestbranding=1" title="Real Estate Video 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
                                 </div>
                             </div>
                         </div>
@@ -184,13 +178,14 @@
                         <h4 class="text-2xl font-bold border-b border-white/10 pb-4">Talking Head / Creator Videos</h4>
                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                             <div class="glass-panel p-4 rounded-xl flex justify-center">
-                                <div class="aspect-[9/16] max-w-[280px] sm:max-w-[320px] mx-auto rounded-2xl overflow-hidden shadow-2xl border border-white/10 hover:border-accentGold/60 transition duration-300 relative group">
-                                    <iframe src="https://www.youtube.com/embed/nxnu7-EUYiQ" title="Talking Head Video 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <div class="aspect-[9/16] w-full max-w-[280px] sm:max-w-[310px] mx-auto rounded-2xl overflow-hidden relative shadow-2xl border border-white/10 hover:border-accentGold/60 transition duration-300">
+                                    <iframe class="w-full h-full object-cover border-0" src="https://www.youtube.com/embed/nxnu7-EUYiQ?rel=0&modestbranding=1" title="Talking Head Video 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
                                 </div>
                             </div>
+
                             <div class="glass-panel p-4 rounded-xl flex justify-center">
-                                <div class="aspect-[9/16] max-w-[280px] sm:max-w-[320px] mx-auto rounded-2xl overflow-hidden shadow-2xl border border-white/10 hover:border-accentGold/60 transition duration-300 relative group">
-                                    <iframe src="https://www.youtube.com/embed/D5WrfVnBA30" title="Talking Head Video 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <div class="aspect-[9/16] w-full max-w-[280px] sm:max-w-[310px] mx-auto rounded-2xl overflow-hidden relative shadow-2xl border border-white/10 hover:border-accentGold/60 transition duration-300">
+                                    <iframe class="w-full h-full object-cover border-0" src="https://www.youtube.com/embed/D5WrfVnBA30?rel=0&modestbranding=1" title="Talking Head Video 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
                                 </div>
                             </div>
                         </div>
@@ -200,13 +195,14 @@
                         <h4 class="text-2xl font-bold border-b border-white/10 pb-4">UGC Ad Campaigns</h4>
                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                             <div class="glass-panel p-4 rounded-xl flex justify-center">
-                                <div class="aspect-[9/16] max-w-[280px] sm:max-w-[320px] mx-auto rounded-2xl overflow-hidden shadow-2xl border border-white/10 hover:border-accentGold/60 transition duration-300 relative group">
-                                    <iframe src="https://www.youtube.com/embed/oKePZu9Op7M" title="UGC Video 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <div class="aspect-[9/16] w-full max-w-[280px] sm:max-w-[310px] mx-auto rounded-2xl overflow-hidden relative shadow-2xl border border-white/10 hover:border-accentGold/60 transition duration-300">
+                                    <iframe class="w-full h-full object-cover border-0" src="https://www.youtube.com/embed/oKePZu9Op7M?rel=0&modestbranding=1" title="UGC Video 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
                                 </div>
                             </div>
+
                             <div class="glass-panel p-4 rounded-xl flex justify-center">
-                                <div class="aspect-[9/16] max-w-[280px] sm:max-w-[320px] mx-auto rounded-2xl overflow-hidden shadow-2xl border border-white/10 hover:border-accentGold/60 transition duration-300 relative group">
-                                    <iframe src="https://www.youtube.com/embed/a1PTzhdiM8o" title="UGC Video 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <div class="aspect-[9/16] w-full max-w-[280px] sm:max-w-[310px] mx-auto rounded-2xl overflow-hidden relative shadow-2xl border border-white/10 hover:border-accentGold/60 transition duration-300">
+                                    <iframe class="w-full h-full object-cover border-0" src="https://www.youtube.com/embed/a1PTzhdiM8o?rel=0&modestbranding=1" title="UGC Video 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
                                 </div>
                             </div>
                         </div>
@@ -216,13 +212,14 @@
                         <h4 class="text-2xl font-bold border-b border-white/10 pb-4">SaaS / Product Animation Videos</h4>
                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                             <div class="glass-panel p-4 rounded-xl flex justify-center">
-                                <div class="aspect-[9/16] max-w-[280px] sm:max-w-[320px] mx-auto rounded-2xl overflow-hidden shadow-2xl border border-white/10 hover:border-accentGold/60 transition duration-300 relative group">
-                                    <iframe src="https://www.youtube.com/embed/G-4HGah3NJk" title="SaaS Animation Video 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <div class="aspect-[9/16] w-full max-w-[280px] sm:max-w-[310px] mx-auto rounded-2xl overflow-hidden relative shadow-2xl border border-white/10 hover:border-accentGold/60 transition duration-300">
+                                    <iframe class="w-full h-full object-cover border-0" src="https://www.youtube.com/embed/G-4HGah3NJk?rel=0&modestbranding=1" title="SaaS Animation Video 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
                                 </div>
                             </div>
+
                             <div class="glass-panel p-4 rounded-xl flex justify-center">
-                                <div class="aspect-[9/16] max-w-[280px] sm:max-w-[320px] mx-auto rounded-2xl overflow-hidden shadow-2xl border border-white/10 hover:border-accentGold/60 transition duration-300 relative group">
-                                    <iframe src="https://www.youtube.com/embed/PLMh16yhotU" title="SaaS Animation Video 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <div class="aspect-[9/16] w-full max-w-[280px] sm:max-w-[310px] mx-auto rounded-2xl overflow-hidden relative shadow-2xl border border-white/10 hover:border-accentGold/60 transition duration-300">
+                                    <iframe class="w-full h-full object-cover border-0" src="https://www.youtube.com/embed/PLMh16yhotU?rel=0&modestbranding=1" title="SaaS Animation Video 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
                                 </div>
                             </div>
                         </div>
@@ -239,79 +236,80 @@
                         <i class="fa-solid fa-crown"></i> Mastery
                     </div>
                     <h2 class="text-3xl sm:text-5xl font-bold tracking-tight text-white">Industry-Standard Tools & Workflow</h2>
-                    <p class="mt-4 text-lg text-gray-400">5+ Years of Mastery delivering high-retention, broadcast-quality edits with storytelling precision, robust post-production systems, and process-driven deliveries.</p>
+                    <p class="mt-4 text-lg text-gray-400">5+ Years of Mastery delivering high-retention, broadcast-quality edits with storytelling precision, robust post-production systems, and polished motion design.</p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
                     <div class="glass-panel rounded-3xl p-6 border border-accentGold/20 hover:border-accentGold/60 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_25px_rgba(212,175,55,0.08)]">
                         <div class="flex items-center justify-between gap-3 mb-4">
-                            <span class="inline-flex items-center px-3 py-1 rounded-full bg-[#d4af37]/15 text-accentGold text-xs font-semibold uppercase tracking-[0.1em] border border-accentGold/20">Tools</span>
+                            <span class="inline-flex items-center px-3 py-1 rounded-full bg-[#d4af37]/15 text-accentGold text-xs font-semibold uppercase tracking-[0.1em] border border-accentGold/20">Premiere</span>
                         </div>
                         <img src="premium%20Pro.png" alt="Adobe Premiere Pro" class="w-full h-52 object-cover rounded-2xl border border-white/10 mb-5">
                         <h3 class="text-2xl font-bold text-accentGold mb-2">Adobe Premiere Pro</h3>
                         <p class="text-base font-semibold text-yellow-300 mb-2">High-Retention Long-Form & Fast Short-Form Pacing</p>
-                        <p class="text-sm text-gray-300 leading-7 mb-4">Rapid timeline workflow, seamless jump cuts, multi-cam editing, dynamic audio ducking, and engagement-driven rhythm engineering.</p>
-                        <ul class="space-y-2 text-sm text-gray-200">
-                            <li class="flex items-start gap-2"><span class="text-accentGold">✓</span><span>Seamless jump cuts & intelligent pacing</span></li>
-                            <li class="flex items-start gap-2"><span class="text-accentGold">✓</span><span>Multi-cam timeline coordination</span></li>
-                            <li class="flex items-start gap-2"><span class="text-accentGold">✓</span><span>Adaptive audio ducking & clean sync</span></li>
-                            <li class="flex items-start gap-2"><span class="text-accentGold">✓</span><span>Retention-first storytelling flow</span></li>
-                        </ul>
                     </div>
 
                     <div class="glass-panel rounded-3xl p-6 border border-accentGold/20 hover:border-accentGold/60 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_25px_rgba(212,175,55,0.08)]">
-                        <div class="flex items-center justify-between gap-3 mb-4">
-                            <span class="inline-flex items-center px-3 py-1 rounded-full bg-[#d4af37]/15 text-accentGold text-xs font-semibold uppercase tracking-[0.1em] border border-accentGold/20">Motion</span>
-                        </div>
                         <img src="after%20effect.png" alt="Adobe After Effects" class="w-full h-52 object-cover rounded-2xl border border-white/10 mb-5">
                         <h3 class="text-2xl font-bold text-accentGold mb-2">Adobe After Effects</h3>
                         <p class="text-base font-semibold text-yellow-300 mb-2">High-End Motion Graphics, VFX & Kinetic Typography</p>
-                        <p class="text-sm text-gray-300 leading-7 mb-4">Custom 2D/3D mockups, SaaS UI animations, track mattes, 3D camera tracking, and custom sound design integration that elevates visual polish.</p>
-                        <ul class="space-y-2 text-sm text-gray-200">
-                            <li class="flex items-start gap-2"><span class="text-accentGold">✓</span><span>Custom 2D & 3D mockup animation</span></li>
-                            <li class="flex items-start gap-2"><span class="text-accentGold">✓</span><span>SaaS UI and product reveal visuals</span></li>
-                            <li class="flex items-start gap-2"><span class="text-accentGold">✓</span><span>Track matte motion + realism layers</span></li>
-                            <li class="flex items-start gap-2"><span class="text-accentGold">✓</span><span>Sound design & polish integration</span></li>
-                        </ul>
                     </div>
 
                     <div class="glass-panel rounded-3xl p-6 border border-accentGold/20 hover:border-accentGold/60 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_25px_rgba(212,175,55,0.08)]">
-                        <div class="flex items-center justify-between gap-3 mb-4">
-                            <span class="inline-flex items-center px-3 py-1 rounded-full bg-[#d4af37]/15 text-accentGold text-xs font-semibold uppercase tracking-[0.1em] border border-accentGold/20">Color</span>
-                        </div>
                         <img src="Davinci%20resolve.png" alt="DaVinci Resolve" class="w-full h-52 object-cover rounded-2xl border border-white/10 mb-5">
                         <h3 class="text-2xl font-bold text-accentGold mb-2">DaVinci Resolve</h3>
                         <p class="text-base font-semibold text-yellow-300 mb-2">Broadcast-Grade Color Science & Finishing</p>
-                        <p class="text-sm text-gray-300 leading-7 mb-4">Precise LUT development, skin-tone matching, cinematic color grading, noise reduction, and final mastering for a polished product.</p>
-                        <ul class="space-y-2 text-sm text-gray-200">
-                            <li class="flex items-start gap-2"><span class="text-accentGold">✓</span><span>Accurate LUT development & test grading</span></li>
-                            <li class="flex items-start gap-2"><span class="text-accentGold">✓</span><span>Skin-tone matching & cinematic balance</span></li>
-                            <li class="flex items-start gap-2"><span class="text-accentGold">✓</span><span>Noise reduction & detail control</span></li>
-                            <li class="flex items-start gap-2"><span class="text-accentGold">✓</span><span>Final mastering for premium delivery</span></li>
-                        </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Pricing Section -->
+        <!-- Pricing Section (with Exclusive Bulk Package restored) -->
         <section id="pricing" class="py-20 bg-[#0a0a0a]">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
                 <div class="text-center space-y-4">
                     <h2 class="text-xs font-semibold tracking-widest uppercase text-[#d4af37]">Investment</h2>
                     <h3 class="text-3xl sm:text-4xl font-bold tracking-tight text-white">Professional Video Editing Packages</h3>
                     <p class="text-sm text-gray-300">High-retention editing designed for 60-second high-impact videos.</p>
-                    <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 pt-2 text-xs text-gray-400">
-                        <span><span class="text-[#d4af37]">●</span> 24-hour turnaround on standard edits</span>
-                        <span><span class="text-[#d4af37]">●</span> 50% advance to start</span>
-                        <span><span class="text-[#d4af37]">●</span> Pick a plan &amp; book in 3 quick steps</span>
-                    </div>
                 </div>
 
                 <div class="space-y-8">
+                    <!-- Exclusive Bulk Video Package (FEATURED) -->
+                    <div class="max-w-5xl mx-auto px-4">
+                        <div class="mb-8">
+                            <div class="bg-gradient-to-br from-yellow-400/10 via-white/5 to-yellow-400/5 rounded-3xl p-1">
+                                <div class="bg-black/60 rounded-3xl backdrop-blur-md p-6 sm:p-8 border border-white/10">
+                                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                                        <div>
+                                            <h3 class="text-2xl font-semibold text-accentGold">Creator Bulk Editing Tier (15 Videos)</h3>
+                                            <p class="mt-2 text-sm text-white/80 inline-flex items-center gap-2">
+                                                <span class="inline-block bg-accentGold/10 text-accentGold px-3 py-1 rounded-full font-medium">⚡ LIMITED TIME BULK DEAL • SAVE 20%</span>
+                                            </p>
+                                            <p class="mt-3 text-sm text-white/70">
+                                                <span class="text-white/60 line-through mr-2">$675</span>
+                                                <span class="text-lg font-bold">$540</span>
+                                                <span class="ml-2 text-sm text-white/60">($36/video) • Save $135 OFF + Enhanced Motion Graphics &amp; Polish</span>
+                                            </p>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <a
+                                                href="#contact"
+                                                class="select-package inline-block bg-accentGold text-black font-semibold px-5 py-3 rounded-full shadow hover:shadow-lg transition"
+                                                data-pkg="bulk-15"
+                                            >
+                                                Claim Bulk Offer ($36/video) →
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <h4 class="text-xl font-bold text-center text-[#d4af37]">Normal Video Editing Packages</h4>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                        <div class="p-8 rounded-3xl bg-[#121212] border border-white/10 flex flex-col justify-between space-y-8 shadow-xl transition duration-300 hover:-translate-y-1 hover:border-accentGold/40">
+                        <!-- Starter -->
+                        <div class="p-8 rounded-3xl bg-[#121212] border border-white/10 flex flex-col justify-between space-y-8 shadow-xl transition duration-300 hover:-translate-y-1">
                             <div class="space-y-6">
                                 <div>
                                     <h4 class="text-2xl font-bold text-white">Starter</h4>
@@ -321,19 +319,12 @@
                                     <span class="text-4xl font-extrabold text-[#d4af37]">$35</span>
                                     <span class="text-xs text-gray-300">per video</span>
                                 </div>
-                                <div class="text-xs font-semibold text-[#d4af37] uppercase tracking-wider">TURNAROUND: 24-48 HOURS</div>
-                                <ul class="space-y-3 text-sm text-gray-200">
-                                    <li class="flex items-start gap-2"><span class="text-[#d4af37] font-bold leading-5">✓</span><span>Up to 5 min raw footage edited</span></li>
-                                    <li class="flex items-start gap-2"><span class="text-[#d4af37] font-bold leading-5">✓</span><span>Clean jump cuts &amp; standard pacing</span></li>
-                                    <li class="flex items-start gap-2"><span class="text-[#d4af37] font-bold leading-5">✓</span><span>Basic auto captions</span></li>
-                                    <li class="flex items-start gap-2"><span class="text-[#d4af37] font-bold leading-5">✓</span><span>Single platform export (9:16 or 16:9)</span></li>
-                                    <li class="flex items-start gap-2"><span class="text-[#d4af37] font-bold leading-5">✓</span><span>1 revision round</span></li>
-                                </ul>
                             </div>
-                            <a href="#contact" data-pkg="budget" class="w-full py-4 rounded-xl font-semibold text-center border border-[#d4af37] text-[#d4af37] hover:bg-[#d4af37] hover:text-black transition">Select</a>
+                            <a href="#contact" class="select-package w-full py-4 rounded-xl font-semibold text-center border border-[#d4af37] text-[#d4af37] hover:bg-[#d4af37] hover:text-black transition" data-pkg="starter">Select Starter — $35</a>
                         </div>
 
-                        <div class="p-8 rounded-3xl bg-[#121212] border border-white/10 flex flex-col justify-between space-y-8 shadow-xl transition duration-300 hover:-translate-y-1 hover:border-accentGold/40">
+                        <!-- Standard -->
+                        <div class="p-8 rounded-3xl bg-[#121212] border border-white/10 flex flex-col justify-between space-y-8 shadow-xl transition duration-300 hover:-translate-y-1">
                             <div class="space-y-6">
                                 <div>
                                     <h4 class="text-2xl font-bold text-white">Standard</h4>
@@ -343,18 +334,11 @@
                                     <span class="text-4xl font-extrabold text-[#d4af37]">$45</span>
                                     <span class="text-xs text-gray-300">per video (60s)</span>
                                 </div>
-                                <div class="text-xs font-semibold text-[#d4af37] uppercase tracking-wider">TURNAROUND: 24 HOURS</div>
-                                <ul class="space-y-3 text-sm text-gray-200">
-                                    <li class="flex items-start gap-2"><span class="text-[#d4af37] font-bold leading-5">✓</span><span>Up to 10 min raw footage edited</span></li>
-                                    <li class="flex items-start gap-2"><span class="text-[#d4af37] font-bold leading-5">✓</span><span>Jump cuts, pacing &amp; basic color correction</span></li>
-                                    <li class="flex items-start gap-2"><span class="text-[#d4af37] font-bold leading-5">✓</span><span>Auto captions styled to brand</span></li>
-                                    <li class="flex items-start gap-2"><span class="text-[#d4af37] font-bold leading-5">✓</span><span>1 platform export</span></li>
-                                    <li class="flex items-start gap-2"><span class="text-[#d4af37] font-bold leading-5">✓</span><span>1 round of revisions</span></li>
-                                </ul>
                             </div>
-                            <a href="#contact" data-pkg="basic" class="w-full py-4 rounded-xl font-semibold text-center border border-[#d4af37] text-[#d4af37] hover:bg-[#d4af37] hover:text-black transition">Select</a>
+                            <a href="#contact" class="select-package w-full py-4 rounded-xl font-semibold text-center border border-[#d4af37] text-[#d4af37] hover:bg-[#d4af37] hover:text-black transition" data-pkg="standard">Select Standard — $45</a>
                         </div>
 
+                        <!-- Professional -->
                         <div class="p-8 rounded-3xl bg-[#1a1710] border-2 border-[#d4af37] flex flex-col justify-between space-y-8 relative shadow-2xl transition duration-300 hover:-translate-y-1">
                             <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 px-4 py-1 rounded-full bg-[#d4af37] text-black text-xs font-bold uppercase tracking-wider">★ Most Popular</div>
                             <div class="space-y-6 pt-2">
@@ -366,20 +350,12 @@
                                     <span class="text-4xl font-extrabold text-[#d4af37]">$65</span>
                                     <span class="text-xs text-gray-300">per video (60s)</span>
                                 </div>
-                                <div class="text-xs font-semibold text-[#d4af37] uppercase tracking-wider">TURNAROUND: 24 HOURS</div>
-                                <ul class="space-y-3 text-sm text-gray-200">
-                                    <li class="flex items-start gap-2"><span class="text-[#d4af37] font-bold leading-5">✓</span><span>Up to 30 min raw footage / multi-clip UGC batch</span></li>
-                                    <li class="flex items-start gap-2"><span class="text-[#d4af37] font-bold leading-5">✓</span><span>Cinematic color grade + sound design</span></li>
-                                    <li class="flex items-start gap-2"><span class="text-[#d4af37] font-bold leading-5">✓</span><span>Custom lower-thirds &amp; motion titles</span></li>
-                                    <li class="flex items-start gap-2"><span class="text-[#d4af37] font-bold leading-5">✓</span><span>Up to 3 platform exports &amp; aspect ratios</span></li>
-                                    <li class="flex items-start gap-2"><span class="text-[#d4af37] font-bold leading-5">✓</span><span>3 rounds of revisions</span></li>
-                                    <li class="flex items-start gap-2"><span class="text-[#d4af37] font-bold leading-5">✓</span><span>Priority scheduling</span></li>
-                                </ul>
                             </div>
-                            <a href="#contact" data-pkg="professional" class="w-full py-4 rounded-xl font-semibold text-center bg-[#d4af37] text-black hover:bg-[#c49f27] transition-all shadow-lg">Select</a>
+                            <a href="#contact" class="select-package w-full py-4 rounded-xl font-semibold text-center bg-[#d4af37] text-black hover:bg-[#c49f27] transition-all shadow-lg" data-pkg="professional">Select Professional — $65</a>
                         </div>
 
-                        <div class="p-8 rounded-3xl bg-[#121212] border border-white/10 flex flex-col justify-between space-y-8 shadow-xl transition duration-300 hover:-translate-y-1 hover:border-accentGold/40">
+                        <!-- Premium -->
+                        <div class="p-8 rounded-3xl bg-[#121212] border border-white/10 flex flex-col justify-between space-y-8 shadow-xl transition duration-300 hover:-translate-y-1">
                             <div class="space-y-6">
                                 <div>
                                     <h4 class="text-2xl font-bold text-white">Premium</h4>
@@ -389,16 +365,8 @@
                                     <span class="text-4xl font-extrabold text-[#d4af37]">$85</span>
                                     <span class="text-xs text-gray-300">per video (60s)</span>
                                 </div>
-                                <div class="text-xs font-semibold text-[#d4af37] uppercase tracking-wider">TURNAROUND: 24 HOURS</div>
-                                <ul class="space-y-3 text-sm text-gray-200">
-                                    <li class="flex items-start gap-2"><span class="text-[#d4af37] font-bold leading-5">✓</span><span>Full cinematic workflow &amp; custom VFX</span></li>
-                                    <li class="flex items-start gap-2"><span class="text-[#d4af37] font-bold leading-5">✓</span><span>Broadcast-grade color science &amp; audio mix</span></li>
-                                    <li class="flex items-start gap-2"><span class="text-[#d4af37] font-bold leading-5">✓</span><span>Unlimited platform exports &amp; aspect ratios</span></li>
-                                    <li class="flex items-start gap-2"><span class="text-[#d4af37] font-bold leading-5">✓</span><span>Unlimited revisions within scope</span></li>
-                                    <li class="flex items-start gap-2"><span class="text-[#d4af37] font-bold leading-5">✓</span><span>Dedicated project manager support</span></li>
-                                </ul>
                             </div>
-                            <a href="#contact" data-pkg="premium" class="w-full py-4 rounded-xl font-semibold text-center border border-[#d4af37] text-[#d4af37] hover:bg-[#d4af37] hover:text-black transition">Select</a>
+                            <a href="#contact" class="select-package w-full py-4 rounded-xl font-semibold text-center border border-[#d4af37] text-[#d4af37] hover:bg-[#d4af37] hover:text-black transition" data-pkg="premium">Select Premium — $85</a>
                         </div>
                     </div>
                 </div>
@@ -406,7 +374,7 @@
                 <div class="space-y-8 pt-8">
                     <h4 class="text-xl font-bold text-center text-[#d4af37]">SaaS &amp; Fast Animation Packages</h4>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <div class="p-8 rounded-3xl bg-[#121212] border border-white/10 flex flex-col justify-between space-y-8 shadow-xl transition duration-300 hover:-translate-y-1 hover:border-accentGold/40">
+                        <div class="p-8 rounded-3xl bg-[#121212] border border-white/10 flex flex-col justify-between space-y-8 shadow-xl transition duration-300 hover:-translate-y-1">
                             <div class="space-y-6">
                                 <div>
                                     <h4 class="text-2xl font-bold text-white">30s Promo</h4>
@@ -416,18 +384,11 @@
                                     <span class="text-4xl font-extrabold text-[#d4af37]">$150</span>
                                     <span class="text-xs text-gray-300">per video</span>
                                 </div>
-                                <div class="text-xs font-semibold text-[#d4af37] uppercase tracking-wider">TURNAROUND: 2–3 BUSINESS DAYS</div>
-                                <ul class="space-y-3 text-sm text-gray-200">
-                                    <li class="flex items-start gap-2"><span class="text-[#d4af37] font-bold leading-5">✓</span><span>Product UI animation &amp; clean typography</span></li>
-                                    <li class="flex items-start gap-2"><span class="text-[#d4af37] font-bold leading-5">✓</span><span>Engaging background score &amp; sound effects</span></li>
-                                    <li class="flex items-start gap-2"><span class="text-[#d4af37] font-bold leading-5">✓</span><span>1 platform export (9:16 / 16:9)</span></li>
-                                    <li class="flex items-start gap-2"><span class="text-[#d4af37] font-bold leading-5">✓</span><span>2 rounds of revisions</span></li>
-                                </ul>
                             </div>
-                            <a href="#contact" data-pkg="promo" class="w-full py-4 rounded-xl font-semibold text-center border border-[#d4af37] text-[#d4af37] hover:bg-[#d4af37] hover:text-black transition">Select</a>
+                            <a href="#contact" class="select-package w-full py-4 rounded-xl font-semibold text-center border border-[#d4af37] text-[#d4af37] hover:bg-[#d4af37] hover:text-black transition" data-pkg="promo-30s">Select 30s Promo — $150</a>
                         </div>
 
-                        <div class="p-8 rounded-3xl bg-[#121212] border border-white/10 flex flex-col justify-between space-y-8 shadow-xl transition duration-300 hover:-translate-y-1 hover:border-accentGold/40">
+                        <div class="p-8 rounded-3xl bg-[#121212] border border-white/10 flex flex-col justify-between space-y-8 shadow-xl transition duration-300 hover:-translate-y-1">
                             <div class="space-y-6">
                                 <div>
                                     <h4 class="text-2xl font-bold text-white">60s Explainer</h4>
@@ -437,18 +398,11 @@
                                     <span class="text-4xl font-extrabold text-[#d4af37]">$200</span>
                                     <span class="text-xs text-gray-300">per video</span>
                                 </div>
-                                <div class="text-xs font-semibold text-[#d4af37] uppercase tracking-wider">TURNAROUND: 3–4 BUSINESS DAYS</div>
-                                <ul class="space-y-3 text-sm text-gray-200">
-                                    <li class="flex items-start gap-2"><span class="text-[#d4af37] font-bold leading-5">✓</span><span>Comprehensive feature walkthrough &amp; mockups</span></li>
-                                    <li class="flex items-start gap-2"><span class="text-[#d4af37] font-bold leading-5">✓</span><span>UI screen recordings &amp; kinetic titles</span></li>
-                                    <li class="flex items-start gap-2"><span class="text-[#d4af37] font-bold leading-5">✓</span><span>Up to 2 platform exports</span></li>
-                                    <li class="flex items-start gap-2"><span class="text-[#d4af37] font-bold leading-5">✓</span><span>3 rounds of revisions</span></li>
-                                </ul>
                             </div>
-                            <a href="#contact" data-pkg="explainer" class="w-full py-4 rounded-xl font-semibold text-center border border-[#d4af37] text-[#d4af37] hover:bg-[#d4af37] hover:text-black transition">Select</a>
+                            <a href="#contact" class="select-package w-full py-4 rounded-xl font-semibold text-center border border-[#d4af37] text-[#d4af37] hover:bg-[#d4af37] hover:text-black transition" data-pkg="explainer-60s">Select 60s Explainer — $200</a>
                         </div>
 
-                        <div class="p-8 rounded-3xl bg-[#121212] border border-white/10 flex flex-col justify-between space-y-8 shadow-xl transition duration-300 hover:-translate-y-1 hover:border-accentGold/40">
+                        <div class="p-8 rounded-3xl bg-[#121212] border border-white/10 flex flex-col justify-between space-y-8 shadow-xl transition duration-300 hover:-translate-y-1">
                             <div class="space-y-6">
                                 <div>
                                     <h4 class="text-2xl font-bold text-white">Premium SaaS</h4>
@@ -458,21 +412,15 @@
                                     <span class="text-4xl font-extrabold text-[#d4af37]">$250</span>
                                     <span class="text-xs text-gray-300">per video</span>
                                 </div>
-                                <div class="text-xs font-semibold text-[#d4af37] uppercase tracking-wider">TURNAROUND: 4–5 BUSINESS DAYS</div>
-                                <ul class="space-y-3 text-sm text-gray-200">
-                                    <li class="flex items-start gap-2"><span class="text-[#d4af37] font-bold leading-5">✓</span><span>Custom 3D UI mockups &amp; high-end motion</span></li>
-                                    <li class="flex items-start gap-2"><span class="text-[#d4af37] font-bold leading-5">✓</span><span>High-conversion ad optimization</span></li>
-                                    <li class="flex items-start gap-2"><span class="text-[#d4af37] font-bold leading-5">✓</span><span>Unlimited platform exports</span></li>
-                                </ul>
                             </div>
-                            <a href="#contact" data-pkg="saas-premium" class="w-full py-4 rounded-xl font-semibold text-center border border-[#d4af37] text-[#d4af37] hover:bg-[#d4af37] hover:text-black transition">Select</a>
+                            <a href="#contact" class="select-package w-full py-4 rounded-xl font-semibold text-center border border-[#d4af37] text-[#d4af37] hover:bg-[#d4af37] hover:text-black transition" data-pkg="premium-saas">Select Premium SaaS — $250</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Booking Section -->
+        <!-- Booking Section (RESTORED Multi-step) -->
         <section id="contact" class="w-full scroll-mt-8 py-16 sm:py-20 bg-[#0a0a0a]">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="glass-panel w-full p-6 sm:p-12 rounded-3xl space-y-8">
@@ -498,44 +446,94 @@
                         </div>
                     </div>
 
-                    <form id="bookingForm" class="space-y-6" onsubmit="return false;">
-                        <div id="formStep1" class="space-y-6">
+                    <form id="bookingForm" class="space-y-6" onsubmit="submitBookingForm(event)">
+                        <!-- Step 1: Details -->
+                        <div id="formStep1" data-booking-step="1">
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                 <div class="space-y-2">
                                     <label class="text-xs font-semibold uppercase tracking-wider text-gray-300">Full Name *</label>
-                                    <input type="text" id="clientName" required placeholder="John Doe" class="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/10 text-white focus:border-accentGold/60">
+                                    <input type="text" id="clientName" required placeholder="John Doe" class="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/10 text-white" />
                                 </div>
                                 <div class="space-y-2">
                                     <label class="text-xs font-semibold uppercase tracking-wider text-gray-300">Email Address *</label>
-                                    <input type="email" id="clientEmail" required placeholder="you@company.com" class="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/10 text-white focus:border-accentGold/60">
+                                    <input type="email" id="clientEmail" required placeholder="you@company.com" class="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/10 text-white" />
                                 </div>
                             </div>
 
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                 <div class="space-y-2">
                                     <label class="text-xs font-semibold uppercase tracking-wider text-gray-300">WhatsApp / Phone *</label>
-                                    <input type="text" id="clientPhone" required placeholder="+91 60018 67854" class="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/10 text-white focus:border-accentGold/60">
+                                    <input type="text" id="clientPhone" required placeholder="+91 60018 67854" class="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/10 text-white" />
                                 </div>
                                 <div class="space-y-2">
-                                    <label class="text-xs font-semibold uppercase tracking-wider text-gray-300">Select Package *</label>
-                                    <select id="clientPackage" class="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/10 text-white focus:border-accentGold/60">
-                                        <option value="starter">Starter - $35</option>
-                                        <option value="standard">Standard - $45</option>
-                                        <option value="professional">Professional - $65</option>
-                                        <option value="premium">Premium - $85</option>
-                                    </select>
+                                    <label class="text-xs font-semibold uppercase tracking-wider text-gray-300">Selected Package</label>
+                                    <input type="hidden" id="bookingPackageInput" name="package" />
+                                    <div id="bookingSelectedLabel" class="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/10 text-white">No package selected</div>
                                 </div>
+                            </div>
+
+                            <div class="flex items-center justify-between">
+                                <button id="nextToPackage" type="button" class="px-6 py-3 rounded-xl bg-accentGold text-black font-bold">Next</button>
+                                <a href="https://wa.me/message/BSHW5BKXF5Q2M1" target="_blank" class="text-sm text-gray-400">Prefer to chat on WhatsApp?</a>
                             </div>
                         </div>
 
-                        <div class="flex items-center justify-between">
-                            <button id="nextStepBtn" type="button" class="px-6 py-3 rounded-xl bg-accentGold text-black font-bold">Next</button>
-                            <a href="https://wa.me/message/BSHW5BKXF5Q2M1" target="_blank" class="text-sm text-gray-400">Prefer to chat on WhatsApp?</a>
+                        <!-- Step 2: Package selection -->
+                        <div id="formStep2" data-booking-step="2" style="display:none">
+                            <h4 class="text-lg font-semibold">Choose or confirm a package</h4>
+                            <div id="packageGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+                                <!-- Buttons rendered via DOM or fallback below -->
+                                <button type="button" class="select-package btn-outline w-full px-4 py-3 rounded-xl border border-white/10 text-white text-left" data-pkg="starter">Starter — $35</button>
+                                <button type="button" class="select-package btn-outline w-full px-4 py-3 rounded-xl border border-white/10 text-white text-left" data-pkg="standard">Standard — $45</button>
+                                <button type="button" class="select-package btn-outline w-full px-4 py-3 rounded-xl border border-white/10 text-white text-left" data-pkg="professional">Professional — $65</button>
+                                <button type="button" class="select-package btn-outline w-full px-4 py-3 rounded-xl border border-white/10 text-white text-left" data-pkg="premium">Premium — $85</button>
+                                <button type="button" class="select-package btn-outline w-full px-4 py-3 rounded-xl border border-white/10 text-white text-left" data-pkg="promo-30s">30s Promo — $150</button>
+                                <button type="button" class="select-package btn-outline w-full px-4 py-3 rounded-xl border border-white/10 text-white text-left" data-pkg="explainer-60s">60s Explainer — $200</button>
+                                <button type="button" class="select-package btn-outline w-full px-4 py-3 rounded-xl border border-white/10 text-white text-left" data-pkg="premium-saas">Premium SaaS — $250</button>
+                                <button type="button" class="select-package btn-outline w-full px-4 py-3 rounded-xl border border-white/10 text-white text-left" data-pkg="bulk-15">Creator Bulk Tier (15 vids) — $540</button>
+                            </div>
+
+                            <div class="flex justify-between mt-4">
+                                <button type="button" class="px-6 py-3 rounded-xl border border-white/10 text-white" id="backToDetails">Back</button>
+                                <button type="button" class="px-6 py-3 rounded-xl bg-accentGold text-black font-bold" id="toConnect">Next — Connect</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Connect (submit) -->
+                        <div id="formStep3" data-booking-step="3" style="display:none">
+                            <h4 class="text-lg font-semibold">Almost done — share project notes</h4>
+                            <label class="block mt-3">
+                                <span class="text-sm text-white/80">Project Notes</span>
+                                <textarea id="clientNotes" rows="4" class="mt-1 w-full rounded-md bg-black/50 border border-white/10 p-3 text-white"></textarea>
+                            </label>
+
+                            <div class="mt-4 space-x-3">
+                                <button type="submit" class="px-6 py-3 rounded-xl bg-accentGold text-black font-bold">Send Booking (WhatsApp & Email)</button>
+                                <a href="https://wa.me/message/BSHW5BKXF5Q2M1" target="_blank" class="px-6 py-3 rounded-xl border border-white/10 text-white">Open WhatsApp</a>
+                            </div>
+
+                            <div class="mt-6">
+                                <button type="button" class="px-6 py-3 rounded-xl border border-white/10 text-white" id="backToPackage">Back</button>
+                            </div>
                         </div>
                     </form>
                 </div>
             </div>
         </section>
+
+        <!-- Footer (RESTORED) -->
+        <footer id="site-footer" class="mt-16 py-8 bg-black/70 border-t border-white/5">
+            <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row sm:justify-between items-center gap-4">
+                <div class="flex items-center gap-4">
+                    <a href="https://instagram.com/ayushedits" target="_blank" aria-label="Instagram" class="text-white/80 hover:text-white"><i class="fa-brands fa-instagram"></i> Instagram</a>
+                    <a href="https://facebook.com/ayushedits" target="_blank" aria-label="Facebook" class="text-white/80 hover:text-white"><i class="fa-brands fa-facebook"></i> Facebook</a>
+                    <a href="https://www.linkedin.com/in/ayushkumardeb" target="_blank" aria-label="LinkedIn" class="text-white/80 hover:text-white"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+                    <a href="https://wa.me/message/BSHW5BKXF5Q2M1" target="_blank" aria-label="WhatsApp" class="text-white/80 hover:text-white"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+                    <a href="mailto:hello@ayushedits.com" aria-label="Email" class="text-white/80 hover:text-white"><i class="fa-solid fa-envelope"></i> Email</a>
+                </div>
+                <div class="text-sm text-white/60">© 2026 Ayush Edits. All rights reserved.</div>
+            </div>
+        </footer>
 
     </main>
 
@@ -548,7 +546,7 @@
             mobileMenu.classList.toggle('active');
         });
 
-        // Close mobile menu automatically when any link is clicked (including WhatsApp button)
+        // Close mobile menu automatically when any link is clicked
         document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.mobile-menu-link').forEach(link => {
                 link.addEventListener('click', () => {
@@ -590,6 +588,103 @@
             setActiveTab(document.querySelector('.filter-tab[data-filter="all"]'));
             filterCategories('all');
         });
+
+        /* PACKAGES array (restored full set) */
+        const PACKAGES = [
+            { id: 'starter', title: 'Starter', price: 35, label: '$35' },
+            { id: 'standard', title: 'Standard', price: 45, label: '$45' },
+            { id: 'professional', title: 'Professional', price: 65, label: '$65' },
+            { id: 'premium', title: 'Premium', price: 85, label: '$85' },
+            { id: 'promo-30s', title: '30s Promo', price: 150, label: '$150' },
+            { id: 'explainer-60s', title: '60s Explainer', price: 200, label: '$200' },
+            { id: 'premium-saas', title: 'Premium SaaS', price: 250, label: '$250' },
+            { id: 'bulk-15', title: 'Creator Bulk Editing Tier (15 Videos)', price: 540, label: '$540' }
+        ];
+
+        function getPackageById(id) { return PACKAGES.find(p => p.id === id) || null; }
+
+        /* Booking form multi-step logic and package selection */
+        function goToBookingStep(step) {
+            document.querySelectorAll('[data-booking-step]').forEach(el => {
+                el.style.display = el.dataset.bookingStep === String(step) ? '' : 'none';
+            });
+            // Update step indicators
+            document.getElementById('stepIndicator1').classList.toggle('text-[#d4af37]', step === 1);
+            document.getElementById('stepIndicator2').classList.toggle('text-[#d4af37]', step === 2);
+            document.getElementById('stepIndicator3').classList.toggle('text-[#d4af37]', step === 3);
+        }
+
+        function selectPackageAndGo(id) {
+            const pkg = getPackageById(id);
+            if (!pkg) return console.warn('Unknown package', id);
+
+            const input = document.getElementById('bookingPackageInput');
+            const label = document.getElementById('bookingSelectedLabel');
+            if (input) input.value = id;
+            if (label) label.textContent = `${pkg.title} — ${pkg.label}`;
+
+            // go to step 2 in form
+            goToBookingStep(2);
+
+            // smooth scroll to contact
+            const contactEl = document.getElementById('contact');
+            if (contactEl) contactEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Attach select handlers to package buttons site-wide
+            document.querySelectorAll('.select-package[data-pkg]').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const id = btn.dataset.pkg;
+                    selectPackageAndGo(id);
+                });
+            });
+
+            // Step navigation buttons
+            document.getElementById('nextToPackage')?.addEventListener('click', () => goToBookingStep(2));
+            document.getElementById('backToDetails')?.addEventListener('click', () => goToBookingStep(1));
+            document.getElementById('toConnect')?.addEventListener('click', () => goToBookingStep(3));
+            document.getElementById('backToPackage')?.addEventListener('click', () => goToBookingStep(2));
+
+            // Attach select-package buttons inside form step 2 (they also use same class)
+            document.querySelectorAll('#formStep2 .select-package').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const id = btn.dataset.pkg;
+                    const input = document.getElementById('bookingPackageInput');
+                    const label = document.getElementById('bookingSelectedLabel');
+                    if (input) input.value = id;
+                    const pkg = getPackageById(id);
+                    if (label && pkg) label.textContent = `${pkg.title} — ${pkg.label}`;
+                });
+            });
+
+            // Initialize form at step 1
+            goToBookingStep(1);
+        });
+
+        /* Booking submission — WhatsApp + mailto handoff */
+        function submitBookingForm(e) {
+            e.preventDefault();
+            const name = document.getElementById('clientName')?.value || '';
+            const email = document.getElementById('clientEmail')?.value || '';
+            const phone = document.getElementById('clientPhone')?.value || '';
+            const pkgId = document.getElementById('bookingPackageInput')?.value || '';
+            const notes = document.getElementById('clientNotes')?.value || '';
+
+            const pkg = getPackageById(pkgId);
+            const pkgLabel = pkg ? `${pkg.title} (${pkg.label})` : 'No package selected';
+
+            const message = `New booking request%0AName: ${encodeURIComponent(name)}%0AEmail: ${encodeURIComponent(email)}%0APhone: ${encodeURIComponent(phone)}%0APackage: ${encodeURIComponent(pkgLabel)}%0ANotes: ${encodeURIComponent(notes)}`;
+            const waUrl = `https://wa.me/message/BSHW5BKXF5Q2M1?text=${message}`;
+            const mailto = `mailto:hello@ayushedits.com?subject=${encodeURIComponent('New booking: ' + pkgLabel)}&body=${encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\nPhone: ' + phone + '\nPackage: ' + pkgLabel + '\nNotes: ' + notes)}`;
+
+            window.open(waUrl, '_blank');
+            setTimeout(() => { window.location.href = mailto; }, 600);
+
+            // Optionally show a success state
+            alert('Booking sent — opening WhatsApp and email to complete handoff.');
+        }
     </script>
 </body>
 </html>
