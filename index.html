@@ -28,14 +28,14 @@
     <style>
         :root {
             --bg: #0a0a0a;
-            --panel: rgba(18,18,18,0.78);
+            --panel: rgba(18, 18, 18, 0.78);
             --panel-soft: rgba(255,255,255,0.03);
             --gold: #d4af37;
             --gold-soft: rgba(212,175,55,0.12);
             --gold-strong: rgba(212,175,55,0.35);
             --muted: #a0abb9;
             --white: #f3f4f6;
-            --glass-border: rgba(255,255,255,0.08);
+            --glass-border: rgba(255,255,255,0.09);
         }
 
         html { scroll-behavior: smooth; }
@@ -61,26 +61,25 @@
 
         .ambient-glow {
             position: absolute;
-            inset: auto auto 18% 50%;
+            inset: auto auto 20% 50%;
             transform: translateX(-50%);
-            width: 34rem;
-            height: 34rem;
+            width: 28rem;
+            height: 28rem;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(212,175,55,0.32), rgba(212,175,55,0.16) 28%, rgba(10,10,10,0) 72%);
-            filter: blur(18px);
+            background: radial-gradient(circle, rgba(212,175,55,0.28), rgba(212,175,55,0.1) 35%, rgba(10,10,10,0) 70%);
+            filter: blur(20px);
             pointer-events: none;
-            z-index: 0;
         }
 
         .profile-shell {
             position: relative;
-            width: min(100%, 28rem);
+            width: min(100%, 26rem);
             aspect-ratio: 1 / 1;
             padding: 1rem;
             border-radius: 2rem;
             background: linear-gradient(135deg, rgba(212,175,55,0.18), rgba(255,255,255,0.02), rgba(212,175,55,0.08));
-            border: 1px solid rgba(212,175,55,0.22);
-            box-shadow: 0 18px 60px rgba(0,0,0,0.55), 0 0 30px rgba(212,175,55,0.12);
+            border: 1px solid rgba(212,175,55,0.2);
+            box-shadow: 0 18px 60px rgba(0,0,0,0.45), 0 0 30px rgba(212,175,55,0.12);
         }
 
         .profile-image-wrap {
@@ -97,8 +96,8 @@
             position: absolute;
             display: inline-flex;
             align-items: center;
-            gap: 0.45rem;
-            background: rgba(8,11,14,0.82);
+            gap: 0.5rem;
+            background: rgba(8, 11, 14, 0.78);
             border: 1px solid rgba(255,255,255,0.08);
             backdrop-filter: blur(14px);
             -webkit-backdrop-filter: blur(14px);
@@ -138,6 +137,7 @@
             transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
             border: 1px solid rgba(255,255,255,0.08);
             box-shadow: 0 12px 35px rgba(0,0,0,0.25);
+            text-decoration: none;
         }
 
         .hero-cta:hover { transform: translateY(-2px); }
@@ -203,6 +203,161 @@
             border: 1px solid rgba(255,255,255,0.07);
         }
 
+        .service-card {
+            background: rgba(255,255,255,0.025);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(212,175,55,0.35);
+            box-shadow: 0 20px 45px rgba(212,175,55,0.07);
+        }
+
+        .service-card .video-wrap {
+            padding: 0.9rem 0.9rem 0;
+        }
+
+        .service-card .video-wrap .iframe-shell {
+            aspect-ratio: 9 / 16;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 1rem;
+            background: #000;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .service-card .video-wrap iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            display: block;
+        }
+
+        .service-card .content {
+            padding: 1rem 1.1rem 1.2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            flex: 1;
+        }
+
+        .service-level {
+            display: inline-flex;
+            align-items: center;
+            width: fit-content;
+            border-radius: 999px;
+            padding: 0.38rem 0.7rem;
+            background: rgba(212,175,55,0.1);
+            border: 1px solid rgba(212,175,55,0.28);
+            color: #efd888;
+            font-size: 0.62rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .service-title {
+            margin: 0;
+            font-size: 1.5rem;
+            letter-spacing: -0.04em;
+            font-weight: 800;
+        }
+
+        .service-benefit {
+            margin: 0;
+            color: #d9e1ea;
+            line-height: 1.7;
+            font-size: 0.92rem;
+        }
+
+        .service-price {
+            display: flex;
+            align-items: baseline;
+            gap: 0.4rem;
+            line-height: 1;
+        }
+
+        .service-price strong {
+            font-size: 2rem;
+            font-weight: 900;
+            letter-spacing: -0.06em;
+            color: #f1d983;
+        }
+
+        .service-price small {
+            font-size: 0.7rem;
+            color: #a0abb9;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .service-turnaround {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            color: #a0abb9;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .service-ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            gap: 0.45rem;
+        }
+
+        .service-ul li {
+            color: #dfe7f0;
+            position: relative;
+            padding-left: 1rem;
+            font-size: 0.8rem;
+            line-height: 1.5;
+        }
+
+        .service-ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #d4af37;
+        }
+
+        .service-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            min-height: 2.8rem;
+            margin-top: auto;
+            border-radius: 0.85rem;
+            border: 1px solid rgba(212,175,55,0.5);
+            background: rgba(212,175,55,0.08);
+            color: #f3d371;
+            font-size: 0.72rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-weight: 800;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .service-cta:hover {
+            background: rgba(212,175,55,0.16);
+            transform: translateY(-1px);
+        }
+
         .filter-tabs {
             display: flex;
             flex-wrap: wrap;
@@ -264,219 +419,6 @@
             height: 100%;
             border: 0;
             display: block;
-        }
-
-        .pricing-grid,
-        .review-grid,
-        .package-option-grid {
-            display: grid;
-            gap: 1rem;
-        }
-
-        .pricing-grid.three { grid-template-columns: repeat(3, minmax(0,1fr)); }
-        .pricing-grid.two { grid-template-columns: repeat(2, minmax(0,1fr)); }
-        .package-option-grid { grid-template-columns: repeat(4, minmax(0,1fr)); }
-        .review-grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
-
-        .pricing-card,
-        .standard-card,
-        .testimonial-card {
-            position: relative;
-            background: rgba(255,255,255,0.025);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 1.25rem;
-            padding: 1.2rem 1rem;
-            box-shadow: 0 18px 40px rgba(0,0,0,0.18);
-            transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
-        }
-
-        .pricing-card:hover, .standard-card:hover, .testimonial-card:hover {
-            transform: translateY(-3px);
-            border-color: rgba(212,175,55,0.30);
-        }
-
-        .pricing-card.featured,
-        .standard-card.featured {
-            border-color: rgba(212,175,55,0.38);
-            background: rgba(212,175,55,0.06);
-        }
-
-        .pricing-card.selected,
-        .pricing-card.active {
-            border: 2px solid rgba(212,175,55,0.7);
-            background: rgba(212,175,55,0.08);
-            box-shadow: 0 0 0 1px rgba(212,175,55,0.25), 0 18px 40px rgba(0,0,0,0.18);
-        }
-
-        .plan-label {
-            display: block;
-            font-size: 0.7rem;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: #a0abb9;
-            font-weight: 800;
-        }
-
-        .price-line {
-            display: flex;
-            align-items: end;
-            gap: 0.5rem;
-            margin-top: 0.5rem;
-        }
-
-        .price-line strong {
-            font-size: clamp(1.5rem, 2vw, 2rem);
-            letter-spacing: -0.04em;
-            color: #f3f4f6;
-        }
-
-        .price-line.accent strong { color: #d4af37; }
-        .price-line small { color: #a0abb9; font-size: 0.76rem; }
-
-        .discount-line {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 0.45rem;
-            margin-top: 0.45rem;
-            font-size: 0.76rem;
-            color: #a0abb9;
-        }
-
-        .strike { text-decoration: line-through; color: rgba(255,255,255,0.38); }
-        .save { color: #34d399; font-weight: 700; }
-
-        .best-badge {
-            position: absolute;
-            top: -10px;
-            right: 0.8rem;
-            font-size: 9px;
-            font-weight: 900;
-            letter-spacing: 0.09em;
-            text-transform: uppercase;
-            color: #101010;
-            background: #d4af37;
-            padding: 0.3rem 0.55rem;
-            border-radius: 999px;
-        }
-
-        .package-video {
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            border-radius: 1rem;
-            overflow: hidden;
-            margin-top: 0.9rem;
-            border: 1px solid rgba(255,255,255,0.06);
-            background: #000;
-        }
-
-        .package-video iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
-            display: block;
-        }
-
-        .select-package-btn {
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 42px;
-            width: 100%;
-            margin-top: 0.8rem;
-            padding: 0.75rem 0.9rem;
-            border-radius: 0.8rem;
-            border: 1px solid rgba(212,175,55,0.6);
-            color: #d4af37;
-            background: transparent;
-            font-size: 0.7rem;
-            font-weight: 800;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            transition: all 0.2s ease;
-        }
-
-        .select-package-btn:hover {
-            background: #d4af37;
-            color: #0d1117;
-            transform: translateY(-1px);
-        }
-
-        .select-package-btn.primary {
-            background: #d4af37;
-            color: #0e1116;
-            border-color: #d4af37;
-        }
-
-        .select-package-btn.primary:hover { background: #f4d786; }
-
-        .included-list {
-            margin-top: 0.9rem;
-            padding-top: 0.9rem;
-            border-top: 1px solid rgba(255,255,255,0.08);
-        }
-
-        .included-list h4 {
-            margin: 0 0 0.6rem;
-            font-size: 0.72rem;
-            font-weight: 800;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: #f3f4f6;
-        }
-
-        .included-list ul {
-            margin: 0;
-            padding-left: 1rem;
-            display: grid;
-            gap: 0.45rem;
-            color: #a0abb9;
-        }
-
-        .standard-card h4 {
-            margin: 0;
-            font-size: 1.4rem;
-            letter-spacing: -0.03em;
-        }
-
-        .muted {
-            margin: 0;
-            color: #a0abb9;
-            font-size: 0.8rem;
-        }
-
-        .standard-price {
-            display: flex;
-            align-items: end;
-            gap: 0.5rem;
-            margin-top: 0.7rem;
-        }
-
-        .amount {
-            font-size: clamp(2.1rem, 4vw, 2.8rem);
-            font-weight: 900;
-            letter-spacing: -0.05em;
-            color: #d4af37;
-        }
-
-        .per { color: #a0abb9; font-size: 0.8rem; }
-
-        .turnaround {
-            margin: 0;
-            color: #f7d56d;
-            font-size: 0.68rem;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            font-weight: 800;
-        }
-
-        .standard-card ul {
-            margin: 0.8rem 0 0;
-            padding-left: 1rem;
-            display: grid;
-            gap: 0.55rem;
-            color: #e8edf4;
-            font-size: 0.88rem;
         }
 
         .booking-section { padding-top: 1rem; }
@@ -549,6 +491,12 @@
             font-weight: 700;
             letter-spacing: 0.06em;
             text-transform: uppercase;
+        }
+
+        .package-option-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
         }
 
         .package-option {
@@ -780,6 +728,17 @@
             flex-direction: column;
             gap: 1rem;
             min-height: 220px;
+            background: rgba(255,255,255,0.025);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 1.25rem;
+            padding: 1.2rem 1rem;
+            box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+            transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(212,175,55,0.30);
         }
 
         .review-top {
@@ -917,38 +876,18 @@
         }
 
         @media (max-width: 1100px) {
-            .review-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
-            .package-option-grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
+            .package-option-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
         }
 
         @media (max-width: 900px) {
-            .review-grid { grid-template-columns: 1fr; }
-            .package-option-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
-            .pricing-grid.three { grid-template-columns: 1fr; }
+            .booking-progress { grid-template-columns: 1fr; }
+            .footer-shell { flex-direction: column; align-items: flex-start; }
+            .step-title-row, .review-header { flex-direction: column; align-items: flex-start; }
+            .floating-badge { font-size: 0.55rem; letter-spacing: 0.06em; padding: 0.45rem 0.65rem; }
         }
 
         @media (max-width: 700px) {
-            .two-col,
-            .package-option-grid,
-            .review-grid,
-            .pricing-grid.two
-            { grid-template-columns: 1fr; }
-
-            .booking-progress { grid-template-columns: 1fr; }
-            .footer-shell {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .step-title-row,
-            .review-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .floating-badge {
-                font-size: 0.55rem;
-                letter-spacing: 0.06em;
-                padding: 0.45rem 0.65rem;
-            }
+            .two-col, .package-option-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -1153,122 +1092,14 @@
 
         <section id="pricing" class="px-4 sm:px-6 lg:px-8 py-20 border-t border-white/5 bg-[#0d0d0d]">
             <div class="max-w-7xl mx-auto">
-                <div class="text-center max-w-4xl mx-auto mb-12">
+                <div class="text-center max-w-4xl mx-auto mb-10">
                     <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-xs font-semibold tracking-[0.18em] uppercase text-accentGold">
-                        <i class="fa-solid fa-tag"></i> Pricing
+                        <i class="fa-solid fa-tag"></i> Services & Single-Video Pricing
                     </div>
-                    <h2 class="mt-6 text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight">Luxury packages built for growth.</h2>
+                    <h2 class="mt-6 text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight">Luxury editing packages built to convert.</h2>
+                    <p class="mt-4 text-lg text-gray-300">Every package is designed for premium visual quality, retention-driven pacing, and industry-grade finish.</p>
                 </div>
-
-                <div class="pricing-grid three gap-6">
-                    <article class="pricing-card featured" id="starter-card">
-                        <span class="plan-label">🟢 Starter Level • Best Budget Deal</span>
-                        <h3 class="mt-4 text-2xl font-bold text-white">Starter Level</h3>
-                        <div class="package-video">
-                            <iframe loading="lazy" src="https://www.youtube.com/embed/Qoei7lG14gw" title="Starter level sample" allowfullscreen></iframe>
-                        </div>
-                        <div class="mt-4 space-y-4 text-sm text-gray-300">
-                            <div class="flex justify-between items-center"><span>10 Videos Pack</span><strong class="text-accentGold">$30/vid | $300</strong></div>
-                            <div class="flex justify-between items-center"><span>20 Videos Pack</span><strong class="text-accentGold">$25/vid | $500</strong></div>
-                            <div class="text-xs text-gray-400">Save $50 / Save $200</div>
-                            <div class="text-xs text-accentGold">Claim Offer ($25/video) →</div>
-                        </div>
-                        <button type="button" class="select-package-btn primary" onclick="selectPackage('Starter Level • 10 Videos Pack', 300, 'starter-card')">Select Starter</button>
-                        <div class="included-list">
-                            <h4>Includes</h4>
-                            <ul>
-                                <li>Basic cuts (Reels, TikTok, Shorts)</li>
-                                <li>Accurate auto-captions</li>
-                                <li>Standard pacing</li>
-                            </ul>
-                        </div>
-                    </article>
-
-                    <article class="pricing-card" id="growth-card">
-                        <span class="plan-label">🟡 Growth Level • Mid-Range Package</span>
-                        <h3 class="mt-4 text-2xl font-bold text-white">Growth Level</h3>
-                        <div class="package-video">
-                            <iframe loading="lazy" src="https://www.youtube.com/embed/E5uBo-m-NBE" title="Growth level sample" allowfullscreen></iframe>
-                        </div>
-                        <div class="mt-4 space-y-4 text-sm text-gray-300">
-                            <div class="flex justify-between items-center"><span>10 Videos Pack</span><strong class="text-accentGold">$500</strong></div>
-                            <div class="flex justify-between items-center"><span>20 Videos Pack</span><strong class="text-accentGold">$1,000</strong></div>
-                            <div class="text-xs text-gray-400">Save $100 / Save $200</div>
-                            <div class="text-xs text-accentGold">Claim Standard Offer →</div>
-                        </div>
-                        <button type="button" class="select-package-btn" onclick="selectPackage('Growth Level • 10 Videos Pack', 500, 'growth-card')">Select Growth</button>
-                        <div class="included-list">
-                            <h4>Includes</h4>
-                            <ul>
-                                <li>Up to 10 min raw footage</li>
-                                <li>Dynamic text animations</li>
-                                <li>Branded colors, sound design</li>
-                            </ul>
-                        </div>
-                    </article>
-
-                    <article class="pricing-card" id="high-end-card">
-                        <span class="plan-label">🔴 High-End Real Estate & Creator Level • Best Value</span>
-                        <h3 class="mt-4 text-2xl font-bold text-white">High-End Level</h3>
-                        <div class="package-video">
-                            <iframe loading="lazy" src="https://www.youtube.com/embed/DWK3DfzTB8Q" title="High-end sample" allowfullscreen></iframe>
-                        </div>
-                        <div class="mt-4 space-y-4 text-sm text-gray-300">
-                            <div class="flex justify-between items-center"><span>15 Videos Pack</span><strong class="text-accentGold">$540</strong></div>
-                            <div class="flex justify-between items-center"><span>20 Videos Retainer</span><strong class="text-accentGold">$997</strong></div>
-                            <div class="flex justify-between items-center"><span>30 Videos Pack</span><strong class="text-accentGold">$1,399</strong></div>
-                            <div class="text-xs text-gray-400">$36/vid • Save $135 / Save $551</div>
-                            <div class="text-xs text-accentGold">Claim Professional Offer →</div>
-                        </div>
-                        <button type="button" class="select-package-btn" onclick="selectPackage('High-End Level • 15 Videos Pack', 540, 'high-end-card')">Select High-End</button>
-                        <div class="included-list">
-                            <h4>Includes</h4>
-                            <ul>
-                                <li>Elite cinematic real estate</li>
-                                <li>Custom motion graphics</li>
-                                <li>High-retention hooks, broadcast color grade</li>
-                            </ul>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="pricing-grid two gap-6 mt-12">
-                    <article class="pricing-card" id="saas-professional-card">
-                        <span class="plan-label">SaaS</span>
-                        <h3 class="mt-4 text-2xl font-bold text-white">Professional SaaS</h3>
-                        <div class="price-line accent">
-                            <strong>$200</strong>
-                            <small>/ video</small>
-                        </div>
-                        <button type="button" class="select-package-btn" onclick="selectPackage('Professional SaaS', 200, 'saas-professional-card')">Select SaaS</button>
-                        <div class="included-list">
-                            <h4>Includes</h4>
-                            <ul>
-                                <li>Conversion-first SaaS edit</li>
-                                <li>Clean product storytelling</li>
-                                <li>Strong visual polish</li>
-                            </ul>
-                        </div>
-                    </article>
-
-                    <article class="pricing-card" id="saas-premium-card">
-                        <span class="plan-label">SaaS</span>
-                        <h3 class="mt-4 text-2xl font-bold text-white">Premium SaaS</h3>
-                        <div class="price-line accent">
-                            <strong>$350</strong>
-                            <small>/ video</small>
-                        </div>
-                        <button type="button" class="select-package-btn" onclick="selectPackage('Premium SaaS', 350, 'saas-premium-card')">Select SaaS</button>
-                        <div class="included-list">
-                            <h4>Includes</h4>
-                            <ul>
-                                <li>Premium motion graphics</li>
-                                <li>Advanced sound & brand polish</li>
-                                <li>High-end conversion-focused visuals</li>
-                            </ul>
-                        </div>
-                    </article>
-                </div>
+                <div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
             </div>
         </section>
 
@@ -1283,7 +1114,7 @@
                     </div>
                     <button type="button" class="leave-review-btn" id="open-review-modal">Leave a Review</button>
                 </div>
-                <div id="testimonial-grid" class="review-grid gap-5"></div>
+                <div id="testimonial-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5"></div>
             </div>
         </section>
 
@@ -1306,46 +1137,9 @@
                         <div class="form-step active" data-step="1">
                             <div class="step-title-row">
                                 <h3>Choose your package</h3>
-                                <span id="selected-package-display" class="selected-pill">Starter Level • 10 Videos Pack · $300</span>
+                                <span id="selected-package-display" class="selected-pill">Real Estate Video Editing • Standard Level · $35 / video</span>
                             </div>
-                            <div class="package-option-grid gap-4">
-                                <button type="button" class="package-option selected" data-package="Starter Level • 10 Videos Pack" data-price="300" data-cardid="starter-card">
-                                    <span class="option-name">Starter Level • 10 Videos Pack</span>
-                                    <span class="option-price">$300</span>
-                                </button>
-                                <button type="button" class="package-option" data-package="Starter Level • 20 Videos Pack" data-price="500" data-cardid="starter-card">
-                                    <span class="option-name">Starter Level • 20 Videos Pack</span>
-                                    <span class="option-price">$500</span>
-                                </button>
-                                <button type="button" class="package-option" data-package="Growth Level • 10 Videos Pack" data-price="500" data-cardid="growth-card">
-                                    <span class="option-name">Growth Level • 10 Videos Pack</span>
-                                    <span class="option-price">$500</span>
-                                </button>
-                                <button type="button" class="package-option" data-package="Growth Level • 20 Videos Pack" data-price="1000" data-cardid="growth-card">
-                                    <span class="option-name">Growth Level • 20 Videos Pack</span>
-                                    <span class="option-price">$1,000</span>
-                                </button>
-                                <button type="button" class="package-option" data-package="High-End Level • 15 Videos Pack" data-price="540" data-cardid="high-end-card">
-                                    <span class="option-name">High-End Level • 15 Videos Pack</span>
-                                    <span class="option-price">$540</span>
-                                </button>
-                                <button type="button" class="package-option" data-package="High-End Level • 20 Videos Retainer" data-price="997" data-cardid="high-end-card">
-                                    <span class="option-name">High-End Level • 20 Videos Retainer</span>
-                                    <span class="option-price">$997</span>
-                                </button>
-                                <button type="button" class="package-option" data-package="High-End Level • 30 Videos Pack" data-price="1399" data-cardid="high-end-card">
-                                    <span class="option-name">High-End Level • 30 Videos Pack</span>
-                                    <span class="option-price">$1,399</span>
-                                </button>
-                                <button type="button" class="package-option" data-package="Professional SaaS" data-price="200" data-cardid="saas-professional-card">
-                                    <span class="option-name">Professional SaaS</span>
-                                    <span class="option-price">$200 / video</span>
-                                </button>
-                                <button type="button" class="package-option" data-package="Premium SaaS" data-price="350" data-cardid="saas-premium-card">
-                                    <span class="option-name">Premium SaaS</span>
-                                    <span class="option-price">$350 / video</span>
-                                </button>
-                            </div>
+                            <div id="package-option-grid" class="package-option-grid"></div>
                             <div class="form-nav">
                                 <div></div>
                                 <button type="button" class="nav-btn primary next-step" data-next="2">Continue</button>
@@ -1355,7 +1149,7 @@
                         <div class="form-step" data-step="2">
                             <div class="step-title-row">
                                 <h3>Project details</h3>
-                                <span class="selected-pill" id="selected-package-badge">Starter Level • 10 Videos Pack</span>
+                                <span class="selected-pill" id="selected-package-badge">Real Estate Video Editing • Standard Level</span>
                             </div>
                             <div class="two-col">
                                 <div class="field">
@@ -1399,10 +1193,10 @@
                                 <span class="selected-pill">Ready to send</span>
                             </div>
                             <div class="confirmation-box">
-                                <div class="summary-row"><span>Package</span><strong id="summary-package">Starter Level • 10 Videos Pack · $300</strong></div>
+                                <div class="summary-row"><span>Package</span><strong id="summary-package">Real Estate Video Editing • Standard Level · $35 / video</strong></div>
                                 <div class="summary-row"><span>Client</span><strong id="summary-client">—</strong></div>
                                 <div class="summary-row"><span>Brand</span><strong id="summary-brand">—</strong></div>
-                                <div class="summary-row"><span>Timeline</span><strong id="summary-timeline">48h standard turnaround</strong></div>
+                                <div class="summary-row"><span>Timeline</span><strong id="summary-timeline">24-48h turnaround</strong></div>
                             </div>
                             <div class="form-nav">
                                 <button type="button" class="nav-btn secondary prev-step" data-prev="2">Back</button>
@@ -1468,6 +1262,201 @@
     </div>
 
     <script>
+        const servicePackages = [
+            {
+                name: 'Real Estate Video Editing • Standard Level',
+                price: 35,
+                category: 'Real Estate Video Editing',
+                level: 'Standard Level',
+                benefit: 'Clean property walkthrough cuts, balanced ambient audio, and polished motion that helps listings feel premium and easier to trust.',
+                turnaround: '24-48h',
+                video: 'https://www.youtube.com/embed/YkwSN8HbHR0?rel=0&modestbranding=1',
+                features: ['4K rendering', 'Clean property walkthrough cuts', 'Ambient audio leveling', 'Smooth motion stabilization', 'Basic brand watermark/logo']
+            },
+            {
+                name: 'Real Estate Video Editing • Professional Level',
+                price: 35,
+                category: 'Real Estate Video Editing',
+                level: 'Professional Level',
+                benefit: 'A cinematic, conversion-focused edit with dynamic pacing, custom overlays, and elevated branding for premium listing presentation.',
+                turnaround: '24h',
+                video: 'https://www.youtube.com/embed/sBLw5wgkCqk?rel=0&modestbranding=1',
+                features: ['Dynamic speed ramping', 'Custom architectural lower-thirds', 'Cinematic color grading', 'Sound design & SFX', '1 platform export']
+            },
+            {
+                name: 'Real Estate Video Editing • Premium Level',
+                price: 45,
+                category: 'Real Estate Video Editing',
+                level: 'Premium Level',
+                benefit: 'Luxury real estate storytelling with elite color, motion graphics, drone flow, and multi-platform exports built for maximum visual authority.',
+                turnaround: 'Priority turnaround',
+                video: 'https://www.youtube.com/embed/5tz0WpfLnOg?rel=0&modestbranding=1',
+                features: ['Elite cinematic drone & interior flow', '3D tracking titles', 'Sky replacement', 'Broadcast-grade HDR color grade', 'Multi-platform exports (9:16 + 16:9)']
+            },
+            {
+                name: 'Talking Head Videos • Professional Level',
+                price: 25,
+                category: 'Talking Head Videos',
+                level: 'Professional Level',
+                benefit: 'Sharp, clean talking-head edits that remove dead air, optimize pacing, and keep the viewer engaged from hook to CTA.',
+                turnaround: '24h',
+                video: 'https://www.youtube.com/embed/D5WrfVnBA30?rel=0&modestbranding=1',
+                features: ['Seamless jump cuts & dead-air removal', 'Styled kinetic subtitles with emojis', 'Sound effects on punchlines', 'Zoom-ins & b-roll cutaways']
+            },
+            {
+                name: 'Talking Head Videos • Premium Level',
+                price: 45,
+                category: 'Talking Head Videos',
+                level: 'Premium Level',
+                benefit: 'Retention-engineered edits designed with stronger hooks, elevated motion design, and cinematic polish for premium brand storytelling.',
+                turnaround: 'Priority turnaround',
+                video: 'https://www.youtube.com/embed/nxnu7-EUYiQ?rel=0&modestbranding=1',
+                features: ['Retention-engineered hook pacing', 'Custom 2D/3D motion graphics', 'Brand-custom visual assets', 'Cinematic studio audio mastering', 'Multi-platform formats']
+            },
+            {
+                name: 'UGC Video Ads • Professional Level',
+                price: 45,
+                category: 'UGC Video Ads',
+                level: 'Professional Level',
+                benefit: 'Fast-paced, scroll-stopping UGC edits built for native platform performance, stronger hooks, and higher completion rates.',
+                turnaround: '24-48h',
+                video: 'https://www.youtube.com/embed/oKePZu9Op7M?rel=0&modestbranding=1',
+                features: ['High-converting UGC hook optimization', 'Native TikTok/Reels trending text styles', 'Engaging sound effects', 'Dynamic product cutouts']
+            },
+            {
+                name: 'UGC Video Ads • Premium Level',
+                price: 55,
+                category: 'UGC Video Ads',
+                level: 'Premium Level',
+                benefit: 'High-impact ad edits with conversion structure, polished motion graphics, and multi-ratio exports tailored for scaling campaigns.',
+                turnaround: 'Priority turnaround',
+                video: 'https://www.youtube.com/embed/a1PTzhdiM8o?rel=0&modestbranding=1',
+                features: ['Direct-response conversion structure', 'Split-screen comparison & kinetic titles', '3D callout mockups', 'High-energy sound mixing', '3 aspect ratio exports']
+            },
+            {
+                name: 'SaaS & 3D Motion Animation • Professional Level',
+                price: 200,
+                category: 'SaaS & 3D Motion Animation',
+                level: 'Professional Level',
+                benefit: 'Clean product storytelling and UX-led motion design for SaaS launches, explainers, and high-converting feature showcases.',
+                turnaround: '3-4 days',
+                video: 'https://www.youtube.com/embed/G-4HGah3NJk?rel=0&modestbranding=1',
+                features: ['Up to 45s UI animation', 'Smooth cursor motion', '3D device mockups', 'Dynamic sound design & SFX', '1 platform export', '2 revision rounds']
+            },
+            {
+                name: 'SaaS & 3D Motion Animation • Premium Level',
+                price: 350,
+                category: 'SaaS & 3D Motion Animation',
+                level: 'Premium Level',
+                benefit: 'Full-scale feature explainer motion with advanced 3D UI, premium sound, and multi-format distribution ready for launch campaigns.',
+                turnaround: '4-5 days',
+                video: 'https://www.youtube.com/embed/PLMh16yhotU?rel=0&modestbranding=1',
+                features: ['Full 60-90s detailed feature explainer', 'Advanced custom 3D UI modeling', 'Kinetic typography', 'Multi-platform exports (9:16 + 16:9 + 1:1)', 'Priority queue']
+            }
+        ];
+
+        const servicesGrid = document.getElementById('services-grid');
+        const packageOptionGrid = document.getElementById('package-option-grid');
+        const selectedPackageDisplay = document.getElementById('selected-package-display');
+        const selectedPackageBadge = document.getElementById('selected-package-badge');
+
+        function formatPrice(price) {
+            return `$${price}`;
+        }
+
+        function renderServiceCards() {
+            servicesGrid.innerHTML = servicePackages.map(pkg => `
+                <article class="service-card">
+                    <div class="video-wrap">
+                        <div class="iframe-shell">
+                            <iframe src="${pkg.video}" loading="lazy" allowfullscreen title="${pkg.name}"></iframe>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <span class="service-level">${pkg.level}</span>
+                        <h3 class="service-title">${pkg.category}</h3>
+                        <p class="service-benefit">${pkg.benefit}</p>
+                        <div class="service-price"><strong>${formatPrice(pkg.price)}</strong><small>/ video</small></div>
+                        <div class="service-turnaround"><i class="fa-solid fa-clock"></i> ${pkg.turnaround}</div>
+                        <ul class="service-ul">
+                            ${pkg.features.map(feature => `<li>${feature}</li>`).join('')}
+                        </ul>
+                        <a href="#contact" class="service-cta" data-pkg="${pkg.name}" data-price="${pkg.price}" data-category="${pkg.category}">Select Package →</a>
+                    </div>
+                </article>
+            `).join('');
+
+            packageOptionGrid.innerHTML = servicePackages.map(pkg => `
+                <button type="button" class="package-option ${pkg.name === servicePackages[0].name ? 'selected' : ''}" data-package="${pkg.name}" data-price="${pkg.price}" data-cardid="${pkg.name.replace(/\s+/g, '-').toLowerCase()}">
+                    <span class="option-name">${pkg.name}</span>
+                    <span class="option-price">${formatPrice(pkg.price)} / video</span>
+                </button>
+            `).join('');
+        }
+
+        renderServiceCards();
+
+        let selectedPackage = {
+            name: servicePackages[0].name,
+            price: servicePackages[0].price,
+            category: servicePackages[0].category,
+            level: servicePackages[0].level,
+            turnaround: servicePackages[0].turnaround
+        };
+
+        function updateSelectedPackageDisplay() {
+            selectedPackageDisplay.textContent = `${selectedPackage.category} • ${selectedPackage.level} · ${formatPrice(selectedPackage.price)} / video`;
+            selectedPackageBadge.textContent = `${selectedPackage.category} • ${selectedPackage.level}`;
+            const summaryPackage = document.getElementById('summary-package');
+            if (summaryPackage) summaryPackage.textContent = `${selectedPackage.category} • ${selectedPackage.level} · ${formatPrice(selectedPackage.price)} / video`;
+            document.getElementById('summary-timeline').textContent = selectedPackage.turnaround;
+        }
+
+        document.addEventListener('click', (event) => {
+            const cardLink = event.target.closest('[data-pkg]');
+            if (cardLink) {
+                event.preventDefault();
+                const pkgName = cardLink.dataset.pkg;
+                const pkg = servicePackages.find(item => item.name === pkgName);
+                if (pkg) {
+                    selectedPackage = {
+                        name: pkg.name,
+                        price: pkg.price,
+                        category: pkg.category,
+                        level: pkg.level,
+                        turnaround: pkg.turnaround
+                    };
+                    document.querySelectorAll('.package-option').forEach(option => {
+                        option.classList.toggle('selected', option.dataset.package === pkg.name);
+                    });
+                    updateSelectedPackageDisplay();
+                    document.getElementById('contact').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+                return;
+            }
+
+            const packageBtn = event.target.closest('.package-option');
+            if (packageBtn) {
+                const pkgName = packageBtn.dataset.package;
+                const pkg = servicePackages.find(item => item.name === pkgName);
+                if (pkg) {
+                    selectedPackage = {
+                        name: pkg.name,
+                        price: pkg.price,
+                        category: pkg.category,
+                        level: pkg.level,
+                        turnaround: pkg.turnaround
+                    };
+                    document.querySelectorAll('.package-option').forEach(option => {
+                        option.classList.toggle('selected', option.dataset.package === pkg.name);
+                    });
+                    updateSelectedPackageDisplay();
+                }
+            }
+        });
+
+        updateSelectedPackageDisplay();
+
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         menuBtn.addEventListener('click', () => {
@@ -1488,53 +1477,6 @@
                     const show = panel.dataset.panel === filter || (filter === 'all' && panel.dataset.panel === 'all');
                     panel.classList.toggle('active', show);
                 });
-            });
-        });
-
-        const selectedPackageDisplay = document.getElementById('selected-package-display');
-        const selectedPackageBadge = document.getElementById('selected-package-badge');
-        const fallbackWhatsAppNumber = '916001867854';
-        let selectedPackage = { name: 'Starter Level • 10 Videos Pack', price: 300, cardId: 'starter-card' };
-
-        function applySelectedState(cardId) {
-            const pricingCards = document.querySelectorAll('.pricing-card');
-            pricingCards.forEach(card => {
-                const isSelected = card.id === cardId;
-                card.classList.toggle('selected', isSelected);
-                card.classList.toggle('active', isSelected);
-                const btn = card.querySelector('.select-package-btn');
-                if (btn) {
-                    btn.classList.toggle('primary', isSelected);
-                    btn.textContent = isSelected ? 'Selected ✓' : btn.dataset.originalLabel || 'Select Package';
-                }
-            });
-
-            document.querySelectorAll('.package-option').forEach(option => {
-                const isSelected = option.dataset.cardid === cardId;
-                option.classList.toggle('selected', isSelected);
-            });
-        }
-
-        document.querySelectorAll('.select-package-btn').forEach(btn => {
-            btn.dataset.originalLabel = btn.textContent.trim();
-        });
-
-        function selectPackage(name, price, cardId) {
-            selectedPackage = { name, price, cardId };
-            selectedPackageDisplay.textContent = `${name} · $${price}`;
-            selectedPackageBadge.textContent = name;
-            applySelectedState(cardId);
-            const summaryPackage = document.getElementById('summary-package');
-            if (summaryPackage) summaryPackage.textContent = `${name} · $${price}`;
-            document.getElementById('booking-form').dataset.package = name;
-        }
-
-        document.querySelectorAll('.package-option').forEach(option => {
-            option.addEventListener('click', () => {
-                const pkg = option.dataset.package;
-                const price = Number(option.dataset.price || 0);
-                const cardId = option.dataset.cardid;
-                selectPackage(pkg, price, cardId);
             });
         });
 
@@ -1581,12 +1523,10 @@
             const company = document.getElementById('company').value.trim();
             const videoType = document.getElementById('video-type').value;
             const brief = document.getElementById('brief').value.trim();
-            const packageName = selectedPackage.name;
-
             const message = [
                 'Hello Ayush, I would like to book a project.',
                 '',
-                `Package: ${packageName}`,
+                `Package: ${selectedPackage.name}`,
                 `Full Name: ${fullName}`,
                 `Email: ${email}`,
                 `Company / Brand: ${company || 'Not provided'}`,
@@ -1596,7 +1536,7 @@
                 'Please share the next steps and pricing details.'
             ].join('\n');
 
-            const whatsappUrl = `https://api.whatsapp.com/send?phone=${fallbackWhatsAppNumber}&text=${encodeURIComponent(message)}`;
+            const whatsappUrl = `https://api.whatsapp.com/send?phone=916001867854&text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
         });
 
@@ -1701,12 +1641,6 @@
             ratingButtons[4].classList.add('active');
             closeReviewModal();
         });
-
-        const initialSelectedPackage = document.querySelector('.package-option.selected');
-        if (initialSelectedPackage) {
-            selectPackage(initialSelectedPackage.dataset.package, Number(initialSelectedPackage.dataset.price || 300), initialSelectedPackage.dataset.cardid);
-        }
-        selectedPackageBadge.textContent = selectedPackage.name;
     </script>
 </body>
 </html>
