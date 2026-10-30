@@ -23,7 +23,7 @@
             }
         }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body { background-color: #0a0a0a; color: #f3f4f6; font-family: 'Inter', sans-serif; }
@@ -53,6 +53,776 @@
         #menu-btn.active i {
             transform: rotate(90deg);
         }
+
+        .pricing-shell,
+        .booking-shell,
+        .footer-shell {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .kicker {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #d4af37;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-header h2,
+        .booking-header h2 {
+            margin: 0 0 0.75rem;
+            font-weight: 900;
+            letter-spacing: -0.05em;
+            font-size: clamp(2.2rem, 5vw, 4rem);
+            line-height: 1.08;
+        }
+
+        .section-header p,
+        .booking-header p {
+            max-width: 760px;
+            margin: 0 auto;
+            color: #a0abb9;
+            font-size: 1rem;
+        }
+
+        .pill-row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.75rem 1rem;
+            margin-top: 1.5rem;
+            color: #d7e0ea;
+            font-size: 0.8rem;
+        }
+
+        .pill-row span {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.55rem 0.8rem;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 999px;
+        }
+
+        .pill-row i {
+            display: inline-block;
+            width: 0.45rem;
+            height: 0.45rem;
+            border-radius: 50%;
+            background: #d4af37;
+            box-shadow: 0 0 0 6px rgba(212,175,55,0.12);
+        }
+
+        .package-tier-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 1.75rem;
+            margin-top: 2rem;
+        }
+
+        .package-tier {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 1.75rem;
+            align-items: center;
+            background: rgba(255,255,255,0.025);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 1.75rem;
+            padding: 1.25rem;
+            box-shadow: 0 24px 60px rgba(0,0,0,0.28);
+        }
+
+        .premium-tier {
+            border-color: rgba(212,175,55,0.42);
+            box-shadow: 0 30px 80px rgba(212,175,55,0.08);
+        }
+
+        .package-visual {
+            width: 100%;
+            min-height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 1.2rem;
+            overflow: hidden;
+            background: #000;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .package-visual iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 430px;
+            border: none;
+            display: block;
+        }
+
+        .package-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .package-content h3 {
+            margin: 0;
+            font-size: clamp(1.8rem, 2vw, 2.5rem);
+            letter-spacing: -0.04em;
+        }
+
+        .package-content p {
+            margin: 0;
+            color: #a0abb9;
+            font-size: 0.98rem;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            width: fit-content;
+            padding: 0.55rem 0.8rem;
+            border-radius: 999px;
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+        }
+
+        .badge-green {
+            background: rgba(52,211,153,0.16);
+            color: #b7f6d8;
+            border: 1px solid rgba(52,211,153,0.4);
+        }
+
+        .badge-amber {
+            background: rgba(245,158,11,0.15);
+            color: #ffdca2;
+            border: 1px solid rgba(245,158,11,0.4);
+        }
+
+        .badge-rose {
+            background: rgba(251,113,133,0.12);
+            color: #ffc4cf;
+            border: 1px solid rgba(251,113,133,0.35);
+        }
+
+        .plan-grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .two-up {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .three-up {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .plan-card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 200px;
+            gap: 0.9rem;
+            padding: 1rem;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.09);
+            border-radius: 1rem;
+        }
+
+        .plan-card.featured {
+            border-color: rgba(212,175,55,0.45);
+            background: rgba(212,175,55,0.08);
+        }
+
+        .plan-label {
+            display: block;
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #a0abb9;
+        }
+
+        .price-line {
+            display: flex;
+            align-items: end;
+            gap: 0.5rem;
+        }
+
+        .price-line strong {
+            font-size: clamp(1.5rem, 2vw, 2.1rem);
+            color: #f3f4f6;
+            letter-spacing: -0.04em;
+        }
+
+        .price-line small {
+            color: #a0abb9;
+            font-size: 0.75rem;
+        }
+
+        .price-line.accent strong {
+            color: #d4af37;
+        }
+
+        .discount-line {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            color: #a0abb9;
+            font-size: 0.76rem;
+        }
+
+        .strike {
+            text-decoration: line-through;
+            text-decoration-thickness: 2px;
+            color: rgba(255,255,255,0.45);
+        }
+
+        .save {
+            color: #34d399;
+            font-weight: 700;
+        }
+
+        .best-badge {
+            position: absolute;
+            top: -12px;
+            right: 1rem;
+            font-size: 9px;
+            font-weight: 900;
+            text-transform: uppercase;
+            background: #d4af37;
+            color: #0b0f14;
+            padding: 0.3rem 0.5rem;
+            border-radius: 999px;
+            letter-spacing: 0.08em;
+        }
+
+        .best-badge.gold {
+            background: #facc15;
+        }
+
+        .select-package-btn {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            min-height: 44px;
+            padding: 0.8rem 0.95rem;
+            border-radius: 0.75rem;
+            border: 1px solid rgba(212,175,55,0.55);
+            background: transparent;
+            color: #d4af37;
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+        }
+
+        .select-package-btn:hover {
+            transform: translateY(-1px);
+            background: #d4af37;
+            color: #101010;
+            border-color: #d4af37;
+        }
+
+        .select-package-btn.primary {
+            background: #d4af37;
+            color: #0a0d11;
+            border-color: #d4af37;
+        }
+
+        .select-package-btn.primary:hover {
+            background: #f5c95d;
+        }
+
+        .included-list {
+            margin-top: 0.75rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .included-list h4 {
+            margin: 0 0 0.75rem;
+            font-size: 0.76rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #f3f4f6;
+        }
+
+        .included-list ul {
+            margin: 0;
+            padding: 0 0 0 1.1rem;
+            color: #a0abb9;
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        .included-list small {
+            display: block;
+            margin-top: 0.8rem;
+            color: rgba(255,255,255,0.52);
+        }
+
+        .section-subhead {
+            margin: 2.7rem 0 1.1rem;
+            text-align: center;
+        }
+
+        .section-subhead h3 {
+            margin: 0;
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            letter-spacing: -0.04em;
+        }
+
+        .normal-packages {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        .standard-card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 1.1rem;
+            padding: 1.25rem 1.1rem;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 1.4rem;
+            min-height: 100%;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .standard-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(212,175,55,0.42);
+        }
+
+        .standard-card.featured {
+            border-color: rgba(212,175,55,0.55);
+            box-shadow: 0 25px 60px rgba(212,175,55,0.10);
+        }
+
+        .top-tag {
+            position: absolute;
+            top: -12px;
+            left: 1rem;
+            padding: 0.4rem 0.6rem;
+            font-size: 9px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #0a0d11;
+            background: #d4af37;
+            border-radius: 999px;
+            font-weight: 900;
+        }
+
+        .standard-card h4 {
+            margin: 0;
+            font-size: 1.45rem;
+            letter-spacing: -0.03em;
+        }
+
+        .muted {
+            margin: 0;
+            color: #a0abb9;
+            font-size: 0.82rem;
+        }
+
+        .standard-price {
+            display: flex;
+            align-items: end;
+            gap: 0.5rem;
+        }
+
+        .amount {
+            font-size: clamp(2.1rem, 4vw, 2.8rem);
+            font-weight: 900;
+            letter-spacing: -0.05em;
+            color: #d4af37;
+        }
+
+        .per {
+            color: #a0abb9;
+            font-size: 0.78rem;
+        }
+
+        .turnaround {
+            margin: 0;
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #f7d56d;
+        }
+
+        .standard-card ul {
+            margin: 0;
+            padding-left: 1.1rem;
+            display: grid;
+            gap: 0.55rem;
+            color: #dfe7f2;
+            font-size: 0.88rem;
+        }
+
+        .booking-section {
+            padding-top: 1rem;
+        }
+
+        .booking-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .booking-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 1.7rem;
+            padding: 1.6rem;
+            box-shadow: 0 24px 60px rgba(0,0,0,0.28);
+        }
+
+        .booking-progress {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .progress-step {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 46px;
+            padding: 0.7rem 0.9rem;
+            text-align: center;
+            border-radius: 0.8rem;
+            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.02);
+            color: #a0abb9;
+            font-size: 0.82rem;
+            font-weight: 700;
+        }
+
+        .progress-step.active {
+            background: rgba(212,175,55,0.08);
+            border-color: rgba(212,175,55,0.42);
+            color: #d4af37;
+        }
+
+        .form-step {
+            display: none;
+        }
+
+        .form-step.active {
+            display: block;
+        }
+
+        .step-title-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .step-title-row h3 {
+            margin: 0;
+            font-size: clamp(1.5rem, 2vw, 2rem);
+            letter-spacing: -0.04em;
+        }
+
+        .selected-pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 38px;
+            padding: 0.5rem 0.8rem;
+            border-radius: 999px;
+            background: rgba(52,211,153,0.15);
+            border: 1px solid rgba(52,211,153,0.35);
+            color: #beefd9;
+            font-size: 0.74rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .package-option-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 0.75rem;
+        }
+
+        .package-option {
+            appearance: none;
+            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.02);
+            color: #f3f4f6;
+            border-radius: 1rem;
+            padding: 1rem 0.8rem;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            gap: 0.55rem;
+            cursor: pointer;
+            transition: border-color 0.2s ease, transform 0.2s ease, background 0.2s ease;
+        }
+
+        .package-option:hover {
+            transform: translateY(-1px);
+            border-color: rgba(212,175,55,0.4);
+        }
+
+        .package-option.selected {
+            border-color: rgba(212,175,55,0.8);
+            background: rgba(212,175,55,0.10);
+        }
+
+        .option-name {
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .option-price {
+            color: #d4af37;
+            font-weight: 800;
+            font-size: 0.8rem;
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .field label {
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #a0abb9;
+        }
+
+        .field input,
+        .field select,
+        .field textarea {
+            width: 100%;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 0.8rem;
+            color: #f3f4f6;
+            padding: 0.9rem 1rem;
+            font-size: 0.96rem;
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .field input:focus,
+        .field select:focus,
+        .field textarea:focus {
+            border-color: rgba(212,175,55,0.7);
+            box-shadow: 0 0 0 4px rgba(212,175,55,0.10);
+        }
+
+        .field textarea {
+            resize: vertical;
+            min-height: 160px;
+        }
+
+        .confirmation-box {
+            display: grid;
+            gap: 0.8rem;
+            padding: 1rem;
+            border-radius: 1rem;
+            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.02);
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            font-size: 0.92rem;
+            padding-bottom: 0.7rem;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .summary-row:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .summary-row span {
+            color: #a0abb9;
+        }
+
+        .summary-row strong {
+            text-align: right;
+        }
+
+        .final-actions {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 1.1rem;
+        }
+
+        .submit-btn,
+        .nav-btn {
+            appearance: none;
+            border: 1px solid transparent;
+            border-radius: 0.8rem;
+            padding: 0.9rem 1.2rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .submit-btn:hover,
+        .nav-btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .submit-btn.primary,
+        .nav-btn.primary {
+            background: #d4af37;
+            color: #0f1115;
+            border-color: #d4af37;
+        }
+
+        .submit-btn.secondary,
+        .nav-btn.secondary {
+            background: transparent;
+            color: #f3f4f6;
+            border-color: rgba(255,255,255,0.15);
+        }
+
+        .form-nav {
+            display: flex;
+            justify-content: space-between;
+            gap: 0.8rem;
+            margin-top: 1.2rem;
+        }
+
+        .site-footer {
+            padding-top: 0.6rem;
+            padding-bottom: 1.5rem;
+        }
+
+        .footer-shell {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding-top: 1.75rem;
+        }
+
+        .brand-block {
+            max-width: 440px;
+        }
+
+        .brand-block h4 {
+            margin: 0 0 0.6rem;
+            font-size: 1.15rem;
+            letter-spacing: -0.02em;
+        }
+
+        .brand-block p {
+            margin: 0;
+            color: #a0abb9;
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            gap: 1rem;
+        }
+
+        .footer-links a {
+            color: #a0abb9;
+            font-size: 0.86rem;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: #d4af37;
+        }
+
+        @media (max-width: 1100px) {
+            .normal-packages {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .package-option-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 900px) {
+            .package-tier {
+                grid-template-columns: 1fr;
+            }
+
+            .package-visual iframe {
+                min-height: 320px;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .two-up,
+            .three-up,
+            .two-col,
+            .package-option-grid,
+            .normal-packages {
+                grid-template-columns: 1fr;
+            }
+
+            .booking-progress {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-shell {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .footer-links {
+                justify-content: flex-start;
+            }
+
+            .step-title-row {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
     </style>
 </head>
 <body class="bg-darkBg text-gray-100 antialiased selection:bg-accentGold selection:text-black">
@@ -69,7 +839,7 @@
                 <a href="https://wa.me/message/BSHW5BKXF5Q2M1" target="_blank" rel="noopener" class="hover:text-accentGold transition flex items-center gap-1.5 text-accentGold"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
             </nav>
             <div class="flex items-center gap-4">
-                <a href="#contact" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-full text-sm font-semibold text-black bg-accentGold hover:bg-yellow-500 transition shadow-lg">Book a Project</a>
+                <a href="#contact" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-full text-sm font-semibold text-black bg-accentGold hover:bg-yellow-500 transition shadow-lg shadow-accentGold/20">Book Now</a>
                 <button id="menu-btn" class="md:hidden text-gray-300 hover:text-accentGold focus:outline-none text-xl p-2 transition" aria-label="Toggle menu"><i class="fa-solid fa-bars"></i></button>
             </div>
         </div>
@@ -77,21 +847,11 @@
         <!-- Mobile Menu Dropdown -->
         <div id="mobile-menu" class="md:hidden glass-panel border-b border-white/10 px-4 py-0">
             <nav class="flex flex-col space-y-0">
-                <a href="#tools" class="mobile-menu-link block py-4 px-2 text-gray-300 hover:text-accentGold font-medium border-b border-white/5 transition">
-                    <i class="fa-solid fa-screwdriver-wrench w-5"></i> Tools & Workflow
-                </a>
-                <a href="#portfolio" class="mobile-menu-link block py-4 px-2 text-gray-300 hover:text-accentGold font-medium border-b border-white/5 transition">
-                    <i class="fa-solid fa-images w-5"></i> Portfolio
-                </a>
-                <a href="#pricing" class="mobile-menu-link block py-4 px-2 text-gray-300 hover:text-accentGold font-medium border-b border-white/5 transition">
-                    <i class="fa-solid fa-tag w-5"></i> Pricing
-                </a>
-                <a href="#contact" class="mobile-menu-link block py-4 px-2 text-gray-300 hover:text-accentGold font-medium border-b border-white/5 transition">
-                    <i class="fa-solid fa-calendar w-5"></i> Book Project
-                </a>
-                <a href="https://wa.me/message/BSHW5BKXF5Q2M1" target="_blank" rel="noopener noreferrer" class="mobile-menu-link block py-4 px-2 mt-2 mb-4 text-black font-semibold text-center rounded-full bg-accentGold hover:bg-yellow-500 transition-all">
-                    <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
-                </a>
+                <a href="#tools" class="mobile-menu-link block py-4 px-2 text-gray-300 hover:text-accentGold font-medium border-b border-white/5 transition"><i class="fa-solid fa-screwdriver-wrench w-5"></i> Tools & Workflow</a>
+                <a href="#portfolio" class="mobile-menu-link block py-4 px-2 text-gray-300 hover:text-accentGold font-medium border-b border-white/5 transition"><i class="fa-solid fa-images w-5"></i> Portfolio</a>
+                <a href="#pricing" class="mobile-menu-link block py-4 px-2 text-gray-300 hover:text-accentGold font-medium border-b border-white/5 transition"><i class="fa-solid fa-tag w-5"></i> Pricing</a>
+                <a href="#contact" class="mobile-menu-link block py-4 px-2 text-gray-300 hover:text-accentGold font-medium border-b border-white/5 transition"><i class="fa-solid fa-calendar w-5"></i> Book Project</a>
+                <a href="https://wa.me/message/BSHW5BKXF5Q2M1" target="_blank" rel="noopener noreferrer" class="mobile-menu-link block py-4 px-2 mt-2 mb-4 text-black font-semibold text-center rounded-full bg-accentGold hover:bg-yellow-500 transition"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</a>
             </nav>
         </div>
     </header>
@@ -101,7 +861,7 @@
         <section class="relative min-h-[90vh] flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16">
             <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
                 <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide uppercase bg-white/5 border border-white/10 text-accentGold backdrop-blur-md">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide uppercase bg-white/5 border border-white/10 text-accentGold backdrop-blur-sm">
                         <i class="fa-solid fa-star"></i> 5+ Years Industry Experience
                     </div>
                     <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight">
@@ -111,8 +871,8 @@
                         Professional video editor and motion designer helping real estate brands, top creators, high-converting UGC campaigns, and SaaS enterprises scale through world-class visual storytelling.
                     </p>
                     <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
-                        <a href="#portfolio" class="w-full sm:w-auto px-8 py-4 rounded-full text-sm font-semibold tracking-wide uppercase bg-accentGold text-black hover:bg-yellow-500 transition shadow-lg">Explore Portfolio</a>
-                        <a href="#pricing" class="w-full sm:w-auto px-8 py-4 rounded-full text-sm font-semibold tracking-wide uppercase bg-white/5 hover:bg-white/10 text-white border border-white/10 transition">View Pricing</a>
+                        <a href="#portfolio" class="w-full sm:w-auto px-8 py-4 rounded-full text-sm font-semibold tracking-wide uppercase bg-accentGold text-black hover:bg-yellow-500 transition shadow-lg shadow-accentGold/20">View Portfolio</a>
+                        <a href="#pricing" class="w-full sm:w-auto px-8 py-4 rounded-full text-sm font-semibold tracking-wide uppercase bg-white/5 hover:bg-white/10 text-white border border-white/10 transition">See Pricing</a>
                     </div>
                 </div>
 
@@ -128,7 +888,7 @@
             </div>
         </section>
 
-        <!-- NEW: Software Mastery / Tools Section -->
+        <!-- Software Mastery / Tools Section -->
         <section id="tools" class="py-20 bg-[#0e0e0e] border-y border-white/5">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-4xl mx-auto mb-14">
@@ -136,18 +896,18 @@
                         <i class="fa-solid fa-crown"></i> Mastery
                     </div>
                     <h2 class="text-3xl sm:text-5xl font-bold tracking-tight text-white">Industry-Standard Tools & Workflow</h2>
-                    <p class="mt-4 text-lg text-gray-400">5+ Years of Mastery delivering high-retention, broadcast-quality edits with storytelling precision, robust post-production systems, and premium client communication.</p>
+                    <p class="mt-4 text-lg text-gray-400">5+ Years of mastery delivering high-retention, broadcast-quality edits with storytelling precision, robust post-production systems, and premium finishing standards.</p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
-                    <div class="glass-panel rounded-3xl p-6 border border-accentGold/20 hover:border-accentGold/60 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_25px_rgba(212,175,55,0.18)]">
+                    <div class="glass-panel rounded-3xl p-6 border border-accentGold/20 hover:border-accentGold/60 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_25px_rgba(212,175,55,0.2)]">
                         <div class="flex items-center justify-between gap-3 mb-4">
-                            <span class="inline-flex items-center px-3 py-1 rounded-full bg-[#d4af37]/15 text-accentGold text-xs font-semibold uppercase tracking-[0.1em] border border-accentGold/20"><i class="fa-solid fa-award mr-2"></i> 5+ Years</span>
+                            <span class="inline-flex items-center px-3 py-1 rounded-full bg-[#d4af37]/15 text-accentGold text-xs font-semibold uppercase tracking-[0.1em] border border-accentGold/20">Premiere</span>
                         </div>
                         <img src="premium%20Pro.png" alt="Adobe Premiere Pro" class="w-full h-52 object-cover rounded-2xl border border-white/10 mb-5">
                         <h3 class="text-2xl font-bold text-accentGold mb-2">Adobe Premiere Pro</h3>
                         <p class="text-base font-semibold text-yellow-300 mb-2">High-Retention Long-Form & Fast Short-Form Pacing</p>
-                        <p class="text-sm text-gray-300 leading-7 mb-4">Rapid timeline workflow, seamless jump cuts, multi-cam editing, dynamic audio ducking, and engagement-driven rhythm engineered to keep viewers watching.</p>
+                        <p class="text-sm text-gray-300 leading-7 mb-4">Rapid timeline workflow, seamless jump cuts, multi-cam editing, dynamic audio ducking, and engagement-driven rhythm engineering.</p>
                         <ul class="space-y-2 text-sm text-gray-200">
                             <li class="flex items-start gap-2"><span class="text-accentGold">✓</span><span>Seamless jump cuts & intelligent pacing</span></li>
                             <li class="flex items-start gap-2"><span class="text-accentGold">✓</span><span>Multi-cam timeline coordination</span></li>
@@ -156,14 +916,14 @@
                         </ul>
                     </div>
 
-                    <div class="glass-panel rounded-3xl p-6 border border-accentGold/20 hover:border-accentGold/60 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_25px_rgba(212,175,55,0.18)]">
+                    <div class="glass-panel rounded-3xl p-6 border border-accentGold/20 hover:border-accentGold/60 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_25px_rgba(212,175,55,0.2)]">
                         <div class="flex items-center justify-between gap-3 mb-4">
-                            <span class="inline-flex items-center px-3 py-1 rounded-full bg-[#d4af37]/15 text-accentGold text-xs font-semibold uppercase tracking-[0.1em] border border-accentGold/20"><i class="fa-solid fa-award mr-2"></i> 5+ Years</span>
+                            <span class="inline-flex items-center px-3 py-1 rounded-full bg-[#d4af37]/15 text-accentGold text-xs font-semibold uppercase tracking-[0.1em] border border-accentGold/20">After Effects</span>
                         </div>
                         <img src="after%20effect.png" alt="Adobe After Effects" class="w-full h-52 object-cover rounded-2xl border border-white/10 mb-5">
                         <h3 class="text-2xl font-bold text-accentGold mb-2">Adobe After Effects</h3>
                         <p class="text-base font-semibold text-yellow-300 mb-2">High-End Motion Graphics, VFX & Kinetic Typography</p>
-                        <p class="text-sm text-gray-300 leading-7 mb-4">Custom 2D/3D mockups, SaaS UI animations, track mattes, 3D camera tracking, and custom sound design integration that elevates every frame.</p>
+                        <p class="text-sm text-gray-300 leading-7 mb-4">Custom 2D/3D mockups, SaaS UI animations, track mattes, 3D camera tracking, and custom sound design that elevate brand perception.</p>
                         <ul class="space-y-2 text-sm text-gray-200">
                             <li class="flex items-start gap-2"><span class="text-accentGold">✓</span><span>Custom 2D & 3D mockup animation</span></li>
                             <li class="flex items-start gap-2"><span class="text-accentGold">✓</span><span>SaaS UI and product reveal visuals</span></li>
@@ -172,9 +932,9 @@
                         </ul>
                     </div>
 
-                    <div class="glass-panel rounded-3xl p-6 border border-accentGold/20 hover:border-accentGold/60 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_25px_rgba(212,175,55,0.18)] md:col-span-2 xl:col-span-1">
+                    <div class="glass-panel rounded-3xl p-6 border border-accentGold/20 hover:border-accentGold/60 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_25px_rgba(212,175,55,0.2)]">
                         <div class="flex items-center justify-between gap-3 mb-4">
-                            <span class="inline-flex items-center px-3 py-1 rounded-full bg-[#d4af37]/15 text-accentGold text-xs font-semibold uppercase tracking-[0.1em] border border-accentGold/20"><i class="fa-solid fa-award mr-2"></i> 5+ Years</span>
+                            <span class="inline-flex items-center px-3 py-1 rounded-full bg-[#d4af37]/15 text-accentGold text-xs font-semibold uppercase tracking-[0.1em] border border-accentGold/20">Resolve</span>
                         </div>
                         <img src="Davinci%20resolve.png" alt="DaVinci Resolve" class="w-full h-52 object-cover rounded-2xl border border-white/10 mb-5">
                         <h3 class="text-2xl font-bold text-accentGold mb-2">DaVinci Resolve</h3>
@@ -198,17 +958,18 @@
                     <h2 class="text-xs font-semibold tracking-widest uppercase text-accentGold">Selected Works</h2>
                     <h3 class="text-3xl sm:text-4xl font-bold tracking-tight">Cinematic Portfolio Categories</h3>
                 </div>
+
                 <div class="space-y-8">
                     <h4 class="text-2xl font-bold border-b border-white/10 pb-4">Real Estate Videos</h4>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div class="glass-panel p-4 rounded-xl flex justify-center">
                             <div class="w-full max-w-xs sm:max-w-sm aspect-[9/16] rounded-xl overflow-hidden shadow-lg">
-                                <iframe class="w-full h-full" src="https://www.youtube.com/embed/5tz0WpfLnOg" title="Real Estate Video 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                <iframe class="w-full h-full" loading="lazy" src="https://www.youtube.com/embed/5tz0WpfLnOg" title="Real Estate Video 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                         </div>
                         <div class="glass-panel p-4 rounded-xl flex justify-center">
                             <div class="w-full max-w-xs sm:max-w-sm aspect-[9/16] rounded-xl overflow-hidden shadow-lg">
-                                <iframe class="w-full h-full" src="https://www.youtube.com/embed/sBLw5wgkCqk" title="Real Estate Video 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                <iframe class="w-full h-full" loading="lazy" src="https://www.youtube.com/embed/sBLw5wgkCqk" title="Real Estate Video 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                         </div>
                     </div>
@@ -219,651 +980,757 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div class="glass-panel p-4 rounded-xl flex justify-center">
                             <div class="w-full max-w-xs sm:max-w-sm aspect-[9/16] rounded-xl overflow-hidden shadow-lg">
-                                <iframe class="w-full h-full" src="https://www.youtube.com/embed/nxnu7-EUYiQ" title="Talking Head Video 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                <iframe class="w-full h-full" loading="lazy" src="https://www.youtube.com/embed/nxnu7-EUYiQ" title="Talking Head Video 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                         </div>
                         <div class="glass-panel p-4 rounded-xl flex justify-center">
                             <div class="w-full max-w-xs sm:max-w-sm aspect-[9/16] rounded-xl overflow-hidden shadow-lg">
-                                <iframe class="w-full h-full" src="https://www.youtube.com/embed/D5WrfVnBA30" title="Talking Head Video 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                <iframe class="w-full h-full" loading="lazy" src="https://www.youtube.com/embed/D5WrfVnBA30" title="Talking Head Video 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- UGC Ads (Clean 9:16 Ratio Grid) -->
+
                 <div class="space-y-8">
                     <h4 class="text-2xl font-bold border-b border-white/10 pb-4">UGC Ads</h4>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                        
-                        <!-- UGC Video 1 -->
                         <div class="glass-panel p-4 rounded-3xl border border-white/10 hover:border-accentGold/40 transition-all duration-300">
                             <div class="w-full max-w-xs sm:max-w-sm aspect-[9/16] mx-auto rounded-2xl overflow-hidden shadow-2xl bg-black border border-white/10">
-                                <iframe class="w-full h-full object-cover border-0" src="https://www.youtube.com/embed/oKePZu9Op7M?rel=0&modestbranding=1" title="High-Converting UGC Ads Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe class="w-full h-full object-cover border-0" loading="lazy" src="https://www.youtube.com/embed/oKePZu9Op7M?rel=0&modestbranding=1" title="High-Converting UGC Ads Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                             <h4 class="text-white font-semibold text-center mt-4 text-base">High-Converting UGC Ads Video</h4>
                             <p class="text-xs text-gray-400 text-center mt-1">Ayush Motion Edits</p>
                         </div>
 
-                        <!-- UGC Video 2 -->
                         <div class="glass-panel p-4 rounded-3xl border border-white/10 hover:border-accentGold/40 transition-all duration-300">
                             <div class="w-full max-w-xs sm:max-w-sm aspect-[9/16] mx-auto rounded-2xl overflow-hidden shadow-2xl bg-black border border-white/10">
-                                <iframe class="w-full h-full object-cover border-0" src="https://www.youtube.com/embed/a1PTzhdiM8o?rel=0&modestbranding=1" title="Viral UGC Product Showcase" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe class="w-full h-full object-cover border-0" loading="lazy" src="https://www.youtube.com/embed/a1PTzhdiM8o?rel=0&modestbranding=1" title="Viral UGC Product Showcase" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                             <h4 class="text-white font-semibold text-center mt-4 text-base">Viral UGC Product Showcase</h4>
                             <p class="text-xs text-gray-400 text-center mt-1">Ayush Motion Edits</p>
                         </div>
-
                     </div>
                 </div>
 
-            </div>
-        </section>
-                                    <!-- SaaS & Product Animation (9:16 Vertical Grid) -->
                 <div class="space-y-8">
                     <h4 class="text-2xl font-bold border-b border-white/10 pb-4">SaaS Animation</h4>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                        
-                           <!-- SaaS Video 1 -->
                         <div class="glass-panel p-4 rounded-3xl border border-white/10 hover:border-accentGold/40 transition-all duration-300">
                             <div class="w-full max-w-xs sm:max-w-sm aspect-[9/16] mx-auto rounded-2xl overflow-hidden shadow-2xl bg-black border border-white/10">
-                                <iframe 
-                                    class="w-full h-full object-cover border-0" 
-                                    src="https://www.youtube.com/embed/G-4HGah3NJk?rel=0&modestbranding=1" 
-                                    title="SaaS Product UI Animation 1" 
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                    allowfullscreen>
-                                </iframe>
+                                <iframe class="w-full h-full object-cover border-0" loading="lazy" src="https://www.youtube.com/embed/G-4HGah3NJk?rel=0&modestbranding=1" title="SaaS Product UI Animation 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                             <h4 class="text-white font-semibold text-center mt-4 text-base">SaaS Product UI Animation</h4>
                             <p class="text-xs text-gray-400 text-center mt-1">Ayush Motion Edits</p>
                         </div>
 
-                            <!-- SaaS Video 2 -->
                         <div class="glass-panel p-4 rounded-3xl border border-white/10 hover:border-accentGold/40 transition-all duration-300">
                             <div class="w-full max-w-xs sm:max-w-sm aspect-[9/16] mx-auto rounded-2xl overflow-hidden shadow-2xl bg-black border border-white/10">
-                                <iframe 
-                                    class="w-full h-full object-cover border-0" 
-                                    src="https://www.youtube.com/embed/PLMh16yhotU?rel=0&modestbranding=1" 
-                                    title="SaaS Product UI Animation 2" 
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                    allowfullscreen>
-                                </iframe>
+                                <iframe class="w-full h-full object-cover border-0" loading="lazy" src="https://www.youtube.com/embed/PLMh16yhotU?rel=0&modestbranding=1" title="SaaS Product UI Animation 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                             <h4 class="text-white font-semibold text-center mt-4 text-base">High-Impact SaaS Showcase</h4>
                             <p class="text-xs text-gray-400 text-center mt-1">Ayush Motion Edits</p>
                         </div>
-
                     </div>
                 </div>
-    <!-- Pricing Section -->
-    <section id="pricing" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-4">Professional Video Editing Packages</h2>
-        <p class="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto">High-retention editing designed for 60-second high-impact videos.</p>
-        <div class="flex flex-wrap justify-center items-center gap-4 mt-6 text-xs sm:text-sm text-gray-400 font-medium">
-          <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-accentGold"></span> 24-hour turnaround on standard edits</span>
-          <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-accentGold"></span> 50% advance to start</span>
-          <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-accentGold"></span> Pick a plan & book in 3 quick steps</span>
-        </div>
-      </div>
+            </div>
+        </section>
 
-      <!-- Creator Bulk Editing Tier (15 Videos) Card -->
-      <div class="max-w-5xl mx-auto mb-16">
-        <div class="bg-gradient-to-r from-yellow-500/20 via-amber-500/10 to-yellow-500/20 p-[1px] rounded-3xl shadow-[0_10px_40px_rgba(218,175,55,0.15)]">
-          <div class="glass-panel p-6 sm:p-10 rounded-3xl relative overflow-hidden bg-black/80 backdrop-blur-xl">
-            <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 pb-6 border-b border-white/10">
-              <div>
-                <span class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-black bg-accentGold px-3 py-1 rounded-full mb-3">
-                  ⚡ LIMITED TIME BULK DEAL • SAVE 20%
-                </span>
-                <h3 class="text-2xl sm:text-3xl font-bold text-white">Creator Bulk Editing Tier (15 Videos)</h3>
-                <p class="text-gray-400 text-sm mt-1 max-w-xl">
-                  Upgraded standard production with enhanced motion graphics & cinematic polish — discounted to just $36/video in a 15-video batch.
-                </p>
-                <div class="mt-4 flex items-baseline gap-3">
-                  <span class="text-gray-500 line-through text-lg">$675</span>
-                  <span class="text-3xl sm:text-4xl font-extrabold text-accentGold">$540</span>
-                  <span class="text-xs text-gray-300 font-medium">($36/video) • Save $135 OFF + Enhanced Motion Graphics & Polish</span>
+        <!-- Pricing Section -->
+        <section id="pricing" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="section-header">
+                <span class="kicker">Video Editing Packages</span>
+                <h2>Professional Video Editing Packages</h2>
+                <p>High-retention editing designed for short-form creators, brands, agencies, and SaaS teams.</p>
+
+                <div class="pill-row">
+                    <span><i></i> 24-hour turnaround on standard edits</span>
+                    <span><i></i> 50% advance to start</span>
+                    <span><i></i> Pick a plan &amp; book in 3 quick steps</span>
                 </div>
-              </div>
-              <a href="#contact" class="select-package-btn w-full lg:w-auto text-center px-8 py-4 rounded-2xl bg-accentGold text-black font-extrabold text-base hover:bg-yellow-400 shadow-[0_0_25px_rgba(218,175,55,0.4)] transition-all duration-300" data-pkg="bulk-15">
-                Claim Bulk Offer ($36/video) →
-              </a>
             </div>
 
-            <!-- 2-Column Features List -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3 mt-6 text-sm text-gray-300">
-              <div class="flex items-start gap-2.5"><span class="text-accentGold font-bold">✓</span> 15 Professionally Edited Short-Form Videos (Reels, TikTok)</div>
-              <div class="flex items-start gap-2.5"><span class="text-accentGold font-bold">✓</span> Dedicated sound design & crisp studio audio polish</div>
-              <div class="flex items-start gap-2.5"><span class="text-accentGold font-bold">✓</span> Precision pacing, jump cuts & dead-air removal</div>
-              <div class="flex items-start gap-2.5"><span class="text-accentGold font-bold">✓</span> Brand-styled auto-captions & multi-platform master exports</div>
-              <div class="flex items-start gap-2.5"><span class="text-accentGold font-bold">✓</span> Custom dynamic motion titles & styled lower-thirds</div>
-              <div class="flex items-start gap-2.5"><span class="text-accentGold font-bold">✓</span> Fast batch turnaround with structured delivery milestones</div>
-              <div class="flex items-start gap-2.5"><span class="text-accentGold font-bold">✓</span> Cinematic color correction & skin-tone pop</div>
-              <div class="flex items-start gap-2.5"><span class="text-accentGold font-bold">✓</span> Dedicated revision rounds & direct priority support</div>
+            <div class="package-tier-stack">
+                <article class="package-tier">
+                    <div class="package-visual">
+                        <iframe src="https://www.youtube.com/embed/Qoei7lG14gw?rel=0&modestbranding=1" title="Starter Level Sample" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+
+                    <div class="package-content">
+                        <span class="badge badge-green">Starter Level • Best Budget Deal</span>
+                        <h3>Basic Editing Tier</h3>
+                        <p>Clean cuts, accurate auto-captions, and standard pacing for creators who want a straightforward short-form workflow.</p>
+
+                        <div class="plan-grid two-up">
+                            <div class="plan-card">
+                                <span class="plan-label">10 Videos Pack</span>
+                                <div class="price-line">
+                                    <strong>$300</strong>
+                                    <small>($30/vid)</small>
+                                </div>
+                                <div class="discount-line">
+                                    <span class="strike">$350</span>
+                                    <span class="save">Save $50</span>
+                                </div>
+                                <a href="#contact" class="select-package-btn" data-package="starter-10">Select 10 Pack</a>
+                            </div>
+
+                            <div class="plan-card featured">
+                                <span class="best-badge">Best Budget Deal</span>
+                                <span class="plan-label">20 Videos Pack</span>
+                                <div class="price-line accent">
+                                    <strong>$500</strong>
+                                    <small>($25/vid)</small>
+                                </div>
+                                <div class="discount-line">
+                                    <span class="strike">$700</span>
+                                    <span class="save">Save $200</span>
+                                </div>
+                                <a href="#contact" class="select-package-btn primary" data-package="starter-20">Claim Offer</a>
+                            </div>
+                        </div>
+
+                        <div class="included-list">
+                            <h4>What’s included:</h4>
+                            <ul>
+                                <li>Basic cuts for short-form videos</li>
+                                <li>Accurate autocaptions</li>
+                                <li>Simple transitions and standard pacing</li>
+                            </ul>
+                            <small>*Savings are calculated against a single-video rate of $35.</small>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="package-tier">
+                    <div class="package-visual">
+                        <iframe src="https://www.youtube.com/embed/E5uBo-m-NBE?rel=0&modestbranding=1" title="Growth Level Sample" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+
+                    <div class="package-content">
+                        <span class="badge badge-amber">Growth Level • Mid-Range Package</span>
+                        <h3>Standard Editing Tier</h3>
+                        <p>Enhanced with branded text animations, motion effects, richer pacing, and better retention optimization.</p>
+
+                        <div class="plan-grid two-up">
+                            <div class="plan-card">
+                                <span class="plan-label">10 Videos Pack</span>
+                                <div class="price-line">
+                                    <strong>$500</strong>
+                                    <small>($50/vid)</small>
+                                </div>
+                                <div class="discount-line">
+                                    <span class="strike">$600</span>
+                                    <span class="save">Save $100</span>
+                                </div>
+                                <a href="#contact" class="select-package-btn" data-package="growth-10">Select 10 Pack</a>
+                            </div>
+
+                            <div class="plan-card featured">
+                                <span class="best-badge">Most Popular</span>
+                                <span class="plan-label">20 Videos Pack</span>
+                                <div class="price-line accent">
+                                    <strong>$1,000</strong>
+                                    <small>($50/vid)</small>
+                                </div>
+                                <div class="discount-line">
+                                    <span class="strike">$1,200</span>
+                                    <span class="save">Save $200</span>
+                                </div>
+                                <a href="#contact" class="select-package-btn primary" data-package="growth-20">Claim Standard Offer</a>
+                            </div>
+                        </div>
+
+                        <div class="included-list">
+                            <h4>What’s included:</h4>
+                            <ul>
+                                <li>Up to 10 min raw footage edited per video</li>
+                                <li>Jump cuts, pacing, and basic color correction</li>
+                                <li>Auto captions styled to brand</li>
+                                <li>1 platform export + 1 round of revisions</li>
+                            </ul>
+                            <small>*Savings are calculated against standard tiers.</small>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="package-tier premium-tier">
+                    <div class="package-visual">
+                        <iframe src="https://www.youtube.com/embed/DWK3DfzTB8Q?rel=0&modestbranding=1" title="Real Estate & High-End Sample" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+
+                    <div class="package-content">
+                        <span class="badge badge-rose">High-End Real Estate &amp; Creator Level • Best Value</span>
+                        <h3>Professional &amp; Premium Tier</h3>
+                        <p>Top-tier cinematic real estate editing, custom motion graphics, high-retention hook optimization, and elite color grading.</p>
+
+                        <div class="plan-grid three-up">
+                            <div class="plan-card">
+                                <span class="plan-label">15 Videos Pack</span>
+                                <div class="price-line">
+                                    <strong>$540</strong>
+                                </div>
+                                <div class="discount-line">
+                                    <span class="save">$36/vid • Save $135</span>
+                                </div>
+                                <a href="#contact" class="select-package-btn" data-package="bulk-15">Select 15 Pack</a>
+                            </div>
+
+                            <div class="plan-card featured">
+                                <span class="best-badge">Growth</span>
+                                <span class="plan-label">20 Videos Retainer</span>
+                                <div class="price-line accent">
+                                    <strong>$997</strong>
+                                </div>
+                                <div class="discount-line">
+                                    <span class="save">~$49.85 / vid</span>
+                                </div>
+                                <a href="#contact" class="select-package-btn primary" data-package="pro-20">Select Retainer</a>
+                            </div>
+
+                            <div class="plan-card">
+                                <span class="best-badge gold">Domination</span>
+                                <span class="plan-label">30 Videos Pack</span>
+                                <div class="price-line">
+                                    <strong>$1,399</strong>
+                                </div>
+                                <div class="discount-line">
+                                    <span class="save">Save $551</span>
+                                </div>
+                                <a href="#contact" class="select-package-btn" data-package="pro-30">Claim 30 Pack</a>
+                            </div>
+                        </div>
+
+                        <div class="included-list">
+                            <h4>What’s included:</h4>
+                            <ul>
+                                <li>Cinematic color grading, sound design, and skin-tone pop</li>
+                                <li>Custom lower-thirds and branded motion graphic titles</li>
+                                <li>Structured milestone delivery and direct revision support</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
             </div>
-          </div>
+
+            <div class="section-subhead">
+                <h3>Normal Video Editing Packages</h3>
+            </div>
+
+            <div class="normal-packages">
+                <article class="standard-card">
+                    <h4>Starter</h4>
+                    <p class="muted">Quick, clean edits for simple content</p>
+                    <div class="standard-price">
+                        <span class="amount">$35</span>
+                        <span class="per">per video</span>
+                    </div>
+                    <p class="turnaround">Turnaround: 24–48 hours</p>
+                    <ul>
+                        <li>Up to 5 min raw footage edited</li>
+                        <li>Clean jump cuts &amp; pacing</li>
+                        <li>Basic auto captions</li>
+                        <li>Single platform export</li>
+                        <li>1 revision round</li>
+                    </ul>
+                    <a href="#contact" class="select-package-btn" data-package="budget">Select Budget Friendly</a>
+                </article>
+
+                <article class="standard-card">
+                    <h4>Standard</h4>
+                    <p class="muted">Short-form &amp; talking-head videos</p>
+                    <div class="standard-price">
+                        <span class="amount">$45</span>
+                        <span class="per">per video (60s)</span>
+                    </div>
+                    <p class="turnaround">Turnaround: 24 hours</p>
+                    <ul>
+                        <li>Up to 10 min raw footage edited</li>
+                        <li>Jump cuts, pacing &amp; color correction</li>
+                        <li>Auto captions styled to brand</li>
+                        <li>1 platform export</li>
+                        <li>1 revision round</li>
+                    </ul>
+                    <a href="#contact" class="select-package-btn" data-package="basic">Select Basic</a>
+                </article>
+
+                <article class="standard-card featured">
+                    <span class="top-tag">Most Popular</span>
+                    <h4>Professional</h4>
+                    <p class="muted">Real estate tours, UGC packages &amp; advanced edits</p>
+                    <div class="standard-price">
+                        <span class="amount">$65</span>
+                        <span class="per">per video (60s)</span>
+                    </div>
+                    <p class="turnaround">Turnaround: 24 hours</p>
+                    <ul>
+                        <li>Up to 30 min raw footage / multi-clip UGC batch</li>
+                        <li>Cinematic color grade + sound design</li>
+                        <li>Custom lower-thirds &amp; motion titles</li>
+                        <li>Up to 3 platform exports &amp; aspect ratios</li>
+                        <li>Priority scheduling</li>
+                    </ul>
+                    <a href="#contact" class="select-package-btn primary" data-package="professional">Select Professional</a>
+                </article>
+
+                <article class="standard-card">
+                    <h4>Premium</h4>
+                    <p class="muted">Brand-led storytelling &amp; luxury edits</p>
+                    <div class="standard-price">
+                        <span class="amount">$95</span>
+                        <span class="per">per video (60s)</span>
+                    </div>
+                    <p class="turnaround">Turnaround: 48 hours</p>
+                    <ul>
+                        <li>Premium cinematic treatment</li>
+                        <li>Advanced sound design and pacing</li>
+                        <li>Multi-platform editing and delivery</li>
+                        <li>Priority support and revision round</li>
+                    </ul>
+                    <a href="#contact" class="select-package-btn" data-package="premium">Select Premium</a>
+                </article>
+            </div>
+
+            <div class="section-subhead">
+                <h3>SaaS Animation Packages</h3>
+            </div>
+
+            <div class="normal-packages">
+                <article class="standard-card">
+                    <h4>Explainer Starter</h4>
+                    <p class="muted">Simple SaaS product explainers</p>
+                    <div class="standard-price">
+                        <span class="amount">$450</span>
+                        <span class="per">per video</span>
+                    </div>
+                    <p class="turnaround">Turnaround: 3–5 days</p>
+                    <ul>
+                        <li>30–45 sec product animation</li>
+                        <li>Voiceover sync and clean motion</li>
+                        <li>Brand colors and simple transitions</li>
+                    </ul>
+                    <a href="#contact" class="select-package-btn" data-package="saas-starter">Book Explainer</a>
+                </article>
+
+                <article class="standard-card">
+                    <h4>Growth SaaS</h4>
+                    <p class="muted">For launches and cycle marketing</p>
+                    <div class="standard-price">
+                        <span class="amount">$900</span>
+                        <span class="per">per video</span>
+                    </div>
+                    <p class="turnaround">Turnaround: 5–7 days</p>
+                    <ul>
+                        <li>60–90 sec product motion story</li>
+                        <li>Advanced pacing and hook optimization</li>
+                        <li>Animations + branded visual system</li>
+                    </ul>
+                    <a href="#contact" class="select-package-btn" data-package="saas-growth">Select Growth</a>
+                </article>
+
+                <article class="standard-card featured">
+                    <span class="top-tag">Top Tier</span>
+                    <h4>Retainer / Brand System</h4>
+                    <p class="muted">Monthly content engine for SaaS teams</p>
+                    <div class="standard-price">
+                        <span class="amount">$1,750</span>
+                        <span class="per">per month</span>
+                    </div>
+                    <p class="turnaround">Turnaround: Ongoing support</p>
+                    <ul>
+                        <li>Priority slot access</li>
+                        <li>Multi-video monthly package</li>
+                        <li>Strategy, revisions, and asset library</li>
+                    </ul>
+                    <a href="#contact" class="select-package-btn primary" data-package="saas-retainer">Book Retainer</a>
+                </article>
+            </div>
+        </section>
+
+        <section id="contact" class="booking-section py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+            <div class="booking-header">
+                <span class="kicker">Book Your Project</span>
+                <h2>3-Step Luxury Booking Form</h2>
+                <p>Choose a package, share your brief, and send it directly to WhatsApp or email.</p>
+            </div>
+
+            <div class="booking-card">
+                <div class="booking-progress">
+                    <span class="progress-step active" data-step-indicator="1">1. Choose Package</span>
+                    <span class="progress-step" data-step-indicator="2">2. Project Details</span>
+                    <span class="progress-step" data-step-indicator="3">3. Review &amp; Send</span>
+                </div>
+
+                <form id="bookingForm" novalidate>
+                    <div class="form-step active" data-step="1">
+                        <div class="step-title-row">
+                            <h3>Choose your package</h3>
+                            <span id="selectedPackageLabel" class="selected-pill">No package selected</span>
+                        </div>
+
+                        <div class="package-option-grid">
+                            <button type="button" class="package-option" data-package="starter-10">
+                                <span class="option-name">Starter 10 Pack</span>
+                                <span class="option-price">$300</span>
+                            </button>
+                            <button type="button" class="package-option" data-package="starter-20">
+                                <span class="option-name">Starter 20 Pack</span>
+                                <span class="option-price">$500</span>
+                            </button>
+                            <button type="button" class="package-option" data-package="growth-10">
+                                <span class="option-name">Growth 10 Pack</span>
+                                <span class="option-price">$500</span>
+                            </button>
+                            <button type="button" class="package-option" data-package="growth-20">
+                                <span class="option-name">Growth 20 Pack</span>
+                                <span class="option-price">$1,000</span>
+                            </button>
+                            <button type="button" class="package-option" data-package="bulk-15">
+                                <span class="option-name">High-End 15 Pack</span>
+                                <span class="option-price">$540</span>
+                            </button>
+                            <button type="button" class="package-option" data-package="pro-20">
+                                <span class="option-name">Retainer 20</span>
+                                <span class="option-price">$997</span>
+                            </button>
+                            <button type="button" class="package-option" data-package="pro-30">
+                                <span class="option-name">High-End 30 Pack</span>
+                                <span class="option-price">$1,399</span>
+                            </button>
+                            <button type="button" class="package-option" data-package="budget">
+                                <span class="option-name">Starter Single</span>
+                                <span class="option-price">$35</span>
+                            </button>
+                            <button type="button" class="package-option" data-package="basic">
+                                <span class="option-name">Basic</span>
+                                <span class="option-price">$45</span>
+                            </button>
+                            <button type="button" class="package-option" data-package="professional">
+                                <span class="option-name">Professional</span>
+                                <span class="option-price">$65</span>
+                            </button>
+                            <button type="button" class="package-option" data-package="premium">
+                                <span class="option-name">Premium</span>
+                                <span class="option-price">$95</span>
+                            </button>
+                            <button type="button" class="package-option" data-package="saas-starter">
+                                <span class="option-name">SaaS Starter</span>
+                                <span class="option-price">$450</span>
+                            </button>
+                            <button type="button" class="package-option" data-package="saas-growth">
+                                <span class="option-name">SaaS Growth</span>
+                                <span class="option-price">$900</span>
+                            </button>
+                            <button type="button" class="package-option" data-package="saas-retainer">
+                                <span class="option-name">SaaS Retainer</span>
+                                <span class="option-price">$1,750/mo</span>
+                            </button>
+                        </div>
+
+                        <input type="hidden" name="package" id="selectedPackage" value="">
+                    </div>
+
+                    <div class="form-step" data-step="2">
+                        <div class="step-title-row">
+                            <h3>Project details</h3>
+                        </div>
+
+                        <div class="two-col">
+                            <div class="field">
+                                <label for="name">Your name</label>
+                                <input id="name" name="name" type="text" placeholder="Enter your name" required>
+                            </div>
+
+                            <div class="field">
+                                <label for="email">Email address</label>
+                                <input id="email" name="email" type="email" placeholder="you@example.com" required>
+                            </div>
+                        </div>
+
+                        <div class="two-col">
+                            <div class="field">
+                                <label for="platform">Platform</label>
+                                <select id="platform" name="platform">
+                                    <option value="">Select platform</option>
+                                    <option>Instagram Reels</option>
+                                    <option>TikTok</option>
+                                    <option>YouTube Shorts</option>
+                                    <option>Facebook/Meta</option>
+                                    <option>LinkedIn</option>
+                                    <option>Website/Landing page</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+
+                            <div class="field">
+                                <label for="deadline">Target deadline</label>
+                                <input id="deadline" name="deadline" type="text" placeholder="e.g. 7 days">
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label for="goal">Project goal</label>
+                            <textarea id="goal" name="goal" rows="5" placeholder="Tell us about your content, goals, style, and deliverables..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-step" data-step="3">
+                        <div class="step-title-row">
+                            <h3>Review &amp; send</h3>
+                        </div>
+
+                        <div class="confirmation-box">
+                            <div class="summary-row">
+                                <span>Package</span>
+                                <strong id="summaryPackage">Not selected</strong>
+                            </div>
+                            <div class="summary-row">
+                                <span>Name</span>
+                                <strong id="summaryName">—</strong>
+                            </div>
+                            <div class="summary-row">
+                                <span>Email</span>
+                                <strong id="summaryEmail">—</strong>
+                            </div>
+                            <div class="summary-row">
+                                <span>Platform</span>
+                                <strong id="summaryPlatform">—</strong>
+                            </div>
+                            <div class="summary-row">
+                                <span>Deadline</span>
+                                <strong id="summaryDeadline">—</strong>
+                            </div>
+                        </div>
+
+                        <div class="final-actions">
+                            <button type="submit" class="submit-btn primary">Send via WhatsApp</button>
+                            <a id="emailLink" href="mailto:hello@ayushmotionin.com?subject=Booking%20Request" class="submit-btn secondary">Email Us</a>
+                        </div>
+                    </div>
+
+                    <div class="form-nav">
+                        <button type="button" class="nav-btn secondary" id="prevBtn" hidden>Previous</button>
+                        <button type="button" class="nav-btn primary" id="nextBtn">Next</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer border-t border-white/10 bg-black/90 py-12 px-4 sm:px-6">
+        <div class="footer-shell">
+            <div class="brand-block">
+                <h4>Ayush Motion <span class="text-accentGold">Edits</span></h4>
+                <p>Professional Video Editing &amp; Motion Design</p>
+            </div>
+
+            <div class="footer-links">
+                <a href="https://www.instagram.com/ayush_motion_edits?xtok=a2NoczF1bjRnb2Ft" target="_blank" rel="noopener noreferrer">Instagram</a>
+                <a href="https://www.facebook.com/share/1CR8G39bTL/" target="_blank" rel="noopener noreferrer">Facebook</a>
+                <a href="https://www.linkedin.com/in/ayush-kumar-deb-33b923304?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://wa.me/message/LMYNQZT3SX3JH1" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                <a href="mailto:ayushkumardeb10@gmail.com">Email</a>
+            </div>
         </div>
-      </div>
+    </footer>
 
-      <!-- Normal Video Editing Packages Heading -->
-      <h3 class="text-xl sm:text-2xl font-bold text-center text-accentGold mb-10">Normal Video Editing Packages</h3>
+    <script>
+        const packageMap = {
+            "starter-10": "Starter 10 Videos Pack",
+            "starter-20": "Starter 20 Videos Pack",
+            "growth-10": "Growth 10 Videos Pack",
+            "growth-20": "Growth 20 Videos Pack",
+            "bulk-15": "High-End 15 Videos Pack",
+            "pro-20": "Professional 20 Videos Retainer",
+            "pro-30": "High-End 30 Videos Pack",
+            "budget": "Starter Single Video",
+            "basic": "Basic Package",
+            "professional": "Professional Package",
+            "premium": "Premium Package",
+            "saas-starter": "SaaS Explainer Starter",
+            "saas-growth": "SaaS Growth Package",
+            "saas-retainer": "SaaS Retainer"
+        };
 
-      <!-- 4 Normal Packages Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-10">
-        
-        <!-- Starter -->
-        <div class="glass-panel p-8 rounded-3xl border border-white/10 hover:border-accentGold/40 transition-all duration-300 flex flex-col justify-between">
-          <div>
-            <h4 class="text-xl font-bold text-white">Starter</h4>
-            <p class="text-xs text-gray-400 mt-1">Quick, clean edits for simple content</p>
-            <div class="mt-4 mb-2"><span class="text-4xl font-extrabold text-accentGold">$35</span> <span class="text-xs text-gray-400">per video</span></div>
-            <p class="text-xs text-yellow-600 font-bold uppercase tracking-wider mb-6">TURNAROUND: 24-48 HOURS</p>
-            <ul class="space-y-3 text-sm text-gray-300">
-              <li class="flex items-start gap-2.5"><span class="text-accentGold font-bold">✓</span> Up to 5 min raw footage edited</li>
-              <li class="flex items-start gap-2.5"><span class="text-accentGold font-bold">✓</span> Clean jump cuts & standard pacing</li>
-              <li class="flex items-start gap-2.5"><span class="text-accentGold font-bold">✓</span> Basic auto captions</li>
-              <li class="flex items-start gap-2.5"><span class="text-accentGold font-bold">✓</span> Single platform export (9:16 or 16:9)</li>
-              <li class="flex items-start gap-2.5"><span class="text-accentGold font-bold">✓</span> 1 revision round</li>
-            </ul>
-          </div>
-          <a href="#contact" class="select-package-btn mt-8 block w-full text-center py-3.5 rounded-xl border border-accentGold text-accentGold font-bold hover:bg-accentGold hover:text-black transition duration-300" data-pkg="budget">
-            Select Budget Friendly
-          </a>
-        </div>
+        const selectedPackageInput = document.getElementById("selectedPackage");
+        const selectedPackageLabel = document.getElementById("selectedPackageLabel");
+        const summaryPackage = document.getElementById("summaryPackage");
+        const summaryName = document.getElementById("summaryName");
+        const summaryEmail = document.getElementById("summaryEmail");
+        const summaryPlatform = document.getElementById("summaryPlatform");
+        const summaryDeadline = document.getElementById("summaryDeadline");
+        const bookingForm = document.getElementById("bookingForm");
+        const nextBtn = document.getElementById("nextBtn");
+        const prevBtn = document.getElementById("prevBtn");
+        const steps = [...document.querySelectorAll(".form-step")];
+        const stepIndicators = [...document.querySelectorAll(".progress-step")];
+        const packageOptions = [...document.querySelectorAll(".package-option")];
+        const pricingButtons = [...document.querySelectorAll(".select-package-btn")];
 
-        <!-- Standard -->
-        <div class="glass-panel p-8 rounded-3xl border border-white/10 hover:border-accentGold/40 transition-all duration-300 flex flex-col justify-between">
-          <div>
-            <h4 class="text-xl font-bold text-white">Standard</h4>
-            <p class="text-xs text-gray-400 mt-1">Short-form & talking head videos</p>
-            <div class="mt-4 mb-2"><span class="text-4xl font-extrabold text-accentGold">$45</span> <span class="text-xs text-gray-400">per video (60s)</span></div>
-            <p class="text-xs text-yellow-600 font-bold uppercase tracking-wider mb-6">TURNAROUND: 24 HOURS</p>
-            <ul class="space-y-3 text-sm text-gray-300">
-              <li class="flex items-start gap-2.5"><span class="text-accentGold font-bold">✓</span> Up to 10 min raw footage edited</li>
-              <li class="flex items-start gap-2.5"><span class="text-accentGold font-bold">✓</span> Jump cuts, pacing & basic color correction</li>
-              <li class="flex items-start gap-2.5"><span class="text-accentGold font-bold">✓</span> Auto captions styled to brand</li>
-              <li class="flex items-start gap-2.5"><span class="text-accentGold font-bold">✓</span> 1 platform export</li>
-              <li class="flex items-start gap-2.5"><span class="text-accentGold font-bold">✓</span> 1 round of revisions</li>
-            </ul>
-          </div>
-          <a href="#contact" class="select-package-btn mt-8 block w-full text-center py-3.5 rounded-xl border border-accentGold text-accentGold font-bold hover:bg-accentGold hover:text-black transition duration-300" data-pkg="basic">
-            Select Basic
-          </a>
-        </div>
+        let currentStep = 0;
 
-        <!-- Professional -->
-        <div class="glass-panel p-8 rounded-3xl border-2 border-accentGold shadow-[0_0_30px_rgba(218,175,55,0.2)] flex flex-col justify-between relative">
-          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-accentGold text-black text-xs font-bold uppercase tracking-widest px-4 py-1 rounded-full shadow-md">
-            ★ MOST POPULAR
-          </div>
-          <div>
-            <h4 class="text-xl font-bold text-white mt-1">Professional</h4>
-            <p class="text-xs text-gray-400 mt-1">Real estate tours, UGC packages & advanced edits</p>
-            <div class="mt-4 mb-2"><span class="text-4xl font-extrabold text-accentGold">$65</span> <span class="text-xs text-gray-400">per video (60s)</span></div>
-            <p class="text-xs text-yellow-600 font-bold uppercase tracking-wider mb-6">TURNAROUND: 24 HOURS</p>
-            <ul class="space-y-3 text-sm text-gray-300">
-              <li class="flex items-start gap-2.5"><span class="text-accentGold font-bold">✓</span> Up to 30 min raw footage / multi-clip UGC batch</li>
-              <li class="flex items-start gap-2.5"><span class="text-accentGold font-bold">✓</span> Cinematic color grade + sound design</li>
-              <li class="flex items-start gap-2.5"><span class="text-accentGold font-bold">✓</span> Custom lower-thirds & motion titles</li>
-              <li class="flex items-start gap-2.5"><span class="text-accentGold font-bold">✓</span> Up to 3 platform exports & aspect ratios</li>
-              <li class="flex items-start gap-2.5"><span class="text-accentGold font-bold">✓</span> 3 rounds of revisions</li>
-              <li class="flex items-start gap-2.5"><span class="text-accentGold font-bold">✓</span> Priority scheduling</li>
-            </ul>
-          </div>
-          <a href="#contact" class="select-package-btn mt-8 block w-full text-center py-3.5 rounded-xl bg-accentGold text-black font-extrabold hover:bg-yellow-400 shadow-lg transition duration-300" data-pkg="professional">
-            Select Professional
-          </a>
-        </div>
+        function updatePackageDisplay(key) {
+            const label = packageMap[key] || "Custom Package";
+            selectedPackageInput.value = label;
+            selectedPackageLabel.textContent = label;
+            summaryPackage.textContent = label;
 
-        <!-- Premium -->
-        <div class="glass-panel p-8 rounded-3xl border border-white/10 hover:border-accentGold/40 transition-all duration-300 flex flex-col justify-between">
-          <div>
-            <h4 class="text-xl font-bold text-white">Premium</h4>
-            <p class="text-xs text-gray-400 mt-1">Elite cinematic workflow & top-tier effects</p>
-            <div class="mt-4 mb-2"><span class="text-4xl font-extrabold text-accentGold">$85</span> <span class="text-xs text-gray-400">per video (60s)</span></div>
-            <p class="text-xs text-yellow-600 font-bold uppercase tracking-wider mb-6">TURNAROUND: 24 HOURS</p>
-            <ul class="space-y-3 text-sm text-gray-300">
-              <li class="flex items-start gap-2.5"><span class="text-accentGold font-bold">✓</span> Full cinematic workflow & custom VFX</li>
-              <li class="flex items-start gap-2.5"><span class="text-accentGold font-bold">✓</span> Broadcast-grade color science & audio mix</li>
-              <li class="flex items-start gap-2.5"><span class="text-accentGold font-bold">✓</span> Unlimited platform exports & aspect ratios</li>
-              <li class="flex items-start gap-2.5"><span class="text-accentGold font-bold">✓</span> Unlimited revisions within scope</li>
-              <li class="flex items-start gap-2.5"><span class="text-accentGold font-bold">✓</span> Dedicated project manager support</li>
-            </ul>
-          </div>
-          <a href="#contact" class="select-package-btn mt-8 block w-full text-center py-3.5 rounded-xl border border-accentGold text-accentGold font-bold hover:bg-accentGold hover:text-black transition duration-300" data-pkg="premium">
-            Select Premium
-          </a>
-        </div>
+            packageOptions.forEach((btn) => {
+                btn.classList.toggle("selected", btn.dataset.package === key);
+            });
 
-      </div>
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const platform = document.getElementById("platform").value;
+            const deadline = document.getElementById("deadline").value.trim();
 
-      <!-- Restored Full-Width Custom Package Card -->
-      <div class="max-w-5xl mx-auto mb-20">
-        <div class="glass-panel p-8 rounded-3xl border border-white/10 hover:border-accentGold/40 transition-all duration-300">
-          <h4 class="text-xl font-bold text-white">Custom Package</h4>
-          <p class="text-xs text-gray-400 mt-1">Bulk creator orders & custom workflows</p>
-          <div class="mt-4 mb-2"><span class="text-3xl font-extrabold text-accentGold">Custom</span></div>
-          <p class="text-xs text-yellow-600 font-bold uppercase tracking-wider mb-6">TURNAROUND: FLEXIBLE / MILESTONE-BASED</p>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3 text-sm text-gray-300 mb-8">
-            <div class="flex items-start gap-2.5"><span class="text-accentGold font-bold">✓</span> Bulk creator orders</div>
-            <div class="flex items-start gap-2.5"><span class="text-accentGold font-bold">✓</span> Multi-video retainers</div>
-            <div class="flex items-start gap-2.5"><span class="text-accentGold font-bold">✓</span> Specialized VFX / 3D motion graphics</div>
-            <div class="flex items-start gap-2.5"><span class="text-accentGold font-bold">✓</span> Multi-platform tailored deliverables</div>
-            <div class="flex items-start gap-2.5"><span class="text-accentGold font-bold">✓</span> Priority support & dedicated workflow</div>
-          </div>
-          <a href="#contact" class="select-package-btn block w-full text-center py-3.5 rounded-xl border border-accentGold text-accentGold font-bold hover:bg-accentGold hover:text-black transition duration-300" data-pkg="custom">
-            Select Custom Package
-          </a>
-        </div>
-      </div>
-
-                       <!-- SaaS & Fast Animation Packages Heading -->
-      <h3 class="text-xl sm:text-2xl font-bold text-center text-accentGold mb-10">SaaS & Fast Animation Packages</h3>
-
-      <!-- 3 SaaS Packages Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-20">
-        
-        <!-- 30s Promo -->
-        <div class="glass-panel p-8 rounded-3xl border border-white/10 hover:border-accentGold/40 transition-all duration-300 flex flex-col justify-between">
-          <div>
-            <h4 class="text-xl font-bold text-white">30s Promo</h4>
-            <p class="text-xs text-gray-400 mt-1">Fast-paced product UI animation</p>
-            <div class="mt-4 mb-2"><span class="text-4xl font-extrabold text-accentGold">$150</span> <span class="text-xs text-gray-400">per video</span></div>
-            <p class="text-xs text-yellow-600 font-bold uppercase tracking-wider mb-6">TURNAROUND: 2-3 BUSINESS DAYS</p>
-            <ul class="space-y-3 text-sm text-gray-300">
-              <li class="flex items-start gap-2.5"><span class="text-accentGold font-bold">✓</span> Product UI animation & clean typography</li>
-              <li class="flex items-start gap-2.5"><span class="text-accentGold font-bold">✓</span> Engaging background score & sound effects</li>
-              <li class="flex items-start gap-2.5"><span class="text-accentGold font-bold">✓</span> 1 platform export (9:16 / 16:9)</li>
-              <li class="flex items-start gap-2.5"><span class="text-accentGold font-bold">✓</span> 2 rounds of revisions</li>
-            </ul>
-          </div>
-          <a href="#contact" class="select-package-btn mt-8 block w-full text-center py-3.5 rounded-xl border border-accentGold text-accentGold font-bold hover:bg-accentGold hover:text-black transition duration-300" data-pkg="promo">
-            Select 30s Promo
-          </a>
-        </div>
-
-        <!-- 60s Explainer -->
-        <div class="glass-panel p-8 rounded-3xl border border-white/10 hover:border-accentGold/40 transition-all duration-300 flex flex-col justify-between">
-          <div>
-            <h4 class="text-xl font-bold text-white">60s Explainer</h4>
-            <p class="text-xs text-gray-400 mt-1">Detailed software feature walkthrough</p>
-            <div class="mt-4 mb-2"><span class="text-4xl font-extrabold text-accentGold">$200</span> <span class="text-xs text-gray-400">per video</span></div>
-            <p class="text-xs text-yellow-600 font-bold uppercase tracking-wider mb-6">TURNAROUND: 3-4 BUSINESS DAYS</p>
-            <ul class="space-y-3 text-sm text-gray-300">
-              <li class="flex items-start gap-2.5"><span class="text-accentGold font-bold">✓</span> Comprehensive feature walkthrough & 3D mockups</li>
-              <li class="flex items-start gap-2.5"><span class="text-accentGold font-bold">✓</span> UI screen recordings & kinetic titles</li>
-              <li class="flex items-start gap-2.5"><span class="text-accentGold font-bold">✓</span> Up to 2 platform exports</li>
-              <li class="flex items-start gap-2.5"><span class="text-accentGold font-bold">✓</span> 3 rounds of revisions</li>
-            </ul>
-          </div>
-          <a href="#contact" class="select-package-btn mt-8 block w-full text-center py-3.5 rounded-xl border border-accentGold text-accentGold font-bold hover:bg-accentGold hover:text-black transition duration-300" data-pkg="explainer">
-            Select 60s Explainer
-          </a>
-        </div>
-
-        <!-- Premium SaaS -->
-        <div class="glass-panel p-8 rounded-3xl border border-white/10 hover:border-accentGold/40 transition-all duration-300 flex flex-col justify-between">
-          <div>
-            <h4 class="text-xl font-bold text-white">Premium SaaS</h4>
-            <p class="text-xs text-gray-400 mt-1">Enterprise scale animation production</p>
-            <div class="mt-4 mb-2"><span class="text-4xl font-extrabold text-accentGold">$250</span> <span class="text-xs text-gray-400">per video</span></div>
-            <p class="text-xs text-yellow-600 font-bold uppercase tracking-wider mb-6">TURNAROUND: 4-5 BUSINESS DAYS</p>
-            <ul class="space-y-3 text-sm text-gray-300">
-              <li class="flex items-start gap-2.5"><span class="text-accentGold font-bold">✓</span> Custom 3D UI mockups & high-end motion</li>
-              <li class="flex items-start gap-2.5"><span class="text-accentGold font-bold">✓</span> High-conversion ad visual optimization</li>
-              <li class="flex items-start gap-2.5"><span class="text-accentGold font-bold">✓</span> Complex product flow VFX & 3D tracking</li>
-              <li class="flex items-start gap-2.5"><span class="text-accentGold font-bold">✓</span> Unlimited platform exports</li>
-            </ul>
-          </div>
-          <a href="#contact" class="select-package-btn mt-8 block w-full text-center py-3.5 rounded-xl border border-accentGold text-accentGold font-bold hover:bg-accentGold hover:text-black transition duration-300" data-pkg="saas-premium">
-            Select Premium SaaS
-          </a>
-        </div>
-
-      </div>
-    </section>
-              <!-- 3-Step Interactive Booking Form Section -->
-    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-      <div class="glass-panel p-6 sm:p-10 md:p-12 rounded-3xl border border-accentGold/20 shadow-[0_20px_50px_rgba(0,0,0,0.8)] backdrop-blur-xl">
-        <div class="text-center mb-8">
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Book Your Project</h2>
-          <p class="text-gray-400 text-xs sm:text-sm mt-2">Complete the steps below to instantly connect via WhatsApp or Email.</p>
-          
-          <!-- Step Indicators: 1 Details — 2 Package — 3 Connect -->
-          <div class="flex justify-center items-center gap-3 sm:gap-6 mt-6">
-            <div id="stepDot1" class="flex items-center gap-2 text-xs font-bold text-accentGold">
-              <span class="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-accentGold text-black flex items-center justify-center font-bold">1</span> Details
-            </div>
-            <div class="w-6 sm:w-12 h-0.5 bg-white/10"></div>
-            <div id="stepDot2" class="flex items-center gap-2 text-xs font-bold text-gray-500">
-              <span class="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-white/10 text-gray-400 flex items-center justify-center font-bold">2</span> Package
-            </div>
-            <div class="w-6 sm:w-12 h-0.5 bg-white/10"></div>
-            <div id="stepDot3" class="flex items-center gap-2 text-xs font-bold text-gray-500">
-              <span class="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-white/10 text-gray-400 flex items-center justify-center font-bold">3</span> Connect
-            </div>
-          </div>
-        </div>
-
-        <form id="bookingForm" onsubmit="event.preventDefault();">
-          
-          <!-- Step 1: Details -->
-          <div id="formStep1" class="space-y-5">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-              <div>
-                <label class="block text-xs uppercase font-bold tracking-wider text-gray-300 mb-2">FULL NAME *</label>
-                <input type="text" id="clientName" placeholder="John Doe" class="w-full bg-[#121212] border border-white/15 focus:border-accentGold rounded-xl px-4 py-3 text-white placeholder-gray-500 outline-none transition" required>
-              </div>
-              <div>
-                <label class="block text-xs uppercase font-bold tracking-wider text-gray-300 mb-2">EMAIL ADDRESS *</label>
-                <input type="email" id="clientEmail" placeholder="you@company.com" class="w-full bg-[#121212] border border-white/15 focus:border-accentGold rounded-xl px-4 py-3 text-white placeholder-gray-500 outline-none transition" required>
-              </div>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-              <div>
-                <label class="block text-xs uppercase font-bold tracking-wider text-gray-300 mb-2">WHATSAPP / PHONE *</label>
-                <input type="tel" id="clientPhone" placeholder="+91 60018 67854" class="w-full bg-[#121212] border border-white/15 focus:border-accentGold rounded-xl px-4 py-3 text-white placeholder-gray-500 outline-none transition" required>
-              </div>
-              <div>
-                <label class="block text-xs uppercase font-bold tracking-wider text-gray-300 mb-2">PROJECT TYPE *</label>
-                <select id="serviceRequired" class="w-full bg-[#121212] border border-white/15 focus:border-accentGold rounded-xl px-4 py-3 text-white outline-none transition">
-                  <option value="Real Estate Editing">Real Estate Editing</option>
-                  <option value="Talking Head / Reels">Talking Head / Reels</option>
-                  <option value="UGC Video Ads">UGC Video Ads</option>
-                  <option value="SaaS UI & 3D Motion">SaaS UI & 3D Motion</option>
-                  <option value="Creator Bulk Editing (15 Videos)">Creator Bulk Editing (15 Videos)</option>
-                  <option value="Custom Long-Term Retainer">Custom Long-Term Retainer</option>
-                </select>
-              </div>
-            </div>
-
-            <div>
-              <label class="block text-xs uppercase font-bold tracking-wider text-gray-300 mb-2">PROJECT DETAILS / MESSAGE</label>
-              <textarea id="shortProjectDetails" rows="3" placeholder="Tell me about your footage, timeline and goals..." class="w-full bg-[#121212] border border-white/15 focus:border-accentGold rounded-xl px-4 py-3 text-white placeholder-gray-500 outline-none transition"></textarea>
-            </div>
-
-            <div class="bg-black/40 border border-white/10 rounded-xl px-4 py-3 flex justify-between items-center text-xs">
-              <span class="text-gray-400">Selected package:</span>
-              <span id="selectedPkgPreview" class="text-accentGold font-bold">Professional ($65 / video)</span>
-            </div>
-
-            <button type="button" onclick="goToStep2()" class="w-full py-4 rounded-xl bg-accentGold text-black font-extrabold text-sm sm:text-base hover:bg-yellow-400 shadow-lg transition duration-300 flex justify-center items-center gap-2">
-              Next: Choose Package & Price →
-            </button>
-          </div>
-
-          <!-- Step 2: Package Radio Selection Grid (Exact 2-Column Baseline) -->
-          <div id="formStep2" class="space-y-6 hidden">
-            <h3 class="text-xs font-bold uppercase tracking-wider text-gray-300 mb-2">SELECT YOUR PACKAGE & PRICE *</h3>
-            <div id="pkgGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-              <!-- Dynamically populated from PACKAGES array -->
-            </div>
-
-            <div class="flex gap-4 pt-4">
-              <button type="button" onclick="goToStep1()" class="w-1/3 py-3.5 rounded-xl border border-white/20 text-white font-bold hover:bg-white/10 transition">
-                ← Back
-              </button>
-              <button type="button" onclick="goToStep3()" class="w-2/3 py-3.5 rounded-xl bg-accentGold text-black font-extrabold hover:bg-yellow-400 shadow-lg transition">
-                Next: Review & Connect →
-              </button>
-            </div>
-          </div>
-
-          <!-- Step 3: Terms & Submission -->
-          <div id="formStep3" class="space-y-6 hidden">
-            <!-- Terms Box -->
-            <div class="bg-black/60 border border-white/10 rounded-2xl p-5 sm:p-6 text-left">
-              <h4 class="text-xs uppercase font-bold tracking-wider text-accentGold mb-3">TERMS & CONDITIONS:</h4>
-              <ul class="text-xs text-gray-300 space-y-2 list-disc list-inside">
-                <li>50% advance payment is mandatory before project work officially starts.</li>
-                <li>Standard turnaround time is 24 hours per video delivery.</li>
-              </ul>
-              <label class="flex items-center gap-3 mt-4 pt-4 border-t border-white/10 cursor-pointer">
-                <input type="checkbox" id="termsCheckbox" class="w-4 h-4 accent-accentGold rounded cursor-pointer" required>
-                <span class="text-xs font-semibold text-white">I agree to the 50% advance payment & 24hr turnaround terms *</span>
-              </label>
-            </div>
-
-            <!-- Summary Box -->
-            <div class="bg-black/40 border border-white/10 rounded-2xl p-5 text-xs text-gray-300 text-left">
-              <p class="font-bold text-accentGold mb-2">Summary Ready:</p>
-              <div id="summaryReviewText" class="space-y-1">
-                <!-- Dynamically populated -->
-              </div>
-            </div>
-
-            <!-- Action Buttons -->
-            <div class="flex flex-col sm:flex-row gap-4 pt-2">
-              <button type="button" onclick="goToStep2()" class="w-full sm:w-1/4 py-3.5 rounded-xl border border-white/20 text-white font-bold hover:bg-white/10 transition">
-                ← Back
-              </button>
-              <button type="button" onclick="submitToWhatsApp()" class="w-full sm:w-1/2 py-3.5 rounded-xl bg-accentGold text-black font-extrabold flex items-center justify-center gap-2 hover:bg-yellow-400 shadow-lg transition">
-                <i class="fa-brands fa-whatsapp text-lg"></i> WhatsApp
-              </button>
-              <button type="button" onclick="submitToEmail()" class="w-full sm:w-1/4 py-3.5 rounded-xl border border-white/20 text-white font-bold flex items-center justify-center gap-2 hover:bg-white/10 transition">
-                <i class="fa-solid fa-envelope"></i> Email
-              </button>
-            </div>
-          </div>
-
-        </form>
-      </div>
-    </section>
-  </main>
-
-  <!-- Complete Branded Footer With Provided Handles & 2026 Copyright -->
-  <footer class="border-t border-white/10 bg-black/90 py-12 px-4 sm:px-6">
-    <div class="max-w-6xl mx-auto flex flex-col items-center justify-center gap-6">
-      <div class="text-center">
-        <span class="text-2xl font-black tracking-wider text-white">Ayush Motion <span class="text-accentGold">Edits</span></span>
-        <p class="text-xs text-gray-400 mt-1">Professional Video Editing & Motion Design</p>
-      </div>
-
-      <!-- Social Media Icons Row -->
-      <div class="flex items-center gap-4 sm:gap-5 text-lg text-gray-300">
-        <a href="https://www.instagram.com/ayush_motion_edits?xtok=a2NoczF1bjRnb2Ft" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:text-accentGold hover:border-accentGold/50 hover:scale-110 transition duration-300" title="Instagram">
-          <i class="fa-brands fa-instagram"></i>
-        </a>
-        <a href="https://www.facebook.com/share/1CR8G39bTL/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:text-accentGold hover:border-accentGold/50 hover:scale-110 transition duration-300" title="Facebook">
-          <i class="fa-brands fa-facebook-f"></i>
-        </a>
-        <a href="https://www.linkedin.com/in/ayush-kumar-deb-33b923304?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:text-accentGold hover:border-accentGold/50 hover:scale-110 transition duration-300" title="LinkedIn">
-          <i class="fa-brands fa-linkedin-in"></i>
-        </a>
-        <a href="https://wa.me/message/LMYNQZT3SX3JH1" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:text-accentGold hover:border-accentGold/50 hover:scale-110 transition duration-300" title="WhatsApp">
-          <i class="fa-brands fa-whatsapp"></i>
-        </a>
-        <a href="mailto:ayushkumardeb10@gmail.com" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:text-accentGold hover:border-accentGold/50 hover:scale-110 transition duration-300" title="Email">
-          <i class="fa-solid fa-envelope"></i>
-        </a>
-      </div>
-
-      <p class="text-xs text-gray-500 mt-2">© 2026 Ayush Motion Edits. All rights reserved.</p>
-    </div>
-  </footer>
-
-  <!-- Complete Booking JavaScript Logic -->
-  <script>
-    // Full registered packages list matching your exact pricing options
-    const PACKAGES = [
-      { id: 'budget', name: 'Starter', price: 35, category: 'Normal Video Editing', label: '$35' },
-      { id: 'basic', name: 'Standard', price: 45, category: 'Normal Video Editing', label: '$45' },
-      { id: 'professional', name: 'Professional', price: 65, category: 'Most Popular', label: '$65' },
-      { id: 'premium', name: 'Premium', price: 85, category: 'Elite Editing', label: '$85' },
-      { id: 'promo', name: '30s Promo', price: 150, category: 'SaaS Animation', label: '$150' },
-      { id: 'explainer', name: '60s Explainer', price: 200, category: 'Detailed Explainer', label: '$200' },
-      { id: 'saas-premium', name: 'Premium SaaS', price: 250, category: 'Enterprise', label: '$250' },
-      { id: 'bulk-15', name: 'Creator Bulk Tier (15 vids)', price: 540, category: 'Bulk Retainer', label: '$540' },
-      { id: 'custom', name: 'Custom Package', price: 0, category: 'Custom / Discuss', label: 'Custom / Discuss' }
-    ];
-
-    let selectedPackageId = 'professional';
-
-    // Renders the 2-Column Step 2 Package Selector
-    function renderPackageGrid() {
-      const grid = document.getElementById('pkgGrid');
-      if (!grid) return;
-      grid.innerHTML = PACKAGES.map(pkg => `
-        <label class="glass-panel p-4 rounded-2xl border ${selectedPackageId === pkg.id ? 'border-accentGold bg-accentGold/10' : 'border-white/10 bg-white/5'} hover:border-accentGold/50 transition flex items-center justify-between cursor-pointer">
-          <div class="flex items-center gap-3">
-            <input type="radio" name="packageSelect" value="${pkg.id}" ${selectedPackageId === pkg.id ? 'checked' : ''} onchange="setChosenPackage('${pkg.id}')" class="w-4 h-4 accent-accentGold cursor-pointer">
-            <div>
-              <span class="block text-sm font-bold text-white">${pkg.name}</span>
-              <span class="block text-xs text-gray-400">${pkg.category}</span>
-            </div>
-          </div>
-          <span class="text-sm font-extrabold ${selectedPackageId === pkg.id ? 'text-accentGold' : 'text-gray-300'}">${pkg.label}</span>
-        </label>
-      `).join('');
-    }
-
-    function setChosenPackage(id) {
-      selectedPackageId = id;
-      const found = PACKAGES.find(p => p.id === id);
-      if (found) {
-        const preview = document.getElementById('selectedPkgPreview');
-        if (preview) preview.textContent = `${found.name} (${found.label})`;
-      }
-      renderPackageGrid();
-    }
-
-    function goToStep1() {
-      document.getElementById('formStep1').classList.remove('hidden');
-      document.getElementById('formStep2').classList.add('hidden');
-      document.getElementById('formStep3').classList.add('hidden');
-      updateDots(1);
-    }
-
-    function goToStep2() {
-      const name = document.getElementById('clientName').value.trim();
-      const email = document.getElementById('clientEmail').value.trim();
-      const phone = document.getElementById('clientPhone').value.trim();
-
-      if (!name || !email || !phone) {
-        alert('Please fill in your Name, Email, and WhatsApp/Phone number.');
-        return;
-      }
-
-      renderPackageGrid();
-      document.getElementById('formStep1').classList.add('hidden');
-      document.getElementById('formStep2').classList.remove('hidden');
-      document.getElementById('formStep3').classList.add('hidden');
-      updateDots(2);
-    }
-
-    function goToStep3() {
-      const pkg = PACKAGES.find(p => p.id === selectedPackageId);
-      const name = document.getElementById('clientName').value.trim();
-      const service = document.getElementById('serviceRequired').value;
-
-      const summaryBox = document.getElementById('summaryReviewText');
-      if (summaryBox) {
-        summaryBox.innerHTML = `
-          <div><strong class="text-white">Client:</strong> ${name}</div>
-          <div><strong class="text-white">Project:</strong> ${service}</div>
-          <div><strong class="text-white">Package:</strong> ${pkg.name} (${pkg.label})</div>
-          <div><strong class="text-white">Terms Accepted:</strong> 50% Advance & 24hr delivery</div>
-        `;
-      }
-
-      document.getElementById('formStep1').classList.add('hidden');
-      document.getElementById('formStep2').classList.add('hidden');
-      document.getElementById('formStep3').classList.remove('hidden');
-      updateDots(3);
-    }
-
-    function updateDots(step) {
-      for (let i = 1; i <= 3; i++) {
-        const dot = document.getElementById(`stepDot${i}`);
-        if (!dot) continue;
-        if (i === step) {
-          dot.className = 'flex items-center gap-2 text-xs font-bold text-accentGold';
-          dot.querySelector('span').className = 'w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-accentGold text-black flex items-center justify-center font-bold';
-        } else if (i < step) {
-          dot.className = 'flex items-center gap-2 text-xs font-bold text-gray-300';
-          dot.querySelector('span').className = 'w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-white/20 text-white flex items-center justify-center font-bold';
-        } else {
-          dot.className = 'flex items-center gap-2 text-xs font-bold text-gray-500';
-          dot.querySelector('span').className = 'w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-white/10 text-gray-400 flex items-center justify-center font-bold';
+            summaryName.textContent = name || "—";
+            summaryEmail.textContent = email || "—";
+            summaryPlatform.textContent = platform || "—";
+            summaryDeadline.textContent = deadline || "—";
         }
-      }
-    }
 
-    // Connect top pricing card buttons to booking flow
-    document.querySelectorAll('.select-package-btn, a[href="#contact"]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const pkgId = btn.getAttribute('data-pkg');
-        if (pkgId) {
-          setChosenPackage(pkgId);
+        function showStep(index) {
+            currentStep = index;
+            steps.forEach((step, i) => {
+                step.classList.toggle("active", i === currentStep);
+            });
+
+            stepIndicators.forEach((el, i) => {
+                el.classList.toggle("active", i === currentStep);
+            });
+
+            prevBtn.hidden = currentStep === 0;
+            nextBtn.textContent = currentStep === steps.length - 1 ? "Review" : "Next";
         }
-        const contact = document.getElementById('contact');
-        if (contact) contact.scrollIntoView({ behavior: 'smooth' });
-      });
-    });
-    function submitToWhatsApp() {
-      const terms = document.getElementById('termsCheckbox');
-      if (!terms || !terms.checked) {
-        alert('Please agree to the 50% advance payment & 24hr turnaround terms to proceed.');
-        return;
-      }
 
-      const name = document.getElementById('clientName').value.trim();
-      const email = document.getElementById('clientEmail').value.trim();
-      const phone = document.getElementById('clientPhone').value.trim();
-      const service = document.getElementById('serviceRequired').value;
-      const details = document.getElementById('shortProjectDetails').value.trim();
-      const pkg = PACKAGES.find(p => p.id === selectedPackageId) || { name: 'Custom', label: 'Discuss' };
+        function validateCurrentStep() {
+            const current = steps[currentStep];
+            const inputs = current.querySelectorAll("input, select, textarea");
 
-      const message = 
-        `*New Project Inquiry - Ayush Motion Edits*\n\n` +
-        `*Name:* ${name}\n` +
-        `*Email:* ${email}\n` +
-        `*Phone:* ${phone}\n` +
-        `*Project Type:* ${service}\n` +
-        `*Selected Package:* ${pkg.name} (${pkg.label})\n` +
-        `*Project Details:* ${details ? details : 'Discussing directly'}\n` +
-        `*Terms Accepted:* Yes (50% advance & 24hr turnaround)`;
+            for (const field of inputs) {
+                if (field.required && !field.value.trim()) {
+                    field.focus();
+                    return false;
+                }
+            }
+            return true;
+        }
 
-      const whatsappUrl = `https://api.whatsapp.com/send?phone=916001867854&text=${encodeURIComponent(message)}`;
+        nextBtn.addEventListener("click", () => {
+            if (currentStep === 0) {
+                if (!selectedPackageInput.value) {
+                    selectedPackageLabel.textContent = "Please select a package";
+                    selectedPackageLabel.style.borderColor = "rgba(248,113,113,0.6)";
+                    selectedPackageLabel.style.color = "#fecaca";
+                    return;
+                }
+                selectedPackageLabel.style.borderColor = "rgba(52,211,153,0.35)";
+                selectedPackageLabel.style.color = "#beefd9";
+            }
 
-      window.open(whatsappUrl, '_blank');
-    }
-      
-    function submitToEmail() {
-      const terms = document.getElementById('termsCheckbox');
-      if (!terms.checked) {
-        alert('Please agree to the 50% advance payment & 24hr turnaround terms to proceed.');
-        return;
-      }
+            if (currentStep < steps.length - 1) {
+                if (currentStep === 1 && !validateCurrentStep()) return;
+                showStep(currentStep + 1);
+            }
+        });
 
-      const name = document.getElementById('clientName').value.trim();
-      const email = document.getElementById('clientEmail').value.trim();
-      const phone = document.getElementById('clientPhone').value.trim();
-      const service = document.getElementById('serviceRequired').value;
-      const details = document.getElementById('shortProjectDetails').value.trim();
-      const pkg = PACKAGES.find(p => p.id === selectedPackageId);
+        prevBtn.addEventListener("click", () => {
+            if (currentStep > 0) showStep(currentStep - 1);
+        });
 
-      const subject = encodeURIComponent(`Project Booking - ${name} (${pkg.name})`);
-      const body = encodeURIComponent(
-        `Hi Ayush,\n\nI want to book an editing project with you.\n\n` +
-        `Client Name: ${name}\n` +
-        `Email: ${email}\n` +
-        `Phone: ${phone}\n` +
-        `Project Type: ${service}\n` +
-        `Package: ${pkg.name} (${pkg.label})\n` +
-        `Details: ${details}\n\n` +
-        `I agree to the 50% advance payment and 24hr turnaround terms.`
-      );
+        packageOptions.forEach((option) => {
+            option.addEventListener("click", () => updatePackageDisplay(option.dataset.package));
+        });
 
-      window.location.href = `mailto:ayushkumardeb10@gmail.com?subject=${subject}&body=${body}`;
-    }
+        pricingButtons.forEach((btn) => {
+            btn.addEventListener("click", (event) => {
+                event.preventDefault();
+                const pkg = btn.dataset.package;
+                updatePackageDisplay(pkg);
+                const target = document.getElementById("contact");
+                if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+                showStep(0);
+            });
+        });
 
-    document.addEventListener('DOMContentLoaded', () => {
-      renderPackageGrid();
-    });
-  </script>
+        document.getElementById("name").addEventListener("input", () => {
+            summaryName.textContent = document.getElementById("name").value.trim() || "—";
+        });
+
+        document.getElementById("email").addEventListener("input", () => {
+            summaryEmail.textContent = document.getElementById("email").value.trim() || "—";
+        });
+
+        document.getElementById("platform").addEventListener("change", () => {
+            summaryPlatform.textContent = document.getElementById("platform").value || "—";
+        });
+
+        document.getElementById("deadline").addEventListener("input", () => {
+            summaryDeadline.textContent = document.getElementById("deadline").value.trim() || "—";
+        });
+
+        bookingForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const fullName = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const platform = document.getElementById("platform").value || "Not specified";
+            const deadline = document.getElementById("deadline").value.trim() || "Not specified";
+            const goal = document.getElementById("goal").value.trim() || "No additional notes provided.";
+            const selectedPackage = selectedPackageInput.value || "Not selected";
+
+            const whatsappNumber = "916001867854";
+            const message = [
+                "Hello Ayush Motion,",
+                "",
+                "I want to book a project.",
+                "",
+                "Package: " + selectedPackage,
+                "Name: " + fullName,
+                "Email: " + email,
+                "Platform: " + platform,
+                "Deadline: " + deadline,
+                "Project Goal: " + goal,
+                "",
+                "Please confirm the next steps."
+            ].join("%0A");
+
+            const whatsappUrl = "https://wa.me/" + whatsappNumber + "?text=" + message;
+            window.open(whatsappUrl, "_blank");
+
+            const emailSubject = encodeURIComponent("Booking Request - " + selectedPackage);
+            const emailBody = encodeURIComponent(
+                "Package: " + selectedPackage + "\n" +
+                "Name: " + fullName + "\n" +
+                "Email: " + email + "\n" +
+                "Platform: " + platform + "\n" +
+                "Deadline: " + deadline + "\n\n" +
+                "Project Goal:\n" + goal
+            );
+
+            const emailAnchor = document.getElementById("emailLink");
+            emailAnchor.href = "mailto:ayushkumardeb10@gmail.com?subject=" + emailSubject + "&body=" + emailBody;
+        });
+
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-menu-link');
+
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                menuBtn.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+            });
+
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    menuBtn.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                });
+            });
+        }
+
+        showStep(0);
+    </script>
 </body>
-    </html>
-                        
-        
+</html>
