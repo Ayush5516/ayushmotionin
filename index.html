@@ -1299,12 +1299,12 @@ margin: 0 auto;
 
         function renderServiceCards() {
             servicesGrid.innerHTML = servicePackages.map(pkg => `
-                <div class="video-wrap" style="display: flex; justify-content: center; width: 100%; margin-bottom: 16px;">
-    <div class="iframe-shell" style="width: 100%; max-width: 280px; aspect-ratio: 9/16; border-radius: 14px; overflow: hidden; background: #000;">
-        <iframe src="${pkg.video}" style="width: 100%; height: 100%; border: none;" loading="lazy" allowfullscreen title="${pkg.name}"></iframe>
-    </div>
+                <article class="service-card">
+<div class="video-wrap">
+  <div class="iframe-shell">
+    <iframe src="${pkg.video}" loading="lazy" allowfullscreen title="${pkg.name}"></iframe>
+  </div>
 </div>
-                    </div>
                     <div class="content">
                         <span class="service-level">${pkg.level}</span>
                         <h3 class="service-title">${pkg.category}</h3>
