@@ -229,7 +229,7 @@
             aspect-ratio: 9 / 16;
             width: 100%;
             max-width: 280px;
-margin: 0 auto;
+            margin: 0 auto;
             overflow: hidden;
             border-radius: 1rem;
             background: #000;
@@ -531,7 +531,7 @@ margin: 0 auto;
 
         .two-col {
             display: grid;
-           grid-template-columns: repeat(2, minmax(0,1fr));
+            grid-template-columns: repeat(2, minmax(0,1fr));
             gap: 1rem;
         }
 
@@ -640,50 +640,81 @@ margin: 0 auto;
         }
 
         .site-footer {
-            padding-top: 0.6rem;
-            padding-bottom: 1.5rem;
+            padding-top: 1rem;
+            padding-bottom: 2rem;
         }
 
         .footer-shell {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-            border-top: 1px solid rgba(255,255,255,0.08);
+            justify-content: center;
+            text-align: center;
+            gap: 1.1rem;
+            border-top: 1px solid rgba(255,255,255,0.10);
             padding-top: 1.75rem;
         }
 
-        .brand-block { max-width: 440px; }
-        .brand-block h4 {
-            margin: 0 0 0.6rem;
-            font-size: 1.15rem;
-            letter-spacing: -0.02em;
+        .brand-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            max-width: 640px;
+        }
+
+        .brand-title {
+            margin: 0;
+            font-size: clamp(1.5rem, 2vw, 2rem);
+            line-height: 1.2;
+            letter-spacing: -0.04em;
+            font-weight: 800;
         }
 
         .brand-block p {
             margin: 0;
             color: #a0abb9;
             font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .social-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.9rem;
         }
 
         .social-icon {
-            width: 2.6rem;
-            height: 2.6rem;
+            width: 3rem;
+            height: 3rem;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             border-radius: 999px;
-            border: 1px solid rgba(255,255,255,0.1);
-            background: rgba(255,255,255,0.04);
-            color: #e6edf5;
-            transition: all 0.2s ease;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.10);
+            color: #d1d5db;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+            transition: all 0.3s ease;
         }
 
         .social-icon:hover {
             color: #f3d483;
-            border-color: rgba(212,175,55,0.42);
-            box-shadow: 0 12px 26px rgba(212,175,55,0.12);
-            transform: translateY(-1px);
+            border-color: rgba(212,175,55,0.60);
+            background: rgba(212,175,55,0.10);
+            transform: translateY(-2px) scale(1.05);
+        }
+
+        .copyright {
+            width: 100%;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            color: #a0abb9;
+            font-size: 0.8rem;
+            letter-spacing: 0.04em;
         }
 
         .testimonial-section {
@@ -883,7 +914,6 @@ margin: 0 auto;
 
         @media (max-width: 900px) {
             .booking-progress { grid-template-columns: 1fr; }
-            .footer-shell { flex-direction: column; align-items: flex-start; }
             .step-title-row, .review-header { flex-direction: column; align-items: flex-start; }
             .floating-badge { font-size: 0.55rem; letter-spacing: 0.06em; padding: 0.45rem 0.65rem; }
         }
@@ -903,7 +933,9 @@ margin: 0 auto;
                 <a href="#pricing" class="hover:text-accentGold transition">Pricing</a>
                 <a href="#reviews" class="hover:text-accentGold transition">Reviews</a>
                 <a href="#contact" class="hover:text-accentGold transition">Book Project</a>
-                <a href="https://api.whatsapp.com/send?phone=916001867854&text=Hi%20Ayush%2C%20I%20want%20to%20book%20a%20project." target="_blank" rel="noopener" class="hover:text-accentGold transition flex items-center gap-1.5 text-accentGold"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+                <a href="https://api.whatsapp.com/send?phone=916001867854&text=Hi%20Ayush%2C%20I%20want%20to%20book%20a%20project." target="_blank" rel="noopener" class="hover:text-accentGold transition flex items-center gap-1.5 text-accentGold">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                </a>
             </nav>
             <div class="flex items-center gap-4">
                 <a href="#contact" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-full text-sm font-semibold text-black bg-accentGold hover:bg-yellow-500 transition shadow-lg shadow-accentGold/20">Book Now</a>
@@ -918,7 +950,7 @@ margin: 0 auto;
                 <a href="#pricing" class="mobile-menu-link block py-4 px-2 text-gray-300 hover:text-accentGold font-medium border-b border-white/5 transition"><i class="fa-solid fa-tag w-5"></i> Pricing</a>
                 <a href="#reviews" class="mobile-menu-link block py-4 px-2 text-gray-300 hover:text-accentGold font-medium border-b border-white/5 transition"><i class="fa-solid fa-star w-5"></i> Reviews</a>
                 <a href="#contact" class="mobile-menu-link block py-4 px-2 text-gray-300 hover:text-accentGold font-medium border-b border-white/5 transition"><i class="fa-solid fa-calendar-check w-5"></i> Book Project</a>
-                <a href="https://api.whatsapp.com/send?phone=916001867854&text=Hi%20Ayush%2C%20I%20want%20to%20book%20a%20project." target="_blank" rel="noopener" class="mobile-menu-link block py-4 px-2 mt-2 text-black font-semibold rounded-full bg-accentGold text-center"><i class="fa-brands fa-whatsapp mr-2"></i> Chat on WhatsApp</a>
+                <a href="https://api.whatsapp.com/send?phone=916001867854&text=Hi%20Ayush%2C%20I%20want%20to%20book%20a%20project." target="_blank" rel="noopener" class="mobile-menu-link block py-4 px-2 text-black font-semibold bg-accentGold rounded-b-md mt-2 text-center">Chat on WhatsApp</a>
             </nav>
         </div>
     </header>
@@ -936,7 +968,7 @@ margin: 0 auto;
                         videos that move people.
                     </h1>
                     <p class="mt-6 max-w-xl mx-auto lg:mx-0 text-lg text-gray-300 leading-8">
-                        Professional video editor and motion designer helping real estate brands, creators, UGC teams, and SaaS companies turn attention into action through premium storytelling and conversion-focussed edits.
+                        Professional video editor and motion designer helping real estate brands, creators, UGC teams, and SaaS companies turn attention into action through premium storytelling and conversion-focused edits.
                     </p>
                     <div class="mt-8 flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
                         <a href="#portfolio" class="hero-cta primary"><i class="fa-solid fa-play"></i> View Portfolio</a>
@@ -998,8 +1030,8 @@ margin: 0 auto;
                         <p class="mt-3 text-base font-medium text-yellow-300">High-end motion graphics, VFX & kinetic typography</p>
                         <p class="mt-3 text-sm leading-7 text-gray-300">Custom 2D/3D mockups, SaaS UI animations, track matte motion, and custom sound design that elevates brand perception.</p>
                         <ul class="mt-5 space-y-3 text-sm text-gray-300">
-                            <li class="flex items-start gap-2"><span class="text-accentGold">✦</span> Custom 2D & 3D mockup animations</li>
-                            <li class="flex items-start gap-2"><span class="text-accentGold">✦</span> SaaS UI and product reveal visuals</li>
+                            <li class="flex items-start gap-2"><span class="text-accentGold">✦</span> Custom 2D & 3D mockup animation</li>
+                            <li class="flex items-start gap-2"><span class="text-accentGold">✦</span> SaaS UI & product reveal motion</li>
                             <li class="flex items-start gap-2"><span class="text-accentGold">✦</span> Track matte motion & realism layers</li>
                             <li class="flex items-start gap-2"><span class="text-accentGold">✦</span> Sound design & polish integration</li>
                         </ul>
@@ -1011,7 +1043,7 @@ margin: 0 auto;
                         </div>
                         <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80" alt="DaVinci Resolve" class="w-full h-52 object-cover mt-5">
                         <h3 class="mt-5 text-2xl font-bold text-accentGold">DaVinci Resolve</h3>
-                        <p class="mt-3 text-base font-medium text-yellow-300">Broadcaster-grade color science & finishing</p>
+                        <p class="mt-3 text-base font-medium text-yellow-300">Broadcast-grade color science & finishing</p>
                         <p class="mt-3 text-sm leading-7 text-gray-300">Precise LUT development, skin-tone matching, cinematic color grading, noise reduction, and final mastering for premium delivery.</p>
                         <ul class="mt-5 space-y-3 text-sm text-gray-300">
                             <li class="flex items-start gap-2"><span class="text-accentGold">✦</span> Accurate LUT development & test grading</li>
@@ -1022,240 +1054,18 @@ margin: 0 auto;
                     </article>
                 </div>
             </div>
-        </section> 
-        <!-- ================= BULK PACKAGES SECTION ================= -->
-<section id="bulk-packages" class="px-4 sm:px-6 lg:px-8 py-20 border-t border-white/5 bg-[#0a0a0a]">
-    <div class="max-w-6xl mx-auto">
-        <!-- Top Small Badges -->
-        <div class="flex flex-wrap items-center justify-center gap-3 mb-6 text-xs text-gray-300">
-            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 font-medium">
-                <span class="w-1.5 h-1.5 rounded-full bg-accentGold"></span> 24-hour turnaround on standard edits
-            </span>
-            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 font-medium">
-                <span class="w-1.5 h-1.5 rounded-full bg-accentGold"></span> 50% advance to start
-            </span>
-            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 font-medium">
-                <span class="w-1.5 h-1.5 rounded-full bg-accentGold"></span> Pick a plan & book in 3 quick steps
-            </span>
-        </div>
+        </section>
 
-        <!-- Section Header -->
-        <div class="text-center max-w-3xl mx-auto mb-14">
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accentGold/10 border border-accentGold/30 text-xs uppercase tracking-widest text-accentGold mb-3 font-bold">
-                <i class="fa-solid fa-boxes-stacked"></i> Special Bulk Discount & Retainers
-            </div>
-            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white">
-                Scalable Bulk Packages Built for Creators & Brands.
-            </h2>
-            <p class="mt-3 text-base text-gray-400">
-                Unlock high-volume discounts, consistent retention pacing, and dedicated turnaround queues for your monthly content.
-            </p>
-        </div>
-
-        <div class="space-y-8">
-            <!-- 1. BASIC EDITING TIER -->
-            <div class="p-5 sm:p-6 rounded-2xl bg-[#121212] border border-white/10 flex flex-col lg:flex-row gap-6 items-stretch shadow-2xl">
-                <!-- Video Box (9:16) -->
-                <div class="w-full lg:w-[260px] flex-shrink-0 flex justify-center">
-                    <div class="w-full max-w-[240px] aspect-[9/16] rounded-xl overflow-hidden bg-black border border-white/10 shadow-lg">
-                        <iframe src="https://www.youtube.com/embed/YkwSN8HbHR0?rel=0&modestbranding=1" class="w-full h-full border-0 block" loading="lazy" allowfullscreen></iframe>
+        <section id="pricing" class="px-4 sm:px-6 lg:px-8 py-20 border-t border-white/5">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center max-w-4xl mx-auto mb-12">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-xs font-semibold tracking-[0.18em] uppercase text-accentGold">
+                        <i class="fa-solid fa-tag"></i> Services & Pricing
                     </div>
+                    <h2 class="mt-6 text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight">Luxury editing packages built to convert.</h2>
+                    <p class="mt-4 text-lg text-gray-300">Every package is designed for premium visual quality, retention-driven pacing, and industry-grade finish.</p>
                 </div>
-
-                <!-- Content Area -->
-                <div class="flex-1 flex flex-col justify-between">
-                    <div>
-                        <span class="inline-block px-3 py-1 text-[11px] font-extrabold uppercase tracking-wider rounded-md bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 mb-3">
-                            STARTER LEVEL • BEST BUDGET DEAL
-                        </span>
-                        <h3 class="text-2xl font-black text-white tracking-tight">Basic Editing Tier</h3>
-                        <p class="mt-1 text-sm text-gray-400 leading-relaxed">
-                            Clean cuts, accurate auto-captions, and standard pacing for creators who want a straightforward short-form workflow.
-                        </p>
-
-                        <!-- Pricing Boxes -->
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-5">
-                            <!-- Box 1 -->
-                            <div class="p-4 rounded-xl bg-white/[0.02] border border-white/10 flex flex-col justify-between">
-                                <div>
-                                    <div class="text-[11px] font-bold text-gray-400 uppercase tracking-wider">10 VIDEOS PACK</div>
-                                    <div class="mt-2 flex items-baseline gap-2">
-                                        <span class="text-2xl font-black text-white">$300</span>
-                                        <span class="text-xs text-gray-400">($30/vid)</span>
-                                    </div>
-                                    <div class="text-xs text-emerald-400 mt-1"><span class="line-through text-gray-500">$350</span> Save $50</div>
-                                </div>
-                                <a href="#contact" class="mt-4 block w-full py-2.5 rounded-lg border border-white/20 hover:border-accentGold text-center text-xs font-bold text-white uppercase tracking-wider transition">SELECT 10 PACK</a>
-                            </div>
-
-                            <!-- Box 2 (Highlighted) -->
-                            <div class="relative p-4 rounded-xl bg-white/[0.04] border border-accentGold/40 flex flex-col justify-between">
-                                <span class="absolute -top-2.5 right-3 px-2 py-0.5 text-[9px] font-black uppercase tracking-wider rounded bg-accentGold text-black">BEST BUDGET DEAL</span>
-                                <div>
-                                    <div class="text-[11px] font-bold text-yellow-400 uppercase tracking-wider">20 VIDEOS PACK</div>
-                                    <div class="mt-2 flex items-baseline gap-2">
-                                        <span class="text-2xl font-black text-accentGold">$500</span>
-                                        <span class="text-xs text-gray-400">($25/vid)</span>
-                                    </div>
-                                    <div class="text-xs text-emerald-400 mt-1"><span class="line-through text-gray-500">$700</span> Save $200</div>
-                                </div>
-                                <a href="#contact" class="mt-4 block w-full py-2.5 rounded-lg bg-accentGold hover:bg-yellow-500 text-center text-xs font-black text-black uppercase tracking-wider transition">CLAIM OFFER</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- What's Included -->
-                    <div class="mt-6 pt-4 border-t border-white/10">
-                        <div class="text-[11px] font-bold tracking-widest text-gray-400 uppercase mb-2">WHAT'S INCLUDED:</div>
-                        <ul class="text-xs space-y-1.5 text-gray-300">
-                            <li>• Basic cuts for short-form videos</li>
-                            <li>• Accurate autocaptions</li>
-                            <li>• Simple transitions and standard pacing</li>
-                        </ul>
-                        <div class="text-[10px] text-gray-500 mt-2">*Savings are calculated against a single-video rate of $35.</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 2. STANDARD EDITING TIER -->
-            <div class="p-5 sm:p-6 rounded-2xl bg-[#121212] border border-white/10 flex flex-col lg:flex-row gap-6 items-stretch shadow-2xl">
-                <!-- Video Box (9:16) -->
-                <div class="w-full lg:w-[260px] flex-shrink-0 flex justify-center">
-                    <div class="w-full max-w-[240px] aspect-[9/16] rounded-xl overflow-hidden bg-black border border-white/10 shadow-lg">
-                    <iframe src="https://www.youtube.com/embed/E5uBo-m-NBE?rel=0&modestbranding=1" class="w-full h-full border-0 block" loading="lazy" allowfullscreen></iframe>
-                    </div>
-                </div>
-
-                <!-- Content Area -->
-                <div class="flex-1 flex flex-col justify-between">
-                    <div>
-                        <span class="inline-block px-3 py-1 text-[11px] font-extrabold uppercase tracking-wider rounded-md bg-yellow-500/10 text-yellow-400 border border-yellow-500/20 mb-3">
-                            GROWTH LEVEL • MID-RANGE PACKAGE
-                        </span>
-                        <h3 class="text-2xl font-black text-white tracking-tight">Standard Editing Tier</h3>
-                        <p class="mt-1 text-sm text-gray-400 leading-relaxed">
-                            Enhanced with branded text animations, motion effects, richer pacing, and better retention optimization.
-                        </p>
-
-                        <!-- Pricing Boxes -->
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-5">
-                            <!-- Box 1 -->
-                            <div class="p-4 rounded-xl bg-white/[0.02] border border-white/10 flex flex-col justify-between">
-                                <div>
-                                    <div class="text-[11px] font-bold text-gray-400 uppercase tracking-wider">10 VIDEOS PACK</div>
-                                    <div class="mt-2 flex items-baseline gap-2">
-                                        <span class="text-2xl font-black text-white">$500</span>
-                                        <span class="text-xs text-gray-400">($50/vid)</span>
-                                    </div>
-                                    <div class="text-xs text-emerald-400 mt-1"><span class="line-through text-gray-500">$600</span> Save $100</div>
-                                </div>
-                                <a href="#contact" class="mt-4 block w-full py-2.5 rounded-lg border border-white/20 hover:border-accentGold text-center text-xs font-bold text-white uppercase tracking-wider transition">SELECT 10 PACK</a>
-                            </div>
-
-                            <!-- Box 2 (Highlighted) -->
-                            <div class="relative p-4 rounded-xl bg-white/[0.04] border border-accentGold/40 flex flex-col justify-between">
-                                <span class="absolute -top-2.5 right-3 px-2 py-0.5 text-[9px] font-black uppercase tracking-wider rounded bg-accentGold text-black">MOST POPULAR</span>
-                                <div>
-                                    <div class="text-[11px] font-bold text-yellow-400 uppercase tracking-wider">20 VIDEOS PACK</div>
-                                    <div class="mt-2 flex items-baseline gap-2">
-                                        <span class="text-2xl font-black text-accentGold">$1,000</span>
-                                        <span class="text-xs text-gray-400">($50/vid)</span>
-                                    </div>
-                                    <div class="text-xs text-emerald-400 mt-1"><span class="line-through text-gray-500">$1,200</span> Save $200</div>
-                                </div>
-                                <a href="#contact" class="mt-4 block w-full py-2.5 rounded-lg bg-accentGold hover:bg-yellow-500 text-center text-xs font-black text-black uppercase tracking-wider transition">CLAIM STANDARD OFFER</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- What's Included -->
-                    <div class="mt-6 pt-4 border-t border-white/10">
-                        <div class="text-[11px] font-bold tracking-widest text-gray-400 uppercase mb-2">WHAT'S INCLUDED:</div>
-                        <ul class="text-xs space-y-1.5 text-gray-300">
-                            <li>• Up to 10 min raw footage edited per video</li>
-                            <li>• Jump cuts, pacing, and basic color correction</li>
-                            <li>• Auto captions styled to brand</li>
-                            <li>• 1 platform export + 1 round of revisions</li>
-                        </ul>
-                        <div class="text-[10px] text-gray-500 mt-2">*Savings are calculated against standard tiers.</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 3. PROFESSIONAL & PREMIUM TIER -->
-            <div class="p-5 sm:p-6 rounded-2xl bg-[#121212] border border-white/10 flex flex-col lg:flex-row gap-6 items-stretch shadow-2xl">
-                <!-- Video Box (9:16) -->
-                <div class="w-full lg:w-[260px] flex-shrink-0 flex justify-center">
-                    <div class="w-full max-w-[240px] aspect-[9/16] rounded-xl overflow-hidden bg-black border border-white/10 shadow-lg">
-                        <iframe src="https://www.youtube.com/embed/ba-jjpcr2K8?rel=0&modestbranding=1" class="w-full h-full border-0 block" loading="lazy" allowfullscreen></iframe>
-                            " class="w-full h-full border-0 block" loading="lazy" allowfullscreen></iframe>
-                    </div>
-                </div>
-
-                <!-- Content Area -->
-                <div class="flex-1 flex flex-col justify-between">
-                    <div>
-                        <span class="inline-block px-3 py-1 text-[11px] font-extrabold uppercase tracking-wider rounded-md bg-rose-500/10 text-rose-400 border border-rose-500/20 mb-3">
-                            HIGH-END REAL ESTATE & CREATOR LEVEL • BEST VALUE
-                        </span>
-                        <h3 class="text-2xl font-black text-white tracking-tight">Professional & Premium Tier</h3>
-                        <p class="mt-1 text-sm text-gray-400 leading-relaxed">
-                            Top-tier cinematic real estate editing, custom motion graphics, high-retention hook optimization, and elite color grading.
-                        </p>
-                                                <!-- Pricing Boxes (2 Cols) -->
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-5">
-                            <!-- Box 1: 15 Days AI Bulk Pack -->
-                            <div class="p-4 rounded-xl bg-white/[0.02] border border-white/10 flex flex-col justify-between">
-                                <div>
-                                    <div class="text-[11px] font-bold text-gray-400 uppercase tracking-wider">15 DAYS AI BULK PACK</div>
-                                    <div class="mt-2 flex items-baseline gap-2">
-                                        <span class="text-2xl font-black text-white">$1,050</span>
-                                        <span class="text-xs text-gray-400">($70/edit)</span>
-                                    </div>
-                                    <div class="text-xs text-emerald-400 mt-1"><span class="line-through text-gray-500">$1,500</span> Save $450 ($100 → $70)</div>
-                                </div>
-                                <a href="#contact" class="mt-4 block w-full py-2.5 rounded-lg border border-white/20 hover:border-accentGold text-center text-xs font-bold text-white uppercase tracking-wider transition">SELECT 15 DAYS PACK</a>
-                            </div>
-
-                            <!-- Box 2: 20 Days AI Retainer (Highlighted) -->
-                            <div class="relative p-4 rounded-xl bg-white/[0.04] border border-accentGold/40 flex flex-col justify-between">
-                                <span class="absolute -top-2.5 right-3 px-2 py-0.5 text-[9px] font-black uppercase tracking-wider rounded bg-accentGold text-black font-extrabold">AI INTEGRATION SPECIAL</span>
-                                <div>
-                                    <div class="text-[11px] font-bold text-yellow-400 uppercase tracking-wider">20 DAYS AI RETAINER</div>
-                                    <div class="mt-2 flex items-baseline gap-2">
-                                        <span class="text-2xl font-black text-accentGold">$1,400</span>
-                                        <span class="text-xs text-gray-400">($70/edit)</span>
-                                    </div>
-                                    <div class="text-xs text-emerald-400 mt-1"><span class="line-through text-gray-500">$2,000</span> Save $600 ($100 → $70)</div>
-                                </div>
-                                <a href="#contact" class="mt-4 block w-full py-2.5 rounded-lg bg-accentGold hover:bg-yellow-500 text-center text-xs font-black text-black uppercase tracking-wider transition">CLAIM 20 DAYS RETAINER</a>
-                            </div>
-                        </div>
-                    <!-- What's Included -->
-                    <div class="mt-6 pt-4 border-t border-white/10">
-                        <div class="text-[11px] font-bold tracking-widest text-gray-400 uppercase mb-2">WHAT'S INCLUDED:</div>
-                        <ul class="text-xs space-y-1.5 text-gray-300">
-                            <li>• Cinematic color grading, sound design, and skin-tone pop</li>
-                            <li>• Custom lower-thirds and branded motion graphic titles</li>
-                            <li>• Structured milestone delivery and direct revision support</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- ================= END BULK PACKAGES ================= -->
-<section id="pricing" class="px-4 sm:px-6 lg:px-8 py-20 border-t border-white/5 bg-[#0d0d0d]">
-    <div class="max-w-7xl mx-auto">
-        <div class="text-center max-w-4xl mx-auto mb-16">
-            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-xs uppercase tracking-widest text-accentGold mb-4">
-                <i class="fa-solid fa-tag"></i> Services & Single-Video Pricing
-            </div>
-            <h2 class="mt-6 text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight">Luxury editing packages built to convert.</h2>
-            <p class="mt-4 text-lg text-gray-300">Every package is designed for premium visual quality, retention-driven pacing, and industry-grade finish.</p>
-        </div>
-                <div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+                <div id="services-grid" class="grid gap-6 md:grid-cols-2 xl:grid-cols-3"></div>
             </div>
         </section>
 
@@ -1282,6 +1092,7 @@ margin: 0 auto;
                     </div>
                     <h2 class="mt-6 text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight">Book your next high-converting edit.</h2>
                 </div>
+
                 <div class="booking-card">
                     <div class="booking-progress">
                         <div class="progress-step active">1. Select Package</div>
@@ -1293,7 +1104,7 @@ margin: 0 auto;
                         <div class="form-step active" data-step="1">
                             <div class="step-title-row">
                                 <h3>Choose your package</h3>
-                                <span id="selected-package-display" class="selected-pill">Real Estate Video Editing • Standard Level · $35 / video</span>
+                                <span id="selected-package-display" class="selected-pill">Real Estate Video Editing • Standard Level • $35 / video</span>
                             </div>
                             <div id="package-option-grid" class="package-option-grid"></div>
                             <div class="form-nav">
@@ -1305,7 +1116,7 @@ margin: 0 auto;
                         <div class="form-step" data-step="2">
                             <div class="step-title-row">
                                 <h3>Project details</h3>
-                                <span class="selected-pill" id="selected-package-badge">Real Estate Video Editing • Standard Level</span>
+                                <span id="selected-package-badge" class="selected-pill">Real Estate Video Editing • Standard Level</span>
                             </div>
                             <div class="two-col">
                                 <div class="field">
@@ -1349,7 +1160,7 @@ margin: 0 auto;
                                 <span class="selected-pill">Ready to send</span>
                             </div>
                             <div class="confirmation-box">
-                                <div class="summary-row"><span>Package</span><strong id="summary-package">Real Estate Video Editing • Standard Level · $35 / video</strong></div>
+                                <div class="summary-row"><span>Package</span><strong id="summary-package">Real Estate Video Editing • Standard Level • $35 / video</strong></div>
                                 <div class="summary-row"><span>Client</span><strong id="summary-client">—</strong></div>
                                 <div class="summary-row"><span>Brand</span><strong id="summary-brand">—</strong></div>
                                 <div class="summary-row"><span>Timeline</span><strong id="summary-timeline">24-48h turnaround</strong></div>
@@ -1368,18 +1179,37 @@ margin: 0 auto;
     <footer class="site-footer px-4 sm:px-6 lg:px-8">
         <div class="max-w-7xl mx-auto footer-shell">
             <div class="brand-block">
-                <h4 class="gold-gradient-text text-2xl font-bold">Ayush Motion Edits</h4>
-                <p>Luxury video editing, motion design, and conversion-focused storytelling for premium brands and creators.</p>
+                <h4 class="brand-title">
+                    <span class="text-white">Ayush Motion</span>
+                    <span class="gold-gradient-text"> Edits</span>
+                </h4>
+                <p>Professional Video Editing &amp; Motion Design Agency</p>
             </div>
-            <div class="flex items-center gap-3">
-                <a href="https://www.instagram.com" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://www.facebook.com" target="_blank" rel="noopener" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="https://www.linkedin.com" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                <a href="https://api.whatsapp.com/send?phone=916001867854&text=Hi%20Ayush%2C%20I%20want%20to%20book%20a%20project." target="_blank" rel="noopener" class="social-icon" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-                <a href="mailto:hello@ayushmotionedits.com" class="social-icon" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+
+            <div class="social-row" aria-label="Social media">
+                <a href="https://www.instagram.com" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram text-xl"></i>
+                </a>
+
+                <a href="https://www.facebook.com" target="_blank" rel="noopener" class="social-icon" aria-label="Facebook">
+                    <i class="fa-brands fa-facebook-f text-lg"></i>
+                </a>
+
+                <a href="https://www.linkedin.com" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn">
+                    <i class="fa-brands fa-linkedin-in text-lg"></i>
+                </a>
+
+                <a href="https://api.whatsapp.com/send?phone=916001867854&text=Hi%20Ayush%2C%20I%20want%20to%20book%20a%20project." target="_blank" rel="noopener" class="social-icon" aria-label="WhatsApp">
+                    <i class="fa-brands fa-whatsapp text-xl"></i>
+                </a>
+
+                <a href="mailto:hello@ayushmotionedits.com" class="social-icon" aria-label="Email">
+                    <i class="fa-solid fa-envelope text-lg"></i>
+                </a>
             </div>
+
+            <div class="copyright">© 2026 Ayush Motion Edits. All rights reserved.</div>
         </div>
-        <div class="max-w-7xl mx-auto mt-4 text-center text-sm text-gray-400">© 2026 Ayush Motion Edits (ayushmotion.in)</div>
     </footer>
 
     <div class="modal" id="review-modal" aria-hidden="true">
@@ -1400,7 +1230,7 @@ margin: 0 auto;
                 <div class="field">
                     <label>Star Rating</label>
                     <div class="star-picker" aria-label="Star rating selector">
-                        <button type="button" class="star-btn" data-value="1" aria-label="1 star">★</button>
+                        <button type="button" class="star-btn active" data-value="1" aria-label="1 star">★</button>
                         <button type="button" class="star-btn" data-value="2" aria-label="2 stars">★</button>
                         <button type="button" class="star-btn" data-value="3" aria-label="3 stars">★</button>
                         <button type="button" class="star-btn" data-value="4" aria-label="4 stars">★</button>
@@ -1424,7 +1254,7 @@ margin: 0 auto;
                 price: 35,
                 category: 'Real Estate Video Editing',
                 level: 'Standard Level',
-                benefit: 'Clean property walkthrough cuts, balanced ambient audio, and polished motion that helps listings feel premium and easier to trust.',
+                benefit: 'Clean property walkthroughs, balanced ambient audio, and polished motion that helps listings feel premium and easier to trust.',
                 turnaround: '24-48h',
                 video: 'https://www.youtube.com/embed/YkwSN8HbHR0?rel=0&modestbranding=1',
                 features: ['4K rendering', 'Clean property walkthrough cuts', 'Ambient audio leveling', 'Smooth motion stabilization', 'Basic brand watermark/logo']
@@ -1447,7 +1277,7 @@ margin: 0 auto;
                 benefit: 'Luxury real estate storytelling with elite color, motion graphics, drone flow, and multi-platform exports built for maximum visual authority.',
                 turnaround: 'Priority turnaround',
                 video: 'https://www.youtube.com/embed/5tz0WpfLnOg?rel=0&modestbranding=1',
-                features: ['Elite cinematic drone & interior flow', '3D tracking titles', 'Sky replacement', 'Broadcast-grade HDR color grade', 'Multi-platform exports (9:16 + 16:9)']
+                features: ['Elite cinematic drone & interior flow', '3D tracking titles', 'Sky replacement', 'Broadcast-grade HDR color grade', 'Multi-platform exports (9:16 + 16:9 + 1:1)']
             },
             {
                 name: 'Talking Head Videos • Professional Level',
@@ -1467,7 +1297,7 @@ margin: 0 auto;
                 benefit: 'Retention-engineered edits designed with stronger hooks, elevated motion design, and cinematic polish for premium brand storytelling.',
                 turnaround: 'Priority turnaround',
                 video: 'https://www.youtube.com/embed/nxnu7-EUYiQ?rel=0&modestbranding=1',
-                features: ['Retention-engineered hook pacing', 'Custom 2D/3D motion graphics', 'Brand-custom visual assets', 'Cinematic studio audio mastering', 'Multi-platform formats']
+                features: ['Retention-engineered hook pacing', 'Custom 2D/3D motion graphics', 'Brand-custom visual assets', 'Cinematic studio audio mastering', 'Multi-format formats']
             },
             {
                 name: 'UGC Video Ads • Professional Level',
@@ -1477,7 +1307,7 @@ margin: 0 auto;
                 benefit: 'Fast-paced, scroll-stopping UGC edits built for native platform performance, stronger hooks, and higher completion rates.',
                 turnaround: '24-48h',
                 video: 'https://www.youtube.com/embed/oKePZu9Op7M?rel=0&modestbranding=1',
-                features: ['High-converting UGC hook optimization', 'Native TikTok/Reels trending text styles', 'Engaging sound effects', 'Dynamic product cutouts']
+                features: ['High-converting hook optimization', 'Native TikTok/Reels trending text styles', 'Engaging sound effects', 'Dynamic product cutouts']
             },
             {
                 name: 'UGC Video Ads • Premium Level',
@@ -1486,7 +1316,7 @@ margin: 0 auto;
                 level: 'Premium Level',
                 benefit: 'High-impact ad edits with conversion structure, polished motion graphics, and multi-ratio exports tailored for scaling campaigns.',
                 turnaround: 'Priority turnaround',
-                video: 'https://www.youtube.com/embed/a1PTzhdiM8o?rel=0&modestbranding=1',
+                video: 'https://www.youtube.com/embed/aPTzhdiM8o?rel=0&modestbranding=1',
                 features: ['Direct-response conversion structure', 'Split-screen comparison & kinetic titles', '3D callout mockups', 'High-energy sound mixing', '3 aspect ratio exports']
             },
             {
@@ -1507,7 +1337,7 @@ margin: 0 auto;
                 benefit: 'Full-scale feature explainer motion with advanced 3D UI, premium sound, and multi-format distribution ready for launch campaigns.',
                 turnaround: '4-5 days',
                 video: 'https://www.youtube.com/embed/PLMh16yhotU?rel=0&modestbranding=1',
-                features: ['Full 60-90s detailed feature explainer', 'Advanced custom 3D UI modeling', 'Kinetic typography', 'Multi-platform exports (9:16 + 16:9 + 1:1)', 'Priority queue']
+                features: ['Full 60-90s detailed feature explainers', 'Advanced custom 3D UI modeling', 'Kinetic typography', 'Multi-platform exports (9:16 + 16:9 + 1:1)', 'Priority queue']
             }
         ];
 
@@ -1523,11 +1353,11 @@ margin: 0 auto;
         function renderServiceCards() {
             servicesGrid.innerHTML = servicePackages.map(pkg => `
                 <article class="service-card">
-<div class="video-wrap">
-  <div class="iframe-shell">
-    <iframe src="${pkg.video}" loading="lazy" allowfullscreen title="${pkg.name}"></iframe>
-  </div>
-</div>
+                    <div class="video-wrap">
+                        <div class="iframe-shell">
+                            <iframe src="${pkg.video}" loading="lazy" allowfullscreen title="${pkg.name}"></iframe>
+                        </div>
+                    </div>
                     <div class="content">
                         <span class="service-level">${pkg.level}</span>
                         <h3 class="service-title">${pkg.category}</h3>
@@ -1537,20 +1367,20 @@ margin: 0 auto;
                         <ul class="service-ul">
                             ${pkg.features.map(feature => `<li>${feature}</li>`).join('')}
                         </ul>
-                        <a href="#contact" class="service-cta" data-pkg="${pkg.name}" data-price="${pkg.price}" data-category="${pkg.category}">Select Package →</a>
+                        <a href="#contact" class="service-cta" data-pkg="${pkg.name}" data-price="${pkg.price}" data-category="${pkg.category}">Select Package</a>
                     </div>
                 </article>
             `).join('');
 
             packageOptionGrid.innerHTML = servicePackages.map(pkg => `
-                <button type="button" class="package-option ${pkg.name === servicePackages[0].name ? 'selected' : ''}" data-package="${pkg.name}" data-price="${pkg.price}" data-cardid="${pkg.name.replace(/\s+/g, '-').toLowerCase()}">
+                <button type="button" class="package-option ${pkg.name === servicePackages[0].name ? 'selected' : ''}" data-package="${pkg.name}" data-price="${pkg.price}" data-category="${pkg.category}" data-level="${pkg.level}">
                     <span class="option-name">${pkg.name}</span>
                     <span class="option-price">${formatPrice(pkg.price)} / video</span>
                 </button>
             `).join('');
-        }
 
-        renderServiceCards();
+            updateSelectedPackageDisplay(servicePackages[0]);
+        }
 
         let selectedPackage = {
             name: servicePackages[0].name,
@@ -1560,16 +1390,15 @@ margin: 0 auto;
             turnaround: servicePackages[0].turnaround
         };
 
-        function updateSelectedPackageDisplay() {
-            selectedPackageDisplay.textContent = `${selectedPackage.category} • ${selectedPackage.level} · ${formatPrice(selectedPackage.price)} / video`;
-            selectedPackageBadge.textContent = `${selectedPackage.category} • ${selectedPackage.level}`;
-            const summaryPackage = document.getElementById('summary-package');
-            if (summaryPackage) summaryPackage.textContent = `${selectedPackage.category} • ${selectedPackage.level} · ${formatPrice(selectedPackage.price)} / video`;
-            document.getElementById('summary-timeline').textContent = selectedPackage.turnaround;
+        function updateSelectedPackageDisplay(pkg) {
+            selectedPackageDisplay.textContent = `${pkg.category} • ${pkg.level} • ${formatPrice(pkg.price)} / video`;
+            selectedPackageBadge.textContent = `${pkg.category} • ${pkg.level}`;
+            document.getElementById('summary-package').textContent = `${pkg.category} • ${pkg.level} • ${formatPrice(pkg.price)} / video`;
+            document.getElementById('summary-timeline').textContent = pkg.turnaround;
         }
 
         document.addEventListener('click', (event) => {
-            const cardLink = event.target.closest('[data-pkg]');
+            const cardLink = event.target.closest('.service-cta');
             if (cardLink) {
                 event.preventDefault();
                 const pkgName = cardLink.dataset.pkg;
@@ -1585,7 +1414,7 @@ margin: 0 auto;
                     document.querySelectorAll('.package-option').forEach(option => {
                         option.classList.toggle('selected', option.dataset.package === pkg.name);
                     });
-                    updateSelectedPackageDisplay();
+                    updateSelectedPackageDisplay(pkg);
                     document.getElementById('contact').scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
                 return;
@@ -1606,12 +1435,12 @@ margin: 0 auto;
                     document.querySelectorAll('.package-option').forEach(option => {
                         option.classList.toggle('selected', option.dataset.package === pkg.name);
                     });
-                    updateSelectedPackageDisplay();
+                    updateSelectedPackageDisplay(pkg);
                 }
             }
         });
 
-        updateSelectedPackageDisplay();
+        renderServiceCards();
 
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -1623,43 +1452,26 @@ margin: 0 auto;
             link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
         });
 
-        const portfolioButtons = document.querySelectorAll('.filter-tab');
-        const portfolioPanels = document.querySelectorAll('.portfolio-panel');
-        portfolioButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const filter = button.dataset.filter;
-                portfolioButtons.forEach(btn => btn.classList.toggle('active', btn === button));
-                portfolioPanels.forEach(panel => {
-                    const show = panel.dataset.panel === filter || (filter === 'all' && panel.dataset.panel === 'all');
-                    panel.classList.toggle('active', show);
-                });
-            });
-        });
-
         const formSteps = [...document.querySelectorAll('.form-step')];
         const progressSteps = [...document.querySelectorAll('.progress-step')];
 
         function showStep(stepIndex) {
-            formSteps.forEach((step, index) => {
-                step.classList.toggle('active', index === stepIndex);
-            });
-            progressSteps.forEach((step, index) => {
-                step.classList.toggle('active', index === stepIndex);
-            });
+            formSteps.forEach((step, index) => step.classList.toggle('active', index === stepIndex));
+            progressSteps.forEach((step, index) => step.classList.toggle('active', index === stepIndex));
         }
 
         document.querySelectorAll('.next-step').forEach(btn => {
             btn.addEventListener('click', () => {
-                const next = Number(btn.dataset.next || 0);
+                const next = Number(btn.dataset.next);
                 if (next === 3) {
-                    const name = document.getElementById('full-name').value.trim();
+                    const fullName = document.getElementById('full-name').value.trim();
                     const email = document.getElementById('email').value.trim();
-                    if (!name || !email) {
+                    if (!fullName || !email) {
                         alert('Please add your full name and email before continuing.');
                         return;
                     }
-                    document.getElementById('summary-client').textContent = name;
-                    document.getElementById('summary-brand').textContent = document.getElementById('company').value || 'Not provided';
+                    document.getElementById('summary-client').textContent = fullName;
+                    document.getElementById('summary-brand').textContent = document.getElementById('company').value.trim() || 'Not provided';
                 }
                 showStep(next - 1);
             });
@@ -1667,7 +1479,7 @@ margin: 0 auto;
 
         document.querySelectorAll('.prev-step').forEach(btn => {
             btn.addEventListener('click', () => {
-                const prev = Number(btn.dataset.prev || 0);
+                const prev = Number(btn.dataset.prev);
                 showStep(prev - 1);
             });
         });
@@ -1679,10 +1491,11 @@ margin: 0 auto;
             const company = document.getElementById('company').value.trim();
             const videoType = document.getElementById('video-type').value;
             const brief = document.getElementById('brief').value.trim();
+
             const message = [
                 'Hello Ayush, I would like to book a project.',
                 '',
-                `Package: ${selectedPackage.name}`,
+                `Package: ${selectedPackage.category} • ${selectedPackage.level} • $${selectedPackage.price} / video`,
                 `Full Name: ${fullName}`,
                 `Email: ${email}`,
                 `Company / Brand: ${company || 'Not provided'}`,
@@ -1700,18 +1513,36 @@ margin: 0 auto;
         const openReviewModalBtn = document.getElementById('open-review-modal');
         const closeReviewModalBtn = document.getElementById('close-review-modal');
 
-        function openReviewModal() { reviewModal.classList.add('active'); }
-        function closeReviewModal() { reviewModal.classList.remove('active'); }
+        function openReviewModal() {
+            reviewModal.classList.add('active');
+            reviewModal.setAttribute('aria-hidden', 'false');
+        }
+
+        function closeReviewModal() {
+            reviewModal.classList.remove('active');
+            reviewModal.setAttribute('aria-hidden', 'true');
+        }
+
         openReviewModalBtn.addEventListener('click', openReviewModal);
         closeReviewModalBtn.addEventListener('click', closeReviewModal);
         reviewModal.addEventListener('click', (event) => {
             if (event.target === reviewModal) closeReviewModal();
         });
 
-        const STORAGE_KEY = 'ayush-motion-reviews';
+        const starButtons = [...document.querySelectorAll('.star-btn')];
+        const reviewRatingInput = document.getElementById('review-rating');
+
+        starButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const value = Number(button.dataset.value);
+                reviewRatingInput.value = value;
+                starButtons.forEach(star => star.classList.toggle('active', Number(star.dataset.value) <= value));
+            });
+        });
+
         const defaultReviews = [
             { name: 'Emma Carter', role: 'US Real Estate Broker', rating: 5, text: 'Ayush transformed our property listings into polished, high-converting reels. The pacing, motion graphics, and storytelling made our listings feel premium and far more engaging than our previous edits.' },
-            { name: 'Daniel Brooks', role: 'UK SaaS Founder', rating: 5, text: 'Fast turnaround, sharp transitions, and clean brand-driven storytelling. Our product launch video looked world-class and helped us convert more demo requests than before.' },
+            { name: 'Daniel Brooks', role: 'US SaaS Founder', rating: 5, text: 'Fast turnaround, sharp transitions, and clean brand-driven storytelling. Our product launch video looked world-class and helped us convert more demo requests than before.' },
             { name: 'Mia Thompson', role: 'Australian Creator', rating: 5, text: 'The edits were exactly what my audience wanted — sharp hooks, better pacing, and a clear visual rhythm. My retention jumped noticeably after switching to Ayush.' },
             { name: 'Lucas Foster', role: 'US DTC Brand Manager', rating: 5, text: 'The audio design and pacing felt premium from the first draft. It made our ad feel more expensive and helped our ads hold attention much longer.' },
             { name: 'Aisha Rahman', role: 'Dubai Lifestyle Creator', rating: 5, text: 'Every edit felt intentional and cinematic. The final versions were crisp, polished, and built around the right hooks for my audience.' },
@@ -1722,14 +1553,15 @@ margin: 0 auto;
             { name: 'Omar Haddad', role: 'Middle East E-commerce Founder', rating: 5, text: 'Amazing energy and clarity in every cut. The revisions were handled thoughtfully and the final content felt far more polished and viral-ready.' }
         ];
 
-        const reviewGrid = document.getElementById('testimonial-grid');
+        const STORAGE_KEY = 'ayush-motion-reviews';
 
         function getStarMarkup(rating) {
             return '★'.repeat(rating) + '☆'.repeat(5 - rating);
         }
 
         function renderReviews(items) {
-            reviewGrid.innerHTML = items.map(review => `
+            const grid = document.getElementById('testimonial-grid');
+            grid.innerHTML = items.map(review => `
                 <article class="testimonial-card">
                     <div class="review-top">
                         <div class="review-meta">
@@ -1752,6 +1584,7 @@ margin: 0 auto;
                 localStorage.setItem(STORAGE_KEY, JSON.stringify(defaultReviews));
                 return defaultReviews;
             }
+
             try {
                 const parsed = JSON.parse(saved);
                 return Array.isArray(parsed) && parsed.length ? parsed : defaultReviews;
@@ -1762,27 +1595,15 @@ margin: 0 auto;
 
         renderReviews(getStoredReviews());
 
-        const reviewForm = document.getElementById('review-form');
-        const reviewRatingInput = document.getElementById('review-rating');
-        const ratingButtons = [...document.querySelectorAll('.star-btn')];
-
-        ratingButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const value = Number(button.dataset.value || 5);
-                reviewRatingInput.value = value;
-                ratingButtons.forEach(btn => btn.classList.toggle('active', Number(btn.dataset.value) <= value));
-            });
-        });
-
-        reviewForm.addEventListener('submit', (event) => {
+        document.getElementById('review-form').addEventListener('submit', (event) => {
             event.preventDefault();
             const name = document.getElementById('review-name').value.trim();
             const role = document.getElementById('review-role').value.trim();
-            const rating = Number(reviewRatingInput.value || 5);
+            const rating = Number(document.getElementById('review-rating').value || 5);
             const text = document.getElementById('review-text').value.trim();
 
             if (!name || !role || !text) {
-                alert('Please complete all fields before submitting your review.');
+                alert('Please complete all review fields before submitting.');
                 return;
             }
 
@@ -1791,10 +1612,9 @@ margin: 0 auto;
             const updated = [item, ...stored];
             localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
             renderReviews(updated);
-            reviewForm.reset();
+            document.getElementById('review-form').reset();
             reviewRatingInput.value = '5';
-            ratingButtons.forEach(btn => btn.classList.remove('active'));
-            ratingButtons[4].classList.add('active');
+            starButtons.forEach(star => star.classList.toggle('active', Number(star.dataset.value) <= 5));
             closeReviewModal();
         });
     </script>
