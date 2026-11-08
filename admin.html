@@ -1,48 +1,74 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Dashboard | Ayush Motion Edits</title>
+  <!-- Supabase JS Library -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
     body {
       background-color: #0a0a0a;
       color: #ededed;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Login Screen */
+    #login-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
       padding: 20px;
     }
-    #login-box {
-      max-width: 380px;
-      margin: 100px auto 0;
+    .login-card {
       background: #141414;
       border: 1px solid #262626;
       border-radius: 12px;
-      padding: 32px;
+      padding: 32px 28px;
+      width: 100%;
+      max-width: 380px;
       text-align: center;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
     }
-    #login-box h2 {
-      margin: 0 0 8px 0;
+    .login-card h2 {
       color: #eab308;
-      font-size: 20px;
+      font-size: 22px;
+      margin-bottom: 8px;
+      font-weight: 700;
     }
-    .input-pass {
+    .login-card p {
+      color: #737373;
+      font-size: 13px;
+      margin-bottom: 24px;
+    }
+    .input-wrapper {
+      position: relative;
+      margin-bottom: 16px;
+    }
+    .input-field {
       width: 100%;
       padding: 12px 14px;
-      margin: 20px 0 16px;
       background: #000;
       border: 1px solid #333;
       border-radius: 8px;
       color: #fff;
       font-size: 15px;
-      text-align: center;
       outline: none;
+      transition: border-color 0.2s;
     }
-    .input-pass:focus { border-color: #eab308; }
-    .btn-login {
+    .input-field:focus {
+      border-color: #eab308;
+    }
+    .btn-submit {
       width: 100%;
       padding: 12px;
       background: #eab308;
@@ -52,165 +78,268 @@
       border-radius: 8px;
       cursor: pointer;
       font-size: 14px;
+      transition: background 0.2s;
     }
-    #dashboard {
+    .btn-submit:hover {
+      background: #ca8a04;
+    }
+    .error-msg {
+      color: #ef4444;
+      font-size: 13px;
+      margin-top: 12px;
       display: none;
-      max-width: 850px;
-      margin: 0 auto;
     }
-    .header {
+
+    /* Dashboard Screen */
+    #dashboard-container {
+      display: none;
+      max-width: 900px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 30px 20px;
+    }
+    .dash-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       border-bottom: 1px solid #222;
-      padding-bottom: 16px;
+      padding-bottom: 20px;
       margin-bottom: 24px;
     }
-    .header h1 {
-      margin: 0;
+    .dash-title {
       color: #eab308;
-      font-size: 22px;
+      font-size: 24px;
+      font-weight: 700;
     }
     .badge {
-      background-color: #22c55e20;
+      background: #22c55e15;
       color: #22c55e;
+      border: 1px solid #22c55e40;
       padding: 6px 14px;
       border-radius: 9999px;
       font-size: 12px;
       font-weight: 600;
-      border: 1px solid #22c55e40;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
-    .orders-grid { display: grid; gap: 16px; }
-    .card {
-      background-color: #141414;
+    .badge::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      background: #22c55e;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .orders-grid {
+      display: grid;
+      gap: 16px;
+    }
+    .order-card {
+      background: #141414;
       border: 1px solid #262626;
-      border-radius: 10px;
+      border-radius: 12px;
       padding: 20px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .order-card:hover {
+      border-color: #eab30850;
     }
     .card-top {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
+      border-bottom: 1px solid #202020;
+      padding-bottom: 12px;
       margin-bottom: 14px;
-      border-bottom: 1px solid #1f1f1f;
-      padding-bottom: 10px;
     }
-    .client-name { font-size: 17px; font-weight: 600; color: #fff; }
-    .time { font-size: 12px; color: #737373; }
-    .detail-row { display: flex; margin-bottom: 8px; font-size: 14px; }
-    .label { width: 110px; color: #888; }
-    .value { color: #eee; font-weight: 500; }
+    .client-name {
+      color: #fff;
+      font-size: 18px;
+      font-weight: 600;
+    }
+    .time-stamp {
+      color: #737373;
+      font-size: 12px;
+    }
+    .info-row {
+      display: flex;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+    .info-label {
+      width: 120px;
+      color: #888;
+      font-weight: 500;
+    }
+    .info-value {
+      color: #e5e5e5;
+      flex: 1;
+      word-break: break-all;
+    }
     .btn-link {
       display: inline-block;
       margin-top: 14px;
       padding: 8px 16px;
-      background-color: #eab308;
+      background: #eab308;
       color: #000;
       text-decoration: none;
+      font-size: 13px;
       font-weight: 600;
       border-radius: 6px;
-      font-size: 13px;
+      transition: background 0.2s;
+    }
+    .btn-link:hover {
+      background: #ca8a04;
     }
   </style>
 </head>
 <body>
 
-  <div id="login-box">
-    <h2>Ayush Motion Admin</h2>
-    <p style="font-size: 13px; color: #777; margin: 0;">पोर्टल खोलने के लिए सिक्योरिटी पासवर्ड दर्ज करें</p>
-    <input type="password" id="admin-pass" class="input-pass" placeholder="पासवर्ड डालें">
-    <button onclick="checkPassword()" class="btn-login">लॉगिन करें</button>
+  <!-- Login Form -->
+  <div id="login-container">
+    <div class="login-card">
+      <h2>Ayush Motion Admin</h2>
+      <p>Enter your secret password to view project submissions</p>
+      
+      <div class="input-wrapper">
+        <input 
+          type="password" 
+          id="password-input" 
+          class="input-field" 
+          placeholder="Enter Admin Password" 
+          autocomplete="off"
+        />
+      </div>
+
+      <button id="login-btn" class="btn-submit">Login</button>
+      <p id="error-message" class="error-msg">Incorrect password. Access denied.</p>
+    </div>
   </div>
 
-  <div id="dashboard">
-    <div class="header">
-      <h1>प्रोजेक्ट एडमिन डैशबोर्ड</h1>
-      <span class="badge">● Live Listening</span>
+  <!-- Protected Admin Dashboard -->
+  <div id="dashboard-container">
+    <div class="dash-header">
+      <div class="dash-title">Client Bookings Dashboard</div>
+      <div class="badge">Live Listening</div>
     </div>
 
     <div id="orders-list" class="orders-grid">
-      <p id="loading-text" style="color: #666;">डेटा लोड हो रहा है...</p>
+      <p id="status-text" style="color: #737373;">Connecting to database...</p>
     </div>
   </div>
 
   <script>
-    const SECRET_PIN = "Ahlshit2@wiwjs6djs";
-    const SUPABASE_PROJECT_URL = 'https://gjervmutftnxngmflaeb.supabase.co';
-    const SUPABASE_ANON_KEY = 'sb_publishable_ITcvNTJ7S3Fi862UF7lXNg_82juhqa8';
+    // Config
+    const CORRECT_PASSWORD = "Ahlshit2@wiwjs6djs";
+    const SUPABASE_URL = "https://gjervmutftnxngmflaeb.supabase.co";
+    const SUPABASE_KEY = "sb_publishable_ITcvNTJ7S3Fi862UF7lXNg_82juhqa8";
     let supabase = null;
 
-    function checkPassword() {
-      const enteredPass = document.getElementById('admin-pass').value;
-      if (enteredPass === SECRET_PIN) {
-        document.getElementById('login-box').style.display = 'none';
-        document.getElementById('dashboard').style.display = 'block';
+    const loginBtn = document.getElementById("login-btn");
+    const passwordInput = document.getElementById("password-input");
+    const errorMsg = document.getElementById("error-message");
+    const loginContainer = document.getElementById("login-container");
+    const dashContainer = document.getElementById("dashboard-container");
+    const ordersList = document.getElementById("orders-list");
 
-        supabase = window.supabase.createClient(SUPABASE_PROJECT_URL, SUPABASE_ANON_KEY);
-        initDashboard();
+    // Login Action
+    function handleLogin() {
+      const enteredValue = passwordInput.value.trim(); // Removes any accidental spaces
+      
+      if (enteredValue === CORRECT_PASSWORD) {
+        errorMsg.style.display = "none";
+        loginContainer.style.display = "none";
+        dashContainer.style.display = "block";
+
+        // Initialize Supabase after validation
+        supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+        loadBookings();
+        startRealtime();
       } else {
-        alert('गलत पासवर्ड! एक्सेस अस्वीकृत।');
+        errorMsg.style.display = "block";
+        passwordInput.style.borderColor = "#ef4444";
       }
     }
 
-    document.getElementById('admin-pass').addEventListener('keypress', function (e) {
-      if (e.key === 'Enter') checkPassword();
+    loginBtn.addEventListener("click", handleLogin);
+    passwordInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") handleLogin();
     });
 
-    function initDashboard() {
-      const ordersList = document.getElementById('orders-list');
+    // Fetch existing records
+    async function loadBookings() {
+      try {
+        const { data, error } = await supabase
+          .from("bookings")
+          .select("*")
+          .order("id", { ascending: false });
 
-      supabase
-        .from('bookings')
-        .select('*')
-        .order('id', { ascending: false })
-        .then(({ data, error }) => {
-          if (error) {
-            ordersList.innerHTML = '<p style="color: #ef4444;">डेटा लोड करने में त्रुटि: ' + error.message + '</p>';
-            return;
-          }
-          ordersList.innerHTML = '';
-          if (!data || data.length === 0) {
-            ordersList.innerHTML = '<p style="color: #777;">अभी तक कोई नया प्रोजेक्ट नहीं आया है।</p>';
-            return;
-          }
-          data.forEach(item => addCardToUI(item));
-        });
+        if (error) {
+          ordersList.innerHTML = `<p style="color: #ef4444;">Database error: ${error.message}</p>`;
+          return;
+        }
 
+        ordersList.innerHTML = "";
+        if (!data || data.length === 0) {
+          ordersList.innerHTML = `<p style="color: #737373;">No project submissions found yet.</p>`;
+          return;
+        }
+
+        data.forEach(item => renderCard(item));
+      } catch (err) {
+        ordersList.innerHTML = `<p style="color: #ef4444;">Failed to load data.</p>`;
+      }
+    }
+
+    // Realtime Listener
+    function startRealtime() {
       supabase
-        .channel('realtime-bookings')
-        .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'bookings' }, (payload) => {
-          addCardToUI(payload.new, true);
-          alert('🔔 नया प्रोजेक्ट आया: ' + (payload.new.client_name || 'क्लाइंट'));
-        })
+        .channel("realtime-bookings")
+        .on(
+          "postgres_changes",
+          { event: "INSERT", schema: "public", table: "bookings" },
+          (payload) => {
+            renderCard(payload.new, true);
+          }
+        )
         .subscribe();
     }
 
-    function addCardToUI(item, isNew = false) {
-      const ordersList = document.getElementById('orders-list');
-      const card = document.createElement('div');
-      card.className = 'card';
-      if (isNew) card.style.borderColor = '#22c55e';
+    // Render Booking Card
+    function renderCard(item, isNew = false) {
+      const card = document.createElement("div");
+      card.className = "order-card";
+      if (isNew) card.style.borderColor = "#22c55e";
 
-      const dateStr = item.created_at ? new Date(item.created_at).toLocaleString('hi-IN') : 'N/A';
+      const formattedDate = item.created_at 
+        ? new Date(item.created_at).toLocaleString("en-US", { dateStyle: "medium", timeStyle: "short" }) 
+        : "N/A";
 
       card.innerHTML = `
         <div class="card-top">
-          <span class="client-name">${item.client_name || 'अज्ञात क्लाइंट'}</span>
-          <span class="time">${dateStr}</span>
+          <div class="client-name">${item.client_name || "Unknown Client"}</div>
+          <div class="time-stamp">${formattedDate}</div>
         </div>
-        <div class="detail-row">
-          <span class="label">Brand:</span>
-          <span class="value">${item.brand || '-'}</span>
+        <div class="info-row">
+          <span class="info-label">Brand / Client:</span>
+          <span class="info-value">${item.brand || "—"}</span>
         </div>
-        <div class="detail-row">
-          <span class="label">Package:</span>
-          <span class="value">${item.package || '-'}</span>
+        <div class="info-row">
+          <span class="info-label">Package:</span>
+          <span class="info-value">${item.package || "—"}</span>
         </div>
-        <div class="detail-row">
-          <span class="label">Timeline:</span>
-          <span class="value">${item.timeline || '-'}</span>
+        <div class="info-row">
+          <span class="info-label">Timeline / Brief:</span>
+          <span class="info-value">${item.timeline || "—"}</span>
         </div>
-        ${item.project_url ? `<a href="${item.project_url}" target="_blank" class="btn-link">प्रोजेक्ट लिंक खोलें →</a>` : ''}
+        ${item.project_url ? `
+          <div style="margin-top: 10px;">
+            <a href="${item.project_url}" target="_blank" rel="noopener noreferrer" class="btn-link">
+              Open Project Assets ↗
+            </a>
+          </div>
+        ` : ""}
       `;
 
       ordersList.prepend(card);
